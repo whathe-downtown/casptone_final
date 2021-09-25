@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인 실패! 이메일 또는 비밀번호를 다시 입력하세요"
+        android:textSize="16dp"
+        android:padding="15dp"
+        android:id="@+id/alert_message"
+        android:background="#ff0000"
+        android:textColor="#ffffff"
+        android:layout_marginTop="-55dp"
+        />
+    <ImageView
+        android:layout_width="85sp"
+        android:layout_height="85sp"
+        android:src="@drawable/main_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100sp"
+        android:id="@+id/main_icon"
+
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="환영합니다"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/main_icon"
+        android:id="@+id/welcome_message"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_edit_text_size"
+        android:padding="10sp"
+        android:layout_marginRight="40sp"
+        android:layout_marginLeft="40sp"
+        android:layout_below="@+id/welcome_message"
+        android:inputType="text"
+        android:layout_marginTop="20sp"
+        android:hint="이메일"
+        android:id="@+id/sign_in_input_email"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_edit_text_size"
+        android:padding="10sp"
+        android:layout_marginRight="40sp"
+        android:layout_marginLeft="40sp"
+        android:layout_below="@+id/sign_in_input_email"
+        android:inputType="text"
+        android:layout_marginTop="20sp"
+        android:hint="비밀번호"
+        android:id="@+id/sign_in_input_pwd"
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:id="@+id/login_button"
+        android:layout_below="@id/sign_in_input_pwd"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_button_style"
+        android:textColor="#ffffff"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/askTextAccount"
+        android:text="계정이없으신가요?"
+        android:layout_below="@id/login_button"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="25sp"
+        />
+
+    <TextView
+        android:id="@+id/go_to_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@id/askTextAccount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="계정 만들기"
+        android:textColor="#6600CC"
+        android:textSize="25sp" />
+</RelativeLayout>
