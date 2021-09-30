@@ -1,4 +1,4 @@
-package org.techtown.capstone_final.fragment;
+package org.techtown.capstone_final.fragment.mypage;
 
 import android.content.Intent;
 import android.os.Bundle;

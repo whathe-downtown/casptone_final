@@ -16,8 +16,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.techtown.capstone_final.databinding.ActivityMainBinding;
 import org.techtown.capstone_final.fragment.BookmarkActivity;
 import org.techtown.capstone_final.fragment.GroupchatActivity;
-import org.techtown.capstone_final.fragment.HomeActivity;
-import org.techtown.capstone_final.fragment.MypageActivity;
+import org.techtown.capstone_final.fragment.Home.HomeActivity;
+import org.techtown.capstone_final.fragment.mypage.MypageActivity;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;

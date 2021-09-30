@@ -1,4 +1,4 @@
-package org.techtown.capstone_final.Detail;
+ package org.techtown.capstone_final.Detail;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -23,7 +23,7 @@ import com.squareup.picasso.Picasso;
 import org.techtown.capstone_final.Model.Users;
 import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.ActivityMypageDetailBinding;
-import org.techtown.capstone_final.fragment.MypageActivity;
+import org.techtown.capstone_final.fragment.mypage.MypageActivity;
 
 import java.util.HashMap;
 

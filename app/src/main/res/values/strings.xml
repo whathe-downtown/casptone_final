@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">capstone_final</string>
+    <string name="initialize">기본순</string>
+    <string name="software">SW</string>
+    <string name="economic">경제/경영</string>
+    <string name="music">음악</string>
+    <string name="foreign">외국어</string>
+    <string name="administration">행정</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

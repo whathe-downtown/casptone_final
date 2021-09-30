@@ -1,4 +1,4 @@
-package org.techtown.capstone_final.fragment;
+package org.techtown.capstone_final.fragment.Home;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.techtown.capstone_final.databinding.FragmentHomeBinding;
+import org.techtown.capstone_final.fragment.Home.Adapters.FragementAdapter;
 
 public class HomeActivity extends Fragment {
 
@@ -29,6 +30,8 @@ public class HomeActivity extends Fragment {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+        
+
 
 
     }
@@ -41,6 +44,11 @@ public class HomeActivity extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+
+        binding.viewPager.setAdapter(new FragementAdapter(getActivity().getSupportFragmentManager()));
+        binding.tablayout.setupWithViewPager(binding.viewPager);
+
+
         return  view;
     }
 }
