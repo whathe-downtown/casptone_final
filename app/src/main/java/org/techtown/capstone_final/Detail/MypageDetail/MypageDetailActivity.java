@@ -1,4 +1,4 @@
- package org.techtown.capstone_final.Detail;
+ package org.techtown.capstone_final.Detail.MypageDetail;
 
 import android.content.Intent;
 import android.net.Uri;

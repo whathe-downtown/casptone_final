@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
-import org.techtown.capstone_final.Detail.MypageDetailActivity;
+import org.techtown.capstone_final.Detail.MypageDetail.MypageDetailActivity;
 import org.techtown.capstone_final.SignInActivity;
 import org.techtown.capstone_final.databinding.FragmentMypageBinding;
 
