@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone_final">
-        <activity android:name=".Detail.HomeDetail.MakeRoomActivity"></activity>
+        <activity android:name=".Detail.HomeDetail.MainRoomDetailActivity"></activity>
+        <activity android:name=".Detail.HomeDetail.MakeRoomActivity" />
         <activity android:name=".Detail.MypageDetail.MypageDetailActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity">

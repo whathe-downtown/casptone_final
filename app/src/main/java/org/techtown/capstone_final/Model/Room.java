@@ -27,10 +27,11 @@ public class Room {
 //        this.roomDate = roomDate;
 //        this.roomTime = roomTime;
 //        this.roomPlace = roomPlace;
+
 //        this.roomHeadcount = roomHeadcount;
 //    }
 
-    public String getRoomTitle() {
+    public String getRoomTitle(String key) {
         return roomTitle;
     }
 
@@ -85,4 +86,5 @@ public class Room {
     public void setRoomHeadcount(String roomHeadcount) {
         this.roomHeadcount = roomHeadcount;
     }
+
 }

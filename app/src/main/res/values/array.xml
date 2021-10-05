@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="subject">
+        <item>SW</item>
+        <item>경영</item>
+        <item>음악</item>
+        <item>전자</item>
+        <item>국문</item>
+
+    </string-array>
+</resources>
