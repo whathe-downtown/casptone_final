@@ -58,6 +58,7 @@ public class MypageDetailActivity extends AppCompatActivity {
                 String username = binding.userName.getText().toString();
                 String status = binding.status.getText().toString();
 
+
                 //파이어베이스 DB 안에 userName -> HashMap으로 변경하는거
                 HashMap<String, Object> obj = new HashMap<>();
                 obj.put("userName", username);

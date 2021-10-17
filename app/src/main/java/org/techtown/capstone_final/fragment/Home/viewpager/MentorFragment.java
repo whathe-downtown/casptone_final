@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -33,25 +34,29 @@ public class MentorFragment extends Fragment {
     ArrayList<Room> list = new ArrayList<>();
     FirebaseDatabase database;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        database = FirebaseDatabase.getInstance();
         binding = FragmentMentorBinding.inflate(inflater, container, false);
 
-        database = FirebaseDatabase.getInstance();
         RoomsAdapter adapter =  new RoomsAdapter(list, getContext());
         binding.MentorrecyclerView.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.MentorrecyclerView.setLayoutManager(layoutManager);
 
-        database.getReference().child("Roomlist").addValueEventListener(new ValueEventListener() {
+        database.getReference().child("Room").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Room room = dataSnapshot.getValue(Room.class);
-                    room.getRoomTitle(dataSnapshot.getKey());
+                    room.getRoomTitle();
+                    room.getRoomprofilepic();
+                    room.getRoomDate();
+                    room.getRoomPlace();
+                    room.setRoomId(dataSnapshot.getKey()); // set RoomId가 setkey받아서 메인값으로 넘겨줌
                     list.add(room);
                 }
                 adapter.notifyDataSetChanged();

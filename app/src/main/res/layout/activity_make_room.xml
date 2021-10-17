@@ -70,7 +70,7 @@
                 android:layout_weight="1"
                 android:ems="14"
                 android:inputType="textPersonName"
-                android:hint="Roomname" />
+                android:hint="ex)소프트웨어 자바" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,7 +109,83 @@
                 android:layout_weight="1"
                 android:ems="15"
                 android:inputType="textPersonName"
-                android:hint="Room_status"
+                android:hint="ex)자바관련 동아리"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="날짜" />
+
+            <EditText
+                android:id="@+id/Room_Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:hint="2021-01-10"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="방의 내용" />
+
+            <EditText
+                android:id="@+id/Room_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:hint="안양대학교 수리관"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="과목선택" />
+
+            <TextView
+                android:id="@+id/Room_category"
+                android:layout_width="28dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="15"
+                android:hint="과목"
+                android:inputType="textPersonName" />
+            <Spinner
+                android:id="@+id/spinner_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:entries="@array/subject"
                 />
 
         </LinearLayout>

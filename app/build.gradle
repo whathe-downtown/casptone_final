@@ -52,6 +52,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     //select 펼처주는거 expandablelayout
     implementation "com.github.skydoves:expandablelayout:1.0.7"
+    implementation 'com.google.firebase:firebase-firestore:23.0.3'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

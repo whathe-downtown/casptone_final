@@ -46,6 +46,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         holder.userName.setText(users.getUserName()); //username도 얻음
 
 
+
     }
 
     @Override
@@ -61,9 +62,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             super(itemView);
 
             image = itemView.findViewById(R.id.profile_image);
-            userName = itemView.
-
-                    findViewById(R.id.userNames);
+            userName = itemView.findViewById(R.id.userNames);
 
 
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="subject">
-        <item>SW</item>
-        <item>경영</item>
-        <item>음악</item>
-        <item>전자</item>
-        <item>국문</item>
+        <item>인문</item>
+        <item>사회과학</item>
+        <item>자연과학</item>
+        <item>정보</item>
+        <item>생활과학</item>
+        <item>예체능</item>
+
 
     </string-array>
 </resources>

@@ -54,39 +54,14 @@
                     app:civ_border_width="2dp"
                     app:civ_border_color="#FF000000"
                     android:padding="10dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"/><![CDATA[
                 />
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/profile_image2"
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_user"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#FF000000"
-                    android:padding="10dp"
-                    android:layout_weight="1"/>
-                /><de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/profile_image3"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_user"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"
-                android:padding="10dp"
-                android:layout_weight="1"/>
-                /><de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/profile_image4"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/ic_user"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"
-                android:padding="10dp"
-                android:layout_weight="1"/>
                 />
+
+                />
+
+                />
+            ]]>
             </LinearLayout>
 
             <LinearLayout
