@@ -129,6 +129,8 @@ public class MypageDetailActivity extends AppCompatActivity {
                                     .child("profilepic").setValue(uri.toString());
                             Toast.makeText(MypageDetailActivity.this, "이미지가 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
 
+
+                            
                         }
                     });
                 }
