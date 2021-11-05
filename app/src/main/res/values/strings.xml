@@ -8,4 +8,6 @@
     <string name="administration">행정</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="science">과학</string>
+    <string name="android">안드로이드</string>
 </resources>

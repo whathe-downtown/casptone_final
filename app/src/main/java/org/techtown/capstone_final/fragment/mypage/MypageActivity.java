@@ -38,6 +38,9 @@ public class MypageActivity extends Fragment {
 
     }
 
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -63,7 +66,9 @@ public class MypageActivity extends Fragment {
                 auth.signOut();
                 Intent intent = new Intent(getActivity().getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Toast.makeText(getActivity(), "로그아웃이 되었습니다.", Toast.LENGTH_SHORT).show();
+
             }
         });
 

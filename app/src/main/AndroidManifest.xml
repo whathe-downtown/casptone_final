@@ -9,22 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone_final">
-        <activity android:name=".Detail.HomeDetail.RoomseceondlistActivity">
-        </activity>
-
-        <activity android:name=".Detail.HomeDetail.GroupchatDetailActivity" />
-        <activity android:name=".Detail.HomeDetail.MainRoomDetailActivity" />
-        <activity android:name=".Detail.HomeDetail.MakeRoomActivity" />
-        <activity android:name=".Detail.MypageDetail.MypageDetailActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SignInActivity">
+        <activity
+            android:name=".memberinit.memberinit3"
+            android:exported="false" />
+        <activity
+            android:name=".memberinit.memberinit2"
+            android:exported="false" />
+        <activity
+            android:name=".memberinit.memberinit1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+
+
+        <activity android:name=".Password_Reset" />
+        <activity android:name=".Detail.HomeDetail.RoomseceondlistActivity" />
+        <activity android:name=".Detail.HomeDetail.GroupchatDetailActivity" />
+        <activity android:name=".Detail.HomeDetail.MainRoomDetailActivity" />
+        <activity android:name=".Detail.HomeDetail.MakeRoomActivity" />
+        <activity android:name=".Detail.MypageDetail.MypageDetailActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".MainActivity"/>
+
     </application>
 
 </manifest>

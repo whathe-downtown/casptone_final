@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>z
     <color name="anyangcolor">#8B9DFF</color>
     <color name="menu_character_color">#C8C9CA</color>
-
+    <color name="litte_grey">#e9e9e9</color>
     <color name="organe_yellow">#FFCA42</color>
     <color name="brown">#914300</color>
 </resources>

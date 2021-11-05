@@ -1,8 +1,11 @@
 package org.techtown.capstone_final;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 import org.techtown.capstone_final.databinding.ActivityMainBinding;
 import org.techtown.capstone_final.fragment.BookmarkActivity;
@@ -35,6 +40,26 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Log.d(TAG,"MainActivity - onCreate() called");
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //현재 사용자의 auth 값이 널 값일때 실행하는 함수
+        if (user == null){
+            Intent intent =new Intent(this, SignInActivity.class);
+            Toast.makeText(this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }else{
+            if (user != null) {
+                for (UserInfo profile : user.getProviderData()) {
+
+                    String name = profile.getDisplayName();
+                    String email = profile.getEmail();
+                    Uri photoUrl = profile.getPhotoUrl();
+                }
+            }
+
+        }
+        //로그아웃기능
 
         auth = FirebaseAuth.getInstance();
         binding.bottomNavi.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
