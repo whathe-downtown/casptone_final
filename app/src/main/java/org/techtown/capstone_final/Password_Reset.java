@@ -46,7 +46,7 @@ public class Password_Reset extends AppCompatActivity {
     };
     private void send() {
         String email = ((EditText) findViewById(R.id.sendemail)).getText().toString();
-
+        String form  = "@gs.anyang.ac.kr";
 
         if(email.length() > 0 ){
             FirebaseAuth auth = FirebaseAuth.getInstance();

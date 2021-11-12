@@ -1,7 +1,6 @@
 package org.techtown.capstone_final;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -12,11 +11,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserInfo;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.techtown.capstone_final.databinding.ActivityMainBinding;
 import org.techtown.capstone_final.fragment.BookmarkActivity;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,19 +48,49 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         //현재 사용자의 auth 값이 널 값일때 실행하는 함수
-        if (user == null){
+        if (user == null || !user.isEmailVerified()){
             Intent intent =new Intent(this, SignInActivity.class);
-            Toast.makeText(this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "로그인이 필요하거나 이메일 인증이 필요합니다.", Toast.LENGTH_SHORT).show();
             startActivity(intent);
         }else{
-            if (user != null) {
-                for (UserInfo profile : user.getProviderData()) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            DocumentReference docRef = db.collection("users").document(user.getUid());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document != null) {
+                            if (document.exists()) {
+                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
 
-                    String name = profile.getDisplayName();
-                    String email = profile.getEmail();
-                    Uri photoUrl = profile.getPhotoUrl();
+                            } else {
+                                Intent intent = new Intent();
+                                intent.setClass(MainActivity.this,org.techtown.capstone_final.memberinit.memberinit1.class );
+                                startActivity(intent);
+                            }
+                        }
+
+                    } else {
+                        Log.d(TAG, "get failed with ", task.getException());
+                    }
                 }
-            }
+            });
+            //회원가입 or 로그인
+//            if ( user.isEmailVerified()) {
+//                for (UserInfo profile : user.getProviderData()) {
+//                    String name = profile.getDisplayName();
+//                    Uri photoUrl = profile.getPhotoUrl();
+//                    if(name !=null){
+//                        if(name.length()== 0){
+//                            Intent intent = new Intent();
+//                            intent.setClass(this,org.techtown.capstone_final.memberinit.memberinit1.class );
+//                            startActivity(intent);
+//                        }
+//                    }
+//
+//                }
+//            }
 
         }
         //로그아웃기능
@@ -143,4 +177,9 @@ public class MainActivity extends AppCompatActivity {
 //////        }
 //////        return super.onOptionsItemSelected(item);
 //////    }
+private  void myStartActivity(Class c){
+    Intent intent = new Intent(this,c);
+    startActivity(intent);
+}
+
 }

@@ -2,6 +2,7 @@ package org.techtown.capstone_final;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,7 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.techtown.capstone_final.databinding.ActivitySignUpBinding;
@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
         findViewById(R.id.signUpButton).setOnClickListener(onClickListener);
         findViewById(R.id.sign_up_go_back).setOnClickListener(onClickListener);
         findViewById(R.id.sign_up_have_account).setOnClickListener(onClickListener);
+        findViewById(R.id.email_vertification_buttion).setOnClickListener(onClickListener);
 
 
 
@@ -60,7 +61,9 @@ public class SignUpActivity extends AppCompatActivity {
                 case R.id.signUpButton:
                     signUp();
                     break;
-
+                case R.id.email_vertification_buttion:
+                    emailcheck();
+                    break;
                 case R.id.sign_up_have_account:
                     Intent intent = new Intent(SignUpActivity.this, Password_Reset.class);
                     startActivity(intent);
@@ -73,21 +76,39 @@ public class SignUpActivity extends AppCompatActivity {
         }
     };
     private void signUp() {
-        String nickname = ((EditText)findViewById(R.id.sign_up_input_user_univeristy_number)).getText().toString();
         String email = ((EditText) findViewById(R.id.sign_up_input_email)).getText().toString();
         String password = ((EditText) findViewById(R.id.sign_up_input_pwd)).getText().toString();
         String passwordCheck = ((EditText) findViewById(R.id.sign_up_input_pwd2)).getText().toString();
-        if(email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0 && nickname.length()>0){
+
+        if(email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0 ){
             if(password.equals(passwordCheck)){
 //                final RelativeLayout loaderLayout = findViewById(R.id.loaderLyaout);
 //                loaderLayout.setVisibility(View.VISIBLE);
-                auth.createUserWithEmailAndPassword(email, password)
+               auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
 //                                loaderLayout.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    FirebaseUser user = auth.getCurrentUser();
+                                    auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+                                                if(auth.getCurrentUser().isEmailVerified()){
+
+                                                    startToast("사용자 등록을 위해 보낸 이메일을 확인하세요");
+                                                    Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                                                    startActivity(intent);
+                                                }else{
+                                                    startToast("이메일 인증 확인을 확인하세요");
+                                                }
+
+                                            }else {
+                                                startToast(task.getException().getMessage());
+
+                                            }
+                                        }
+                                    });
                                    startToast( "회원가입에 성공하였습니다.");
                                     Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                                     startActivity(intent);
@@ -104,6 +125,13 @@ public class SignUpActivity extends AppCompatActivity {
         }else {
            startToast( "이메일 또는 비밀번호를 입력해 주세요.");
         }
+    }
+
+    private void emailcheck(){
+        binding.signUpButton.setEnabled(true);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(intent);
+
     }
     private  void startToast(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();

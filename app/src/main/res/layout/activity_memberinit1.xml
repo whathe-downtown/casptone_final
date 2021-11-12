@@ -140,7 +140,7 @@
     </com.google.android.material.chip.ChipGroup>
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/chip_save_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/infacy_chip_group"

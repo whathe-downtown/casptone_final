@@ -15,7 +15,7 @@ public class Users {
         this.status = status;
     }
 
-    public Users(){}
+    public Users(String userName){}
     //SignUp Constructor
     public Users(String userName, String mail, String password) {
         this.userName = userName;

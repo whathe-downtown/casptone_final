@@ -38,8 +38,8 @@ public class SignInActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         findViewById(R.id.login_button).setOnClickListener(onClickListener);
-        findViewById(R.id.sign_up_go_back).setOnClickListener(onClickListener);
-        findViewById(R.id.sign_up_have_account).setOnClickListener(onClickListener);
+        findViewById(R.id.find_account).setOnClickListener(onClickListener);
+        findViewById(R.id.go_to_sign_up).setOnClickListener(onClickListener);
 
 
     }
@@ -61,7 +61,7 @@ public class SignInActivity extends AppCompatActivity {
                     break;
 
                 case R.id.find_account:
-                    Intent intent = new Intent(SignInActivity.this, SignInActivity.class);
+                    Intent intent = new Intent(SignInActivity.this, Password_Reset.class);
                     startActivity(intent);
                     break;
                 case R.id.go_to_sign_up:
@@ -78,7 +78,7 @@ public class SignInActivity extends AppCompatActivity {
         String password = ((EditText) findViewById(R.id.sign_in_input_pwd)).getText().toString();
 
         if (email.length() > 0 && password.length() > 0) {
-            auth.createUserWithEmailAndPassword(email, password)
+            auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -86,7 +86,7 @@ public class SignInActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = auth.getCurrentUser();
                                 startToast("로그인에 성공하였습니다.");
-                                Intent intent = new Intent(SignInActivity.this, SignInActivity.class);
+                                Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                                 intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                             } else {

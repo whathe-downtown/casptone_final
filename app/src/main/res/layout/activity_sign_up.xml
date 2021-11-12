@@ -32,26 +32,6 @@
 
 
         <EditText
-            android:id="@+id/sign_up_input_user_univeristy_number"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_edit_text_size"
-            android:hint="학번"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:padding="15dp" />
-
-        <EditText
-            android:id="@+id/sign_up_input_email"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_edit_text_size"
-            android:hint="이메일"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:padding="15dp" />
-
-        <EditText
             android:id="@+id/sign_up_input_pwd"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -71,12 +51,34 @@
             android:maxLines="1"
             android:padding="15dp" />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/vertification"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/round_edit_text_size"
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/sign_up_input_email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_edit_text_size"
+            android:hint="이메일"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="15dp" />
+
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/service_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/input"
+        android:layout_below="@+id/email_vertification_buttion"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp">
 
@@ -105,8 +107,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:background="@drawable/login_button_style"
-        android:text="회원가입" />
+        android:text="회원가입"
+        android:enabled="false" />
 
+    <Button
+
+        android:id="@+id/email_vertification_buttion"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vertification"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_button_style"
+        android:text="이메일 인증" />
     <LinearLayout
 
         android:id="@+id/AlreadyAccount"
