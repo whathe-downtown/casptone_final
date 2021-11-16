@@ -43,7 +43,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Users users = list.get(position);  //users 리스트 포지션 잡고 피카소 모형에다가 이미지 삽입
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.ic_user).into(holder.image);
-        holder.userName.setText(users.getUserName()); //username도 얻음
+        holder.userName.setText(users.getName()); //username도 얻음
 
 
 

@@ -53,8 +53,8 @@ public class GroupchatActivity extends Fragment {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Users users = dataSnapshot.getValue(Users.class);
-                    users.setUserId(dataSnapshot.getKey());// get userId가 getKey받아서 메인값으로 넣어줌
-                    list.add(users);
+//                    users.setUserId(dataSnapshot.getKey());// get userId가 getKey받아서 메인값으로 넣어줌
+//                    list.add(users);
                 }
                 adapter.notifyDataSetChanged();
 

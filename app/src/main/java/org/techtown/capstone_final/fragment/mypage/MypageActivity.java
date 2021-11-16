@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,11 +13,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
 import org.techtown.capstone_final.Detail.MypageDetail.MypageDetailActivity;
-import org.techtown.capstone_final.SignInActivity;
 import org.techtown.capstone_final.databinding.FragmentMypageBinding;
+import org.techtown.capstone_final.fragment.mypage.Adapters.ViewpagerAdapter;
 
 public class MypageActivity extends Fragment {
     private static final String TAG = "MainActivity";
@@ -26,6 +26,7 @@ public class MypageActivity extends Fragment {
     FirebaseStorage storage;
     FirebaseAuth auth;
     FirebaseDatabase database;
+    FirebaseFirestore db;
 
 
     public void onCreate(@Nullable  Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class MypageActivity extends Fragment {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
+        db = FirebaseFirestore.getInstance();
+
 
 
     }
@@ -49,6 +52,9 @@ public class MypageActivity extends Fragment {
 
         binding = FragmentMypageBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
+
+        binding.viewPagerMypage.setAdapter(new ViewpagerAdapter(getActivity().getSupportFragmentManager()));
+        binding.tablayoutMypage.setupWithViewPager(binding.viewPagerMypage);
         binding.profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,18 +65,19 @@ public class MypageActivity extends Fragment {
             }
         });
 
-        binding.logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG,"clicked the logout Button");
-                auth.signOut();
-                Intent intent = new Intent(getActivity().getApplicationContext(), SignInActivity.class);
-                startActivity(intent);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Toast.makeText(getActivity(), "로그아웃이 되었습니다.", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+//        binding.logoutButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(TAG,"clicked the logout Button");
+//                auth.signOut();
+//                Intent intent = new Intent(getActivity().getApplicationContext(), SignInActivity.class);
+//                startActivity(intent);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                Toast.makeText(getActivity(), "로그아웃이 되었습니다.", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
         return  view;
 

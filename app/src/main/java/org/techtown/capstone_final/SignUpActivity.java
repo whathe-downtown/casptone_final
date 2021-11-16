@@ -95,7 +95,6 @@ public class SignUpActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()){
                                                 if(auth.getCurrentUser().isEmailVerified()){
-
                                                     startToast("사용자 등록을 위해 보낸 이메일을 확인하세요");
                                                     Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                                                     startActivity(intent);

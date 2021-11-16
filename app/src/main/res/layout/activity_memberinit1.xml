@@ -61,7 +61,7 @@
             style="@style/Widget.casptonefinal.chip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/android"
+            android:text="경영"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 

@@ -1,31 +1,35 @@
  package org.techtown.capstone_final.Detail.MypageDetail;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
+ import android.content.Intent;
+ import android.net.Uri;
+ import android.os.Bundle;
+ import android.view.View;
+ import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+ import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
-import org.techtown.capstone_final.Model.Users;
-import org.techtown.capstone_final.R;
-import org.techtown.capstone_final.databinding.ActivityMypageDetailBinding;
-import org.techtown.capstone_final.fragment.mypage.MypageActivity;
+ import com.google.android.gms.tasks.OnFailureListener;
+ import com.google.android.gms.tasks.OnSuccessListener;
+ import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.auth.FirebaseUser;
+ import com.google.firebase.database.DataSnapshot;
+ import com.google.firebase.database.DatabaseError;
+ import com.google.firebase.database.FirebaseDatabase;
+ import com.google.firebase.database.ValueEventListener;
+ import com.google.firebase.firestore.FirebaseFirestore;
+ import com.google.firebase.storage.FirebaseStorage;
+ import com.google.firebase.storage.StorageReference;
+ import com.google.firebase.storage.UploadTask;
+ import com.squareup.picasso.Picasso;
 
-import java.util.HashMap;
+ import org.techtown.capstone_final.Model.Users;
+ import org.techtown.capstone_final.R;
+ import org.techtown.capstone_final.databinding.ActivityMypageDetailBinding;
+ import org.techtown.capstone_final.fragment.mypage.MypageActivity;
+
+ import java.util.HashMap;
 
 public class MypageDetailActivity extends AppCompatActivity {
 
@@ -81,8 +85,8 @@ public class MypageDetailActivity extends AppCompatActivity {
                                 .load(users.getProfilepic())
                                 .placeholder(R.drawable.ic_user)
                                 .into(binding.profileImage);
-                        binding.status.setText(users.getStatus());
-                        binding.userName.setText(users.getUserName());
+                        binding.status.setText(users.getUserinfo());
+                        binding.userName.setText(users.getName());
 
 
                     }
@@ -125,14 +129,22 @@ public class MypageDetailActivity extends AppCompatActivity {
                         @Override
                         // 이미지 파
                         public void onSuccess(Uri uri) {
-                            database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
-                                    .child("profilepic").setValue(uri.toString());
+
+
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            db.collection("userpick").document(user.getUid()).set(uri.toString());
+
                             Toast.makeText(MypageDetailActivity.this, "이미지가 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
 
-
-                            
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), "다운로드 실패", Toast.LENGTH_SHORT).show();
                         }
                     });
+
                 }
             });
 
