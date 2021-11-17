@@ -52,7 +52,7 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profileImage"
+                android:id="@+id/mypage_detail_profileImage"
                 android:layout_width="123dp"
                 android:layout_height="130dp"
                 android:layout_below="@+id/welcome_message"
@@ -114,7 +114,7 @@
                 android:textSize="12dp" />
 
             <EditText
-                android:id="@+id/Career"
+                android:id="@+id/career"
                 android:layout_width="327sp"
                 android:layout_height="160dp"
                 android:background="@drawable/rounded_corner"

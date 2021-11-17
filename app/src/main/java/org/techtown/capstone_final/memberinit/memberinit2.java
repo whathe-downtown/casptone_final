@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,7 +23,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import org.techtown.capstone_final.Model.Users;
 import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.ActivityMemberinit2Binding;
 
@@ -167,35 +165,35 @@ public class memberinit2 extends AppCompatActivity {
         String name = ((EditText) findViewById(R.id.userNickName)).getText().toString();
 
 
-        if (name.length() > 0) {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            Log.w(TAG, "userName.length()>0 함수 실행 환료  " );
-            Users users = new Users(name);
-            if (user != null){
-                Log.w(TAG, "user null 값인지 확인중입니다 " );
-                db.collection("users").document(user.getUid()).set(users)
-                       .addOnSuccessListener(new OnSuccessListener<Void>() {
-                           @Override
-                           public void onSuccess(Void avoid) {
-                               startToast("회원정보 등록에 성공하였습니다.");
-
-                           }
-                       })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                startToast("회원정보 등록에 실패하였습니다.");
-                                Log.w(TAG, "Error adding document", e);
-                            }
-                        });
-            }
-
-
-
-        } else {
-            startToast("회원정보를 입력해주세요.");
-        }
+//        if (name.length() > 0) {
+//            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//            FirebaseFirestore db = FirebaseFirestore.getInstance();
+//            Log.w(TAG, "userName.length()>0 함수 실행 환료  " );
+//            Users users = new Users(name);
+//            if (user != null){
+//                Log.w(TAG, "user null 값인지 확인중입니다 " );
+//                db.collection("users").document(user.getUid()).set(users)
+//                       .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                           @Override
+//                           public void onSuccess(Void avoid) {
+//                               startToast("회원정보 등록에 성공하였습니다.");
+//
+//                           }
+//                       })
+//                        .addOnFailureListener(new OnFailureListener() {
+//                            @Override
+//                            public void onFailure(@NonNull Exception e) {
+//                                startToast("회원정보 등록에 실패하였습니다.");
+//                                Log.w(TAG, "Error adding document", e);
+//                            }
+//                        });
+//            }
+//
+//
+//
+//        } else {
+//            startToast("회원정보를 입력해주세요.");
+//        }
     }
 
 
