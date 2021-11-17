@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".SignInActivity"
+    android:background="@drawable/backgrundpage">
 
 
     <TextView
@@ -41,7 +42,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_edit_text_size"
+        android:background="@drawable/rounded_corner"
         android:padding="10sp"
         android:layout_marginRight="40sp"
         android:layout_marginLeft="40sp"
@@ -50,6 +51,7 @@
         android:layout_marginTop="20sp"
         android:hint="이메일"
         android:id="@+id/sign_in_input_email"
+
         />
 
     <EditText
