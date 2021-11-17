@@ -25,7 +25,8 @@
         android:gravity="left"
         android:text="자\n자기소개\n시작"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -40,19 +41,21 @@
         android:layout_marginEnd="42dp"
         android:layout_marginRight="42dp"
         android:text="자기소개"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/Navy_700"
         android:textSize="15sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/userintrouduce"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_width="327dp"
+        android:layout_height="235dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="253dp"
-        android:background="@drawable/round_edit_text_size"
-        android:hint="자기소개 예시\nex)교내대회 ooo우승\n       해커톤 000입상\n        00전공 A+, 100시간 "
+        android:background="@drawable/rounded_corner"
+        android:gravity="top"
+        android:textSize="12dp"
+        android:hint="자기소개 예시\nex)교내대회 ooo우승\n      해커톤 000입상\n      00전공 A+, 100시간 "
         android:inputType="textEmailAddress"
         android:maxLines="1"
         android:padding="15dp" />
@@ -60,16 +63,13 @@
     <Button
         android:id="@+id/self_introduce_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userintrouduce"
-        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
+        android:layout_marginTop="500dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/login_button_style"
-        android:padding="10dp"
         android:text="Next"
-        android:textColor="#ffffff"
+        android:textColor="@color/backgroundcolor"
         android:textSize="20dp" />
 
     <ImageView

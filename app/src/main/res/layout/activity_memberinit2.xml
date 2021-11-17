@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".memberinit.memberinit2"
-    android:background="@color/litte_grey">
+    android:background="@color/backgroundcolor">
 
     <TextView
         android:id="@+id/welcome_message"
@@ -25,23 +25,7 @@
         android:gravity="left"
         android:text="너는\n이름이\n뭐야"
         android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/welcome_message"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="57dp"
-        android:layout_marginLeft="57dp"
-        android:layout_marginTop="157dp"
-        android:layout_marginEnd="42dp"
-        android:layout_marginRight="42dp"
-        android:text="이름"
-        android:textColor="@color/purple_700"
-        android:textSize="15sp"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -62,10 +46,30 @@
         android:layout_marginBottom="9dp"
         android:src="@drawable/ic_group80" />
 
+
+    <TextView
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/userprofile"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:text="이름"
+        android:textColor="@color/Navy_700"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/userNickName"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="327sp"
+        android:layout_height="44dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
@@ -73,25 +77,22 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="380dp"
-        android:background="@drawable/round_edit_text_size"
+        android:background="@drawable/rounded_corner"
         android:hint="이름을 입력하세요"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        android:padding="15dp" />
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textSize="12dp" />
 
     <Button
         android:id="@+id/what_your_name_save_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/userNickName"
-        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
+        android:layout_marginTop="500dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="24dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/login_button_style"
-        android:padding="10dp"
         android:text="Next"
-        android:textColor="#ffffff"
+        android:textColor="@color/backgroundcolor"
         android:textSize="20dp" />
     <ImageView
         android:id="@+id/what_nanme_back"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".memberinit.memberinit1"
-    android:background="@color/litte_grey">
+    android:background="@color/backgroundcolor">
 
 
     <TextView
@@ -24,8 +24,9 @@
         android:layout_marginEnd="235dp"
         android:layout_marginRight="235dp"
         android:gravity="left"
-        android:text="너는\n어떤거\n관심있어?"
+        android:text="너는\n뭐에\n관심있어?"
         android:textSize="30sp"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
     <com.google.android.material.chip.ChipGroup
@@ -35,121 +36,174 @@
         android:layout_below="@id/welcome_message"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:padding="10dp"
-        app:checkedChip="@id/basic">
+        android:padding="10dp">
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/basic"
+            android:id="@+id/basic1"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Humanities"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/science"
+            android:id="@+id/basic2"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/science"
+            android:text="@string/TheFineArts"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/android"
+            android:id="@+id/basic3"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="경영"
+            android:text="@string/Law"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic4"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Management"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic5"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Music"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic6"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Public"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic7"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Information"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic8"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Agriculture"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic9"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/PhysicalEducation"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic10"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Marine"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
         <com.google.android.material.chip.Chip
-
+            android:id="@+id/basic11"
             style="@style/Widget.casptonefinal.chip"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="@string/initialize"
+            android:text="@string/Art"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/basic12"
+            style="@style/Widget.casptonefinal.chip"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/SocialScience"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/basic13"
+            style="@style/Widget.casptonefinal.chip"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/NaturalScience"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/basic14"
+            style="@style/Widget.casptonefinal.chip"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/LifeScience"
             app:chipIconEnabled="true"
             app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
     </com.google.android.material.chip.ChipGroup>
 
-    <Button
-        android:id="@+id/chip_save_button"
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/infacy_chip_group2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/infacy_chip_group"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:padding="10dp">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/basic15"
+        style="@style/Widget.casptonefinal.chip"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="@string/individual"
+        app:chipIconEnabled="true"
+        app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/basic16"
+        style="@style/Widget.casptonefinal.chip"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Group"
+        app:chipIconEnabled="true"
+        app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <Button
+        android:id="@+id/chip_save_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="500dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/login_button_style"
-        android:padding="10dp"
         android:text="Next"
-        android:textColor="#ffffff"
+        android:textColor="@color/backgroundcolor"
         android:textSize="20dp" />
 </RelativeLayout>

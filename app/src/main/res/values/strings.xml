@@ -6,6 +6,25 @@
     <string name="music">음악</string>
     <string name="foreign">외국어</string>
     <string name="administration">행정</string>
+
+    <string name="Humanities">인문</string>
+    <string name="TheFineArts">미술</string>
+    <string name="Law">법과</string>
+    <string name="Management">경영</string>
+    <string name="Music">음악</string>
+    <string name="Public">공과</string>
+    <string name="Information">정보</string>
+    <string name="Agriculture">농과</string>
+    <string name="PhysicalEducation">체육</string>
+    <string name="Marine">수산</string>
+    <string name="Art">예술</string>
+    <string name="SocialScience">사회과학</string>
+    <string name="NaturalScience">자연과학</string>
+    <string name="LifeScience">생활과학</string>
+    <string name="individual">개인</string>
+    <string name="Group">그룹</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="science">과학</string>

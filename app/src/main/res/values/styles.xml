@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Widget.casptonefinal.chip" parent="Widget.MaterialComponents.Chip.Choice">
-        <item name="chipStrokeColor">@color/brown</item>
+        <item name="chipStrokeColor">@color/orange_700</item>
         <item name="chipStrokeWidth">1dp</item>
         <item name="chipBackgroundColor">@color/bg_filter_chip_state_list</item>
         <item name="android:textColor">@color/text_filter_chip_state_list</item>
