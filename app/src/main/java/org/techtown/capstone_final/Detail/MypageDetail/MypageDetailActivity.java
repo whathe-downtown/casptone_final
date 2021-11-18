@@ -17,6 +17,7 @@
  import com.google.firebase.firestore.FirebaseFirestore;
  import com.google.firebase.storage.FirebaseStorage;
  import com.google.firebase.storage.StorageReference;
+ import com.google.firebase.storage.UploadTask;
 
  import org.techtown.capstone_final.R;
  import org.techtown.capstone_final.databinding.ActivityMypageDetailBinding;
@@ -30,6 +31,7 @@
     ActivityMypageDetailBinding binding;
     FirebaseStorage storage;
     FirebaseAuth auth;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@
         binding = ActivityMypageDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         findViewById(R.id.mypage_detail_backarrow).setOnClickListener(onClickListener);
         findViewById(R.id.mypage_detail_save_button).setOnClickListener(onClickListener);
@@ -88,6 +91,33 @@
             storage = FirebaseStorage.getInstance();
             final StorageReference reference = storage.getReference().child("profile pictures")
                     .child(FirebaseAuth.getInstance().getUid());
+
+            reference.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            db.collection("users").document(FirebaseAuth.getInstance().getUid()).update("profilepic",uri.toString())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            startToast("성공적으로 이미지가 업로드 완료되었습니다.");
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            startToast("이미지가 업로드 되지 않았습니다.");
+                                        }
+                                    });
+
+                        }
+                    });
+
+                }
+            });
         }
     }
 
@@ -105,7 +135,7 @@
             obj.put("status",status);
             obj.put("userhisotry",userhistory);
 
-            db.collection("users").document(user.getUid()).set(obj)
+            db.collection("users").document(user.getUid()).update(obj)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
