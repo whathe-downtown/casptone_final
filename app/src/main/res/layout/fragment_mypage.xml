@@ -63,7 +63,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/userinfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/username"
@@ -135,7 +135,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <TextView
-            android:id="@+id/user_history"
+            android:id="@+id/user_mypage_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -155,7 +155,7 @@
             android:background="@color/litte_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/user_history" />
+            app:layout_constraintTop_toBottomOf="@id/user_mypage_history" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager_mypage"

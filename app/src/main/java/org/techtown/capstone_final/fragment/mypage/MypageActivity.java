@@ -13,8 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
@@ -23,12 +23,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
 import org.techtown.capstone_final.Detail.MypageDetail.MypageDetailActivity;
-import org.techtown.capstone_final.Model.Users;
 import org.techtown.capstone_final.databinding.FragmentMypageBinding;
 import org.techtown.capstone_final.fragment.mypage.Adapters.ViewpagerAdapter;
 
 public class MypageActivity extends Fragment {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MyapgeActivity";
     FragmentMypageBinding binding;
     FirebaseStorage storage;
     FirebaseAuth auth;
@@ -66,26 +65,45 @@ public class MypageActivity extends Fragment {
             }
         });
 
-        DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
+        DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Users users = documentSnapshot.toObject(Users.class);
-                Glide.with(getContext())
-                        .load(users.getProfilepic())
-                        .into(binding.profileImage);
-
-                binding.username.setText(users.getName());
-                binding.userHistory.setText(users.getUserhistory());
-
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot document = task.getResult();
+                    if(document != null)
+                        if (document.exists()){
+                            Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                            if (document.getData().get("profilepic") !=null ){
+                                Glide.with(getActivity()).
+                                        load(document.getData().get("profilepic")).centerCrop().override(500).into(binding.profileImage);
+                            }
+                            binding.username.setText(document.getData().get("name").toString());
+                            binding.userMypageHistory.setText(document.getData().get("userhistory").toString());
+                            binding.userinfo.setText(document.getData().get("status").toString());
+//                      binding.usercategory.setText(users.getUsercategory());
+                        }else{
+                            Log.d(TAG,"NO such document");
+                        }
+                }else{
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                startToast("사진 가져오기를 실패하였습니다.");
-            }
-        });
+            });
+
+
+//                Users users = documentSnapshot.toObject(Users.class);
+//                Glide.with(getContext())
+//                        .load(users.getProfilepic())
+//                        .into(binding.profileImage);
+//
+//                binding.username.setText(users.getName());
+//                binding.userHistory.setText(users.getUserhistory());
+//                binding.userinfo.setText(users.getUserinfo());
+////                binding.usercategory.setText(users.getUsercategory());
+
+
 //       로그아웃 버튼
 //        binding.logoutButton.setOnClickListener(new View.OnClickListener() {
 //            @Override

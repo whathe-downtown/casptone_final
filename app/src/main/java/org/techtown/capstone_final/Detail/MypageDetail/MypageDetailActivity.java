@@ -133,7 +133,7 @@
             Map<String, Object> obj = new HashMap<>();
             obj.put("name",username);
             obj.put("status",status);
-            obj.put("userhisotry",userhistory);
+            obj.put("userhistory",userhistory);
 
             db.collection("users").document(user.getUid()).update(obj)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
