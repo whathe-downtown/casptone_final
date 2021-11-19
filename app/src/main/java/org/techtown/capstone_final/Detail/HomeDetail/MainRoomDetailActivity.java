@@ -1,11 +1,8 @@
 package org.techtown.capstone_final.Detail.HomeDetail;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,10 +10,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.techtown.capstone_final.Model.Room;
 import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.ActivityMainRoomDetailBinding;
-import org.techtown.capstone_final.fragment.Home.HomeActivity;
 
 public class MainRoomDetailActivity extends AppCompatActivity {
 
@@ -41,7 +36,7 @@ public class MainRoomDetailActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
 
-        binding.makeroomDetailSave.setOnClickListener(new View.OnClickListener() {
+        /*binding.makeroomDetailSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String strcalendar =binding.calendar.getText().toString();
@@ -76,7 +71,7 @@ public class MainRoomDetailActivity extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
 
     }
