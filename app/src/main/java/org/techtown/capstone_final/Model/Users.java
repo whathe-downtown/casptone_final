@@ -2,15 +2,20 @@ package org.techtown.capstone_final.Model;
 
 public class Users {
 
-    private String name, profilepic, userinfo, userhistory;
+    private String name, profilepic, userinfo, userhistory , usercategory;
+            ;
 
-    public Users(String profilepic, String name, String userinfo, String userhistory) {
+    public Users(String name, String profilepic, String userinfo, String userhistory, String usercategory) {
         this.name = name;
         this.profilepic = profilepic;
-
         this.userinfo = userinfo;
         this.userhistory = userhistory;
+        this.usercategory = usercategory;
     }
+
+    public String getUsercategory() { return usercategory; }
+
+    public void setUsercategory(String usercategory) { this.usercategory = usercategory; }
 
     public String getName() {
         return this.name;
