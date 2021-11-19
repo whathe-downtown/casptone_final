@@ -28,7 +28,7 @@
             android:textColor="@color/Navy_700" />
 
         <LinearLayout
-            android:id="@+id/Layout_Get_Day"
+            android:id="@+id/Layout_Get_Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20sp"
                 android:text="날짜선택"
-                android:layout_marginLeft="20sp"
+                android:layout_marginLeft="25sp"
                 android:textStyle="bold"
                 android:textColor="@color/Navy_700"
                 />
@@ -54,7 +54,7 @@
                 android:layout_height="20sp"
                 android:text="YY.MM.dd"
                 android:layout_marginLeft="20sp"
-                android:textColor="@color/black"
+                android:textColor="@color/gray"
                 />
             <View
                 android:layout_width="0dp"
@@ -64,9 +64,153 @@
             <Button
                 android:layout_width="30sp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/black"
                 android:background="@drawable/ic_ico_spread" />
 
         </LinearLayout>
+
+        <DatePicker
+            android:id="@+id/date_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="150sp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
+            android:visibility="gone"/>
+        <View
+            android:layout_width="327sp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20sp"
+            android:background="@color/gray" />
+
+        <LinearLayout
+            android:id="@+id/Layout_Get_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp"
+            android:baselineAligned="false"
+            >
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/ic_ico_clock"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="시간선택"
+                android:layout_marginLeft="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/Navy_700"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="hh.mm"
+                android:layout_marginLeft="20sp"
+                android:textColor="@color/gray"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="30sp"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/black"
+                android:background="@drawable/ic_ico_spread" />
+
+        </LinearLayout>
+        <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="150sp"
+            android:timePickerMode="spinner"
+            android:visibility="gone"/>
+        <View
+            android:layout_width="327sp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="@color/gray"
+            android:layout_marginTop="20sp"/>
+
+        <LinearLayout
+            android:id="@+id/Layout_Get_Time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp"
+            android:baselineAligned="false"
+            >
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/ic_ico_pin"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="장소선택"
+                android:layout_marginLeft="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/Navy_700"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+                android:text="place"
+                android:layout_marginLeft="20sp"
+                android:textColor="@color/gray"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:layout_width="30sp"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/black"
+                android:background="@drawable/ic_ico_spread" />
+
+        </LinearLayout>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/infacy_chip_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:padding="10dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/basic1"
+            style="@style/Widget.casptonefinal.chip"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Humanities"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/basic2"
+            style="@style/Widget.casptonefinal.chip"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/TheFineArts"
+            app:chipIconEnabled="true"
+            app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <View
+            android:layout_width="327sp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="@color/gray"
+            android:layout_marginTop="20sp"/>
+
     </LinearLayout>
 
 
