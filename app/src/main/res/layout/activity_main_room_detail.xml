@@ -172,6 +172,7 @@
                 android:visibility="gone">
 
             <TimePicker
+                android:id="@+id/time_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="150sp"
                 android:timePickerMode="spinner" />

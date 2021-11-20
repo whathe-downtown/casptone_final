@@ -31,9 +31,9 @@ public class MainRoomDetailActivity extends AppCompatActivity {
     Button submit_date,submit_time,submit_place,submit_Personnel,submit_link;
     LinearLayout Layout_Get_Date,Layout_Get_Time,Layout_Get_place,Layout_Get_Personnel,Layout_Get_Link;
     TextView view_date,view_time,view_palce,view_personnel,view_link;
-    TimePicker tp;
-    DatePicker dp;
-    Calendar Calendar;
+    TimePicker timePicker;
+    DatePicker datePicker;
+    Calendar C;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,18 +72,17 @@ public class MainRoomDetailActivity extends AppCompatActivity {
         view_personnel = findViewById(R.id.view_personnel);
         view_link = findViewById(R.id.view_link);
 
-        Calendar = Calendar.getInstance();
-        int year = Calendar.get(Calendar.YEAR);
-        int month = Calendar.get(Calendar.MONTH);
-        int dayOfMonth = Calendar.get(Calendar.DAY_OF_MONTH);
+        datePicker = findViewById(R.id.date_picker);
+        timePicker = findViewById(R.id.time_picker);
 
-        view_date.setText("초기 설정 날짜"+year+(month+1)+dayOfMonth);
-        submit_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                view_date.setText("선택 설정 날짜"+year+(month+1)+dayOfMonth);
-            }
-        });
+        view_date.setText("언제 모이나요?");
+        view_time.setText("몇시에 모이나요?");
+        view_palce.setText("어디소 모이나요?");
+        view_personnel.setText("몇명이서 모이나요?");
+        view_link.setText("채팅방 주소를 알려주세요");
+
+
+        /* 데이터 피커 */
 
         spread_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,10 +95,18 @@ public class MainRoomDetailActivity extends AppCompatActivity {
         submit_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int year = datePicker.getYear();
+                int month = (datePicker.getMonth()+1);
+                int dayOfMonth = datePicker.getDayOfMonth();
+                view_date.setText(year+"년"+month+"월"+dayOfMonth+"일");
                 Layout_Get_Date.setVisibility(Layout_Get_Date.GONE);
                 spread_date.setRotationX(0);
             }
         });
+
+        /* 타임피커 피커 */
+
+
 
     }
 
