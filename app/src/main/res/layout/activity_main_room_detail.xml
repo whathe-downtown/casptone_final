@@ -14,16 +14,14 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="65dp"
+        android:layout_alignParentleft="true"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="언제 어디서 만나나요?"
         android:textColor="@color/Navy_700"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="65dp" />
+        android:textStyle="bold" />
     <ScrollView
         android:layout_width="327sp"
         android:layout_height="match_parent"
@@ -54,19 +52,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="25sp"
+                    android:layout_marginLeft="20dp"
                     android:text="날짜선택"
                     android:textColor="@color/Navy_700"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="25sp" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="20dp"
                     android:text="YY.MM.dd"
-                    android:textColor="@color/gray"
-                    android:layout_marginLeft="20sp" />
+                    android:textColor="@color/gray" />
 
                 <View
                     android:layout_width="0dp"
@@ -79,22 +75,22 @@
                     android:background="@drawable/ic_ico_spread"
                     android:backgroundTint="@color/black" />
 
-                </LinearLayout>
-    
-                <DatePicker
-                    android:id="@+id/date_picker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150sp"
-                    android:calendarViewShown="false"
-                    android:datePickerMode="spinner"
-                    android:visibility="gone" />
-    
-                <View
-                    android:layout_width="327sp"
-                    android:layout_height="2dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20sp"
-                    android:background="@color/gray" />
+            </LinearLayout>
+
+            <DatePicker
+                android:id="@+id/date_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="150sp"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="327sp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:background="@color/gray" />
 
             <LinearLayout
                 android:id="@+id/Layout_Get_Time"
@@ -112,19 +108,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="25sp"
+                    android:layout_marginLeft="20dp"
                     android:text="시간선택"
                     android:textColor="@color/Navy_700"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="25sp" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="20dp"
                     android:text="hh.mm"
-                    android:textColor="@color/gray"
-                    android:layout_marginLeft="20sp" />
+                    android:textColor="@color/gray" />
 
                 <View
                     android:layout_width="0dp"
@@ -137,20 +131,20 @@
                     android:background="@drawable/ic_ico_spread"
                     android:backgroundTint="@color/black" />
 
-                </LinearLayout>
-    
-                <TimePicker
-                    android:layout_width="wrap_content"
-                    android:layout_height="150sp"
-                    android:timePickerMode="spinner"
-                    android:visibility="gone" />
-    
-                <View
-                    android:layout_width="327sp"
-                    android:layout_height="2dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20sp"
-                    android:background="@color/gray" />
+            </LinearLayout>
+
+            <TimePicker
+                android:layout_width="wrap_content"
+                android:layout_height="150sp"
+                android:timePickerMode="spinner"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="327sp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:background="@color/gray" />
 
             <LinearLayout
                 android:id="@+id/Layout_Get_place"
@@ -168,19 +162,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="25sp"
+                    android:layout_marginLeft="20dp"
                     android:text="장소선택"
                     android:textColor="@color/Navy_700"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="25sp" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="20dp"
                     android:text="place"
-                    android:textColor="@color/gray"
-                    android:layout_marginLeft="20sp" />
+                    android:textColor="@color/gray" />
 
                 <View
                     android:layout_width="0dp"
@@ -193,52 +185,52 @@
                     android:background="@drawable/ic_ico_spread"
                     android:backgroundTint="@color/black" />
 
-                </LinearLayout>
-    
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/infacy_chip_group_place"
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/infacy_chip_group_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15sp"
+                android:visibility="gone">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_Online"
+                    android:layout_width="120sp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15sp"
-                    android:visibility="gone">
-    
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_Online"
-                        android:layout_width="120sp"
-                        android:layout_height="wrap_content"
-                        style="@style/Widget.casptonefinal.chip2"
-                        android:text="@string/Online"
-                        app:chipIconEnabled="true"
-                        app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
-    
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chip_Offline"
-                        android:layout_width="120sp"
-                        android:layout_height="wrap_content"
-                        style="@style/Widget.casptonefinal.chip2"
-                        android:text="@string/Offline"
-                        app:chipIconEnabled="true"
-                        app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
-    
-                    <EditText
-                        android:id="@+id/Get_place"
-                        android:layout_width="250sp"
-                        android:layout_height="wrap_content"
-                        android:hint="모임 장소"
-                        android:inputType="textPersonName"
-                        android:padding="10dp"
-                        android:textSize="12sp"
-                        android:visibility="visible"/>
+                    style="@style/Widget.casptonefinal.chip2"
+                    android:text="@string/Online"
+                    app:chipIconEnabled="true"
+                    app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
 
-                    </com.google.android.material.chip.ChipGroup>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_Offline"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.casptonefinal.chip2"
+                    android:text="@string/Offline"
+                    app:chipIconEnabled="true"
+                    app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
 
-                    <View
-                        android:layout_width="327sp"
-                        android:layout_height="2dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20sp"
-                        android:background="@color/gray" />
+                <EditText
+                    android:id="@+id/Get_place"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:hint="모임 장소"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:visibility="visible"/>
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <View
+                android:layout_width="327sp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:background="@color/gray" />
 
             <LinearLayout
                 android:id="@+id/Layout_Get_Personnel"
@@ -256,7 +248,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginleft="25sp"
+                    android:layout_marginLeft="20dp"
                     android:text="인원선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -264,7 +256,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginleft="20sp"
+                    android:layout_marginLeft="20dp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -317,14 +309,14 @@
                     android:textSize="12sp"
                     android:visibility="visible"/>
 
-                </com.google.android.material.chip.ChipGroup>
-    
-                <View
-                    android:layout_width="327sp"
-                    android:layout_height="2dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20sp"
-                    android:background="@color/gray" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <View
+                android:layout_width="327sp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:background="@color/gray" />
 
             <LinearLayout
                 android:id="@+id/Layout_Get_Link"
@@ -342,7 +334,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginleft="25sp"
+                    android:layout_marginLeft="20dp"
                     android:text="채팅방 링크"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -350,7 +342,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginleft="20sp"
+                    android:layout_marginLeft="20dp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -365,18 +357,18 @@
                     android:background="@drawable/ic_ico_spread"
                     android:backgroundTint="@color/black" />
 
-                </LinearLayout>
-                <EditText
-                    android:id="@+id/Get_Link"
-                    android:layout_width="250sp"
-                    android:layout_height="wrap_content"
-                    android:hint="주소 입력"
-                    android:inputType="textPersonName"
-                    android:padding="10sp"
-                    android:textSize="12sp"
-                    android:visibility="gone"
-                    android:layout_marginBottom="50sp"
-                    />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/Get_Link"
+                android:layout_width="250sp"
+                android:layout_height="wrap_content"
+                android:hint="주소 입력"
+                android:inputType="textPersonName"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:layout_marginBottom="50sp"
+                />
 
         </LinearLayout>
     </ScrollView>
