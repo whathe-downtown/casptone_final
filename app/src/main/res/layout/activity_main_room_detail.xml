@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="65dp"
+        android:layout_marginStart="115dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="언제 어디서 만나나요?"
@@ -26,15 +26,15 @@
         android:layout_marginLeft="65dp" />
 
     <ScrollView
-        android:layout_width="327sp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/title"
         android:layout_marginTop="35sp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="327sp"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
             android:orientation="vertical">
 
             <!-- 데이트 피커 -->
@@ -234,7 +234,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/spread_palce"
+                    android:id="@+id/spread_place"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread"
@@ -306,7 +306,7 @@
                 android:layout_marginTop="20sp"
                 android:background="@color/gray" />
 
-            <!-- 인원선택택 -->
+            <!-- 인원선택 -->
 
             <LinearLayout
                 android:layout_width="match_parent"
