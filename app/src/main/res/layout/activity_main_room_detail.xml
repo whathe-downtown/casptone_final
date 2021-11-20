@@ -14,22 +14,24 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="언제 어디서 만나나요?"
         android:textColor="@color/Navy_700"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
     <ScrollView
         android:layout_width="327sp"
         android:layout_height="match_parent"
         android:layout_below="@id/title"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="35sp"
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -50,7 +52,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="25sp"
+                    android:layout_marginStart="25sp"
                     android:text="날짜선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -58,7 +60,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20sp"
+                    android:layout_marginStart="20sp"
                     android:text="YY.MM.dd"
                     android:textColor="@color/gray" />
 
@@ -74,7 +76,7 @@
                     android:backgroundTint="@color/black" />
 
                 </LinearLayout>
-
+    
                 <DatePicker
                     android:id="@+id/date_picker"
                     android:layout_width="wrap_content"
@@ -82,7 +84,7 @@
                     android:calendarViewShown="false"
                     android:datePickerMode="spinner"
                     android:visibility="gone" />
-
+    
                 <View
                     android:layout_width="327sp"
                     android:layout_height="2dp"
@@ -106,7 +108,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="25sp"
+                    android:layout_marginStart="25sp"
                     android:text="시간선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -114,7 +116,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20sp"
+                    android:layout_marginStart="20sp"
                     android:text="hh.mm"
                     android:textColor="@color/gray" />
 
@@ -130,13 +132,13 @@
                     android:backgroundTint="@color/black" />
 
                 </LinearLayout>
-
+    
                 <TimePicker
                     android:layout_width="wrap_content"
                     android:layout_height="150sp"
                     android:timePickerMode="spinner"
                     android:visibility="gone" />
-
+    
                 <View
                     android:layout_width="327sp"
                     android:layout_height="2dp"
@@ -160,7 +162,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="25sp"
+                    android:layout_marginStart="25sp"
                     android:text="장소선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -168,7 +170,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20sp"
+                    android:layout_marginStart="20sp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -184,7 +186,7 @@
                     android:backgroundTint="@color/black" />
 
                 </LinearLayout>
-
+    
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/infacy_chip_group_place"
                     android:layout_width="wrap_content"
@@ -192,7 +194,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="15sp"
                     android:visibility="gone">
-
+    
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_Online"
                         android:layout_width="120sp"
@@ -201,7 +203,7 @@
                         android:text="@string/Online"
                         app:chipIconEnabled="true"
                         app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
-
+    
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chip_Offline"
                         android:layout_width="120sp"
@@ -210,7 +212,7 @@
                         android:text="@string/Offline"
                         app:chipIconEnabled="true"
                         app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
-
+    
                     <EditText
                         android:id="@+id/Get_place"
                         android:layout_width="250sp"
@@ -218,7 +220,7 @@
                         android:hint="모임 장소"
                         android:inputType="textPersonName"
                         android:padding="10dp"
-                        android:textSize="12dp"
+                        android:textSize="12sp"
                         android:visibility="visible"/>
 
                     </com.google.android.material.chip.ChipGroup>
@@ -246,7 +248,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="25sp"
+                    android:layout_marginStart="25sp"
                     android:text="인원선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -254,7 +256,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20sp"
+                    android:layout_marginStart="20sp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -304,11 +306,11 @@
                     android:hint="참여 인원"
                     android:inputType="textPersonName"
                     android:padding="10dp"
-                    android:textSize="12dp"
+                    android:textSize="12sp"
                     android:visibility="visible"/>
 
                 </com.google.android.material.chip.ChipGroup>
-
+    
                 <View
                     android:layout_width="327sp"
                     android:layout_height="2dp"
@@ -332,7 +334,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="25sp"
+                    android:layout_marginStart="25sp"
                     android:text="채팅방 링크"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -340,7 +342,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20sp"
+                    android:layout_marginStart="20sp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -362,8 +364,8 @@
                     android:layout_height="wrap_content"
                     android:hint="주소 입력"
                     android:inputType="textPersonName"
-                    android:padding="10dp"
-                    android:textSize="12dp"
+                    android:padding="10sp"
+                    android:textSize="12sp"
                     android:visibility="gone"
                     android:layout_marginBottom="50sp"
                     />
