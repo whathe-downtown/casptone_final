@@ -14,27 +14,29 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentleft="true"
-        android:layout_marginLeft="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="언제 어디서 만나나요?"
         android:textColor="@color/Navy_700"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="65dp" />
+
     <ScrollView
         android:layout_width="327sp"
         android:layout_height="match_parent"
         android:layout_below="@id/title"
-        android:layout_marginTop="35sp"
-        >
+        android:layout_marginTop="35sp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:gravity="center_horizontal"
             android:orientation="vertical">
-
 
 
             <LinearLayout
@@ -52,7 +54,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginLeft="25sp"
                     android:text="날짜선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -60,7 +63,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="20sp"
                     android:text="YY.MM.dd"
                     android:textColor="@color/gray" />
 
@@ -108,7 +112,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginLeft="25sp"
                     android:text="시간선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -116,7 +121,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="20sp"
                     android:text="hh.mm"
                     android:textColor="@color/gray" />
 
@@ -162,7 +168,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginLeft="25sp"
                     android:text="장소선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -170,7 +177,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20sp"
+                    android:layout_marginLeft="20sp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -197,18 +205,18 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Online"
+                    style="@style/Widget.casptonefinal.chip2"
                     android:layout_width="120sp"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.casptonefinal.chip2"
                     android:text="@string/Online"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Offline"
+                    style="@style/Widget.casptonefinal.chip2"
                     android:layout_width="120sp"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.casptonefinal.chip2"
                     android:text="@string/Offline"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
@@ -221,7 +229,7 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="12sp"
-                    android:visibility="visible"/>
+                    android:visibility="visible" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -248,7 +256,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft='25dp'
                     android:text="인원선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -256,7 +264,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft='20dp'
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -283,18 +291,18 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Alone"
+                    style="@style/Widget.casptonefinal.chip2"
                     android:layout_width="120sp"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.casptonefinal.chip2"
                     android:text="@string/Online"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Group"
+                    style="@style/Widget.casptonefinal.chip2"
                     android:layout_width="120sp"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.casptonefinal.chip2"
                     android:text="@string/Offline"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
@@ -307,7 +315,7 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="12sp"
-                    android:visibility="visible"/>
+                    android:visibility="visible" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -334,7 +342,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="25sp"
                     android:text="채팅방 링크"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -342,7 +350,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="20sp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -358,17 +366,17 @@
                     android:backgroundTint="@color/black" />
 
             </LinearLayout>
+
             <EditText
                 android:id="@+id/Get_Link"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="50sp"
                 android:hint="주소 입력"
                 android:inputType="textPersonName"
                 android:padding="10sp"
                 android:textSize="12sp"
-                android:visibility="gone"
-                android:layout_marginBottom="50sp"
-                />
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>

@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
-            android:layout_marginLeft="48dp"
+            android:layout_marginLeft= "48dp"
             android:layout_marginTop="28dp"
             android:text="경력사항"
             android:textStyle="bold"
@@ -184,7 +184,7 @@
         <!--        android:layout_alignParentLeft="true"-->
         <!--        android:layout_alignParentTop="true"-->
         <!--        android:layout_marginStart="39dp"-->
-        <!--        android:layout_marginLeft="39dp"-->
+        <!--        "39dp"-->
         <!--        android:layout_marginTop="154dp">-->
 
         <!--        <com.google.android.material.chip.Chip-->

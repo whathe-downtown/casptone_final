@@ -83,7 +83,6 @@
         android:text="날짜"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginLeft="5sp"/>
+        android:textColor="@color/black" android:layout_marginLeft="5sp"/>
     </LinearLayout>
 </LinearLayout>
