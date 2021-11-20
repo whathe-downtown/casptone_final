@@ -188,8 +188,7 @@
 
                 <Button
                     android:layout_width="30sp"
-                    android:layout_height="20sp
-"
+                    android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread"
                      />
 
