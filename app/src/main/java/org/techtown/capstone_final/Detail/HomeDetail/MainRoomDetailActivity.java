@@ -86,15 +86,21 @@ public class MainRoomDetailActivity extends AppCompatActivity {
         view_personnel.setText("몇명이서 모이나요?");
         view_link.setText("채팅방 주소를 알려주세요");
 
-
+        boolean open_date=true;
 
         /* 데이터 피커 */
 
         spread_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Layout_Get_Date.setVisibility(Layout_Get_Date.VISIBLE);
-                spread_date.setRotationX(180);
+
+                if(open_date) {
+                    Layout_Get_Date.setVisibility(Layout_Get_Date.VISIBLE);
+                }
+                else{
+                    Layout_Get_Date.setVisibility(Layout_Get_Date.GONE);
+                }
+                    spread_date.setRotationX(180);
             }
         });
 
