@@ -34,13 +34,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
+            <!-- 데이트 피커 -->
 
             <LinearLayout
-                android:id="@+id/Layout_Get_Date"
                 android:layout_width="match_parent"
                 android:layout_height="25sp"
                 android:baselineAligned="false"
@@ -61,6 +60,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/view_date"
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginStart="20sp"
@@ -74,6 +74,7 @@
                     android:layout_weight="1" />
 
                 <Button
+                    android:id="@+id/spread_date"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread"
@@ -81,13 +82,33 @@
 
             </LinearLayout>
 
-            <DatePicker
-                android:id="@+id/date_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="150sp"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:visibility="gone" />
+            <LinearLayout
+                android:id="@+id/Layout_Get_Date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
+                <DatePicker
+                    android:id="@+id/date_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150sp"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                     />
+
+                <Button
+                    android:id="@+id/submit_date"
+                    android:layout_width="230sp"
+                    android:layout_height="30sp"
+                    android:background="@drawable/rounded_corner_navy_button"
+                    android:padding="0sp"
+                    android:text="등록"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <View
                 android:layout_width="327sp"
@@ -96,8 +117,10 @@
                 android:layout_marginTop="20sp"
                 android:background="@color/gray" />
 
+            <!-- 타임 피커 -->
+
             <LinearLayout
-                android:id="@+id/Layout_Get_Time"
+
                 android:layout_width="match_parent"
                 android:layout_height="25sp"
                 android:layout_marginTop="20sp"
@@ -119,6 +142,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/view_time"
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginStart="20sp"
@@ -132,17 +156,37 @@
                     android:layout_weight="1" />
 
                 <Button
+                    android:id="@+id/spread_time"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/Layout_Get_Time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
             <TimePicker
                 android:layout_width="wrap_content"
                 android:layout_height="150sp"
-                android:timePickerMode="spinner"
-                android:visibility="gone" />
+                android:timePickerMode="spinner" />
+
+            <Button
+                android:id="@+id/submit_time"
+                android:layout_width="230sp"
+                android:layout_height="30sp"
+                android:text="등록"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/rounded_corner_navy_button"
+                android:padding="0sp"/>
+
+            </LinearLayout>
 
             <View
                 android:layout_width="327sp"
@@ -151,8 +195,9 @@
                 android:layout_marginTop="20sp"
                 android:background="@color/gray" />
 
+            <!-- 장소선택 -->
+
             <LinearLayout
-                android:id="@+id/Layout_Get_place"
                 android:layout_width="match_parent"
                 android:layout_height="25sp"
                 android:layout_marginTop="20sp"
@@ -174,6 +219,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/view_palce"
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginStart="20sp"
@@ -187,6 +233,7 @@
                     android:layout_weight="1" />
 
                 <Button
+                    android:id="@+id/spread_palce"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread"
@@ -194,18 +241,25 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/Layout_Get_place"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15sp"
-                android:visibility="gone">
+                android:layout_marginTop="15sp">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Online"
                     style="@style/Widget.casptonefinal.chip2"
-                    android:layout_width="120sp"
+                    android:layout_width="105sp"
                     android:layout_height="wrap_content"
                     android:text="@string/Online"
                     app:chipIconEnabled="true"
@@ -214,7 +268,7 @@
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Offline"
                     style="@style/Widget.casptonefinal.chip2"
-                    android:layout_width="120sp"
+                    android:layout_width="105sp"
                     android:layout_height="wrap_content"
                     android:text="@string/Offline"
                     app:chipIconEnabled="true"
@@ -222,7 +276,7 @@
 
                 <EditText
                     android:id="@+id/Get_place"
-                    android:layout_width="250sp"
+                    android:layout_width="220sp"
                     android:layout_height="wrap_content"
                     android:hint="모임 장소"
                     android:inputType="textPersonName"
@@ -232,6 +286,18 @@
 
             </com.google.android.material.chip.ChipGroup>
 
+            <Button
+                android:id="@+id/submit_place"
+                android:layout_width="230sp"
+                android:layout_height="30sp"
+                android:text="등록"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/rounded_corner_navy_button"
+                android:padding="0sp"/>
+
+            </LinearLayout>
+
             <View
                 android:layout_width="327sp"
                 android:layout_height="2dp"
@@ -239,8 +305,9 @@
                 android:layout_marginTop="20sp"
                 android:background="@color/gray" />
 
+            <!-- 인원선택택 -->
+
             <LinearLayout
-                android:id="@+id/Layout_Get_Personnel"
                 android:layout_width="match_parent"
                 android:layout_height="25sp"
                 android:layout_marginTop="20sp"
@@ -261,10 +328,11 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/view_personnel"
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginLeft='20dp'
-                    android:text="place"
+                    android:text="personnel"
                     android:textColor="@color/gray" />
 
                 <View
@@ -273,11 +341,20 @@
                     android:layout_weight="1" />
 
                 <Button
+                    android:id="@+id/spread_Personnel"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_Get_Personnel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_Personnel"
@@ -285,29 +362,29 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15sp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_Alone"
+                    android:id="@+id/chip_individual"
                     style="@style/Widget.casptonefinal.chip2"
-                    android:layout_width="120sp"
+                    android:layout_width="105sp"
                     android:layout_height="wrap_content"
-                    android:text="@string/Online"
+                    android:text="@string/individual"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Group"
                     style="@style/Widget.casptonefinal.chip2"
-                    android:layout_width="120sp"
+                    android:layout_width="105sp"
                     android:layout_height="wrap_content"
-                    android:text="@string/Offline"
+                    android:text="@string/Group"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
 
                 <EditText
                     android:id="@+id/Get_Personnel"
-                    android:layout_width="250sp"
+                    android:layout_width="230sp"
                     android:layout_height="wrap_content"
                     android:hint="참여 인원"
                     android:inputType="textPersonName"
@@ -317,6 +394,18 @@
 
             </com.google.android.material.chip.ChipGroup>
 
+            <Button
+                android:id="@+id/submit_personnel"
+                android:layout_width="230sp"
+                android:layout_height="30sp"
+                android:text="등록"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/rounded_corner_navy_button"
+                android:padding="0sp"/>
+
+            </LinearLayout>
+
             <View
                 android:layout_width="327sp"
                 android:layout_height="2dp"
@@ -324,8 +413,9 @@
                 android:layout_marginTop="20sp"
                 android:background="@color/gray" />
 
+            <!-- 채팅방 링크 -->
+
             <LinearLayout
-                android:id="@+id/Layout_Get_Link"
                 android:layout_width="match_parent"
                 android:layout_height="25sp"
                 android:layout_marginTop="20sp"
@@ -346,10 +436,11 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/view_link"
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginLeft="20sp"
-                    android:text="place"
+                    android:text="link"
                     android:textColor="@color/gray" />
 
                 <View
@@ -358,23 +449,42 @@
                     android:layout_weight="1" />
 
                 <Button
+                    android:id="@+id/spread_Link"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/Layout_Get_Link"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone">
+
             <EditText
                 android:id="@+id/Get_Link"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50sp"
                 android:hint="주소 입력"
                 android:inputType="textPersonName"
                 android:padding="10sp"
                 android:textSize="12sp"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
+            <Button
+                android:id="@+id/submit_link"
+                android:layout_width="230sp"
+                android:layout_height="30sp"
+                android:text="등록"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/rounded_corner_navy_button"
+                android:padding="0sp"
+                />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
