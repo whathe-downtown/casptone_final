@@ -44,21 +44,33 @@
         android:textColor="@color/Navy_700"
         android:textSize="15sp"
         android:textStyle="bold" />
+    <EditText
+        android:id="@+id/status"
+        android:layout_width="327sp"
+        android:layout_height="44dp"
+        android:hint="한줄소개"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="15sp"
+        android:layout_centerHorizontal="true"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:paddingLeft="15dp"
+        android:textSize="12dp" />
 
     <EditText
         android:id="@+id/userintrouduce"
         android:layout_width="327dp"
-        android:layout_height="235dp"
+        android:layout_height="170dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="253dp"
+        android:layout_marginTop="310dp"
         android:background="@drawable/rounded_corner"
         android:gravity="top"
-        android:textSize="12dp"
         android:hint="자기소개 예시\nex)교내대회 ooo우승\n      해커톤 000입상\n      00전공 A+, 100시간 "
         android:inputType="textEmailAddress"
         android:maxLines="1"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:textSize="12dp" />
 
     <Button
         android:id="@+id/self_introduce_button"

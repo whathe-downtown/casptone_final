@@ -21,8 +21,13 @@
     <string name="SocialScience">사회과학</string>
     <string name="NaturalScience">자연과학</string>
     <string name="LifeScience">생활과학</string>
+
     <string name="individual">개인</string>
     <string name="Group">그룹</string>
+
+    <string name="Online">온라인</string>
+    <string name="Offline">오프라인</string>
+
 
 
     <!-- TODO: Remove or change this placeholder text -->
