@@ -27,13 +27,13 @@
                 android:textSize="20dp"
                 android:text="TextView" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/room_proifle_recyclerview"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="3"
-                android:orientation="horizontal"
-                android:weightSum="4"/>
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/room_proifle_recyclerview"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="3"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="4"/>-->
 
 
 

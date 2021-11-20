@@ -38,8 +38,8 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull  ViewHolder holder, int position) {
         Room room = list.get(position);  //users 리스트 포지션 잡고 피카소 모형에다가 이미지 삽입
         holder.roomname.setText(room.getRoomTitle());//username도 얻음
-        holder.roomlocation.setText(room.getRoomPlace());
-        holder.roomdate.setText(room.getRoomDate());
+        holder.roomlocation.setText(room.getRoomlocation());
+        holder.roomdate.setText(room.getRoomdate());
 
         holder.itemView.setTag(position); // 값 가져오고고
 
@@ -71,7 +71,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
     @Override
     public int getItemCount(){
 
-        return  (null != list ?list.size():0);
+        return  list.size();
     }
 
 

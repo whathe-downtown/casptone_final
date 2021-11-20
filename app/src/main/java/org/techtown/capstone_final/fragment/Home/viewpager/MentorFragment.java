@@ -33,7 +33,7 @@ public class MentorFragment extends Fragment {
         // Required empty public constructor
     }
     FragmentMentorBinding binding;
-    ArrayList<Room> list = new ArrayList<>();
+
     FirebaseDatabase database;
     private static final String TAG = "MentorFragemnt";
     @Override
@@ -43,13 +43,15 @@ public class MentorFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
         binding = FragmentMentorBinding.inflate(inflater, container, false);
         db = FirebaseFirestore.getInstance();
+        ArrayList<Room> list = new ArrayList<>();
         RoomsAdapter adapter =  new RoomsAdapter(list, getContext());
+
+        binding.MentorrecyclerView.setHasFixedSize(true);
         binding.MentorrecyclerView.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.MentorrecyclerView.setLayoutManager(layoutManager);
         DocumentReference docRef = db.collection("room").document("roomlist");
-
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {

@@ -51,7 +51,7 @@ public class CompetitionFragment extends Fragment {
                 list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Room room = dataSnapshot.getValue(Room.class);
-                    room.getRoomTitle(dataSnapshot.getKey());
+                    room.getRoomTitle();
                     list.add(room);
                 }
                 adapter.notifyDataSetChanged();

@@ -2,16 +2,17 @@ package org.techtown.capstone_final.Model;
 
 public class Room {
 
-    private String publisher,roomTitle,  roomprofilepic, roomContent, roomDate,roomTime,roomPlace,roomHeadcount,roomId;
+    private String publisher,roomTitle,  roomprofilepic,roomcategory, roomContent, roomdate,roomTime,roomlocation,roomHeadcount,roomId;
 
-    public Room(String publisher, String roomTitle, String roomprofilepic, String roomContent, String roomDate, String roomTime, String roomPlace, String roomHeadcount, String roomId) {
+    public Room(String publisher, String roomTitle, String roomprofilepic, String roomcategory, String roomContent, String roomdate, String roomTime, String roomlocation, String roomHeadcount, String roomId) {
         this.publisher = publisher;
         this.roomTitle = roomTitle;
         this.roomprofilepic = roomprofilepic;
+        this.roomcategory = roomcategory;
         this.roomContent = roomContent;
-        this.roomDate = roomDate;
+        this.roomdate = roomdate;
         this.roomTime = roomTime;
-        this.roomPlace = roomPlace;
+        this.roomlocation = roomlocation;
         this.roomHeadcount = roomHeadcount;
         this.roomId = roomId;
     }
@@ -19,11 +20,6 @@ public class Room {
     public  Room(){}
     //MaintMade Room  constructor
 
-    public Room(String roomTitle, String roomDate, String roomPlace) {
-        this.roomTitle = roomTitle;
-        this.roomDate = roomDate;
-        this.roomPlace = roomPlace;
-    }
 
 //    //sececond Room Constructor
 //    public Room(String roomDate, String roomTime, String roomPlace, String roomHeadcount) {
@@ -34,19 +30,16 @@ public class Room {
 //        this.roomHeadcount = roomHeadcount;
 //    }
 
-    public String getPublisher() { return publisher; }
 
-    public void setPublisher(String publisher) { this.publisher = publisher; }
-
-    public String getRoomId() {
-        return roomId;
+    public String getPublisher() {
+        return publisher;
     }
 
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
-    public String getRoomTitle(String key) {
+    public String getRoomTitle() {
         return roomTitle;
     }
 
@@ -62,6 +55,14 @@ public class Room {
         this.roomprofilepic = roomprofilepic;
     }
 
+    public String getRoomcategory() {
+        return roomcategory;
+    }
+
+    public void setRoomcategory(String roomcategory) {
+        this.roomcategory = roomcategory;
+    }
+
     public String getRoomContent() {
         return roomContent;
     }
@@ -70,12 +71,12 @@ public class Room {
         this.roomContent = roomContent;
     }
 
-    public String getRoomDate() {
-        return roomDate;
+    public String getRoomdate() {
+        return roomdate;
     }
 
-    public void setRoomDate(String roomDate) {
-        this.roomDate = roomDate;
+    public void setRoomdate(String roomdate) {
+        this.roomdate = roomdate;
     }
 
     public String getRoomTime() {
@@ -86,12 +87,12 @@ public class Room {
         this.roomTime = roomTime;
     }
 
-    public String getRoomPlace() {
-        return roomPlace;
+    public String getRoomlocation() {
+        return roomlocation;
     }
 
-    public void setRoomPlace(String roomPlace) {
-        this.roomPlace = roomPlace;
+    public void setRoomlocation(String roomlocation) {
+        this.roomlocation = roomlocation;
     }
 
     public String getRoomHeadcount() {
@@ -102,8 +103,11 @@ public class Room {
         this.roomHeadcount = roomHeadcount;
     }
 
+    public String getRoomId() {
+        return roomId;
+    }
 
-    public CharSequence getRoomTitle() {
-        return null;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 }
