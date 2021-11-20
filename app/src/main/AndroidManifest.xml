@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.techtown.capstone_final">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +18,8 @@
         android:theme="@style/Theme.Capstone_final">
         <activity
             android:name=".fragment.mypage.viewpager.FragRecord"
-            android:exported="false" />
+            android:exported="false"
+           tools:ignore="Instantiatable" /><!-- 나중에 확인해야할 부분-->
         <activity android:name=".memberinit.memberinit2" />
         <activity android:name=".memberinit.memberinit3" />
         <activity android:name=".memberinit.memberinit1" />
@@ -25,17 +27,21 @@
         <activity android:name=".Detail.HomeDetail.RoomseceondlistActivity" />
         <activity android:name=".Detail.HomeDetail.GroupchatDetailActivity" />
         <activity android:name=".Detail.HomeDetail.MainRoomDetailActivity" />
+
         <activity android:name=".Detail.HomeDetail.MakeRoomActivity" />
+
         <activity android:name=".Detail.MypageDetail.MypageDetailActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity">
+
+        </activity>
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

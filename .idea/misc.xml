@@ -38,7 +38,8 @@
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_frag_review.xml" value="0.2989583333333333" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_groupchat_detail.xml" value="0.3171875" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
-        <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_make_room.xml" value="0.2046875" />
+        <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_main_room_detail.xml" value="0.4" />
+        <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_make_room.xml" value="0.4" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_memberinit.xml" value="0.264" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_memberinit1.xml" value="0.4" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/activity_memberinit2.xml" value="0.264" />
@@ -51,7 +52,7 @@
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_competition.xml" value="0.2046875" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_freemeeting.xml" value="0.2046875" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_groupchat.xml" value="0.20104166666666667" />
-        <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_home_list.xml" value="0.20104166666666667" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_mentor.xml" value="0.2046875" />
         <entry key="..\:/Android_Java_Examples_1/retry_capstone_final/app/src/main/res/layout/fragment_mypage.xml" value="0.3129251700680272" />

@@ -34,7 +34,6 @@ public class MypageActivity extends Fragment {
     FirebaseDatabase database;
     FirebaseFirestore db;
 
-
     public void onCreate(@Nullable  Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = FragmentMypageBinding.inflate(getLayoutInflater());
@@ -42,6 +41,7 @@ public class MypageActivity extends Fragment {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
         db = FirebaseFirestore.getInstance();
+
     }
 
     @Nullable
@@ -75,16 +75,18 @@ public class MypageActivity extends Fragment {
                     if(document != null)
                         if (document.exists()){
                             Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                            if (document.getData().get("profilepic") !=null ){
-                                Glide.with(getActivity()).
-                                        load(document.getData().get("profilepic")).centerCrop().override(500).into(binding.profileImage);
-                            }
-                            binding.username.setText(document.getData().get("name").toString());
-                            binding.userMypageHistory.setText(document.getData().get("userhistory").toString());
-                            binding.userinfo.setText(document.getData().get("status").toString());
+                            try{
+                                if (document.getData().get("profilepic") !=null ){
+                                    Glide.with(getActivity()).     //Glide.with(getActivity())  Activity가 끝난 상태에서 Glide with 함수를 호출 때문에 오류 생김 그래서 전역 변수로 사용해줘야함
+                                            load(document.getData().get("profilepic")).centerCrop().override(500).into(binding.profileImage);
+                                }
+                                binding.username.setText(document.getData().get("name").toString());
+                                binding.userMypageHistory.setText(document.getData().get("userhistory").toString());
+                                binding.userinfo.setText(document.getData().get("status").toString());
 //                      binding.usercategory.setText(users.getUsercategory());
-                        }else{
-                            Log.d(TAG,"NO such document");
+                            }catch (Exception e){
+                                e.getMessage();
+                            }
                         }
                 }else{
                     Log.d(TAG, "get failed with ", task.getException());

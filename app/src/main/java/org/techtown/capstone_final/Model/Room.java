@@ -2,9 +2,10 @@ package org.techtown.capstone_final.Model;
 
 public class Room {
 
-    String roomTitle,  roomprofilepic, roomContent, roomDate,roomTime,roomPlace,roomHeadcount,roomId;
+    private String publisher,roomTitle,  roomprofilepic, roomContent, roomDate,roomTime,roomPlace,roomHeadcount,roomId;
 
-    public Room(String roomTitle, String roomprofilepic, String roomContent, String roomDate, String roomTime, String roomPlace, String roomHeadcount, String roomId) {
+    public Room(String publisher, String roomTitle, String roomprofilepic, String roomContent, String roomDate, String roomTime, String roomPlace, String roomHeadcount, String roomId) {
+        this.publisher = publisher;
         this.roomTitle = roomTitle;
         this.roomprofilepic = roomprofilepic;
         this.roomContent = roomContent;
@@ -32,6 +33,10 @@ public class Room {
 
 //        this.roomHeadcount = roomHeadcount;
 //    }
+
+    public String getPublisher() { return publisher; }
+
+    public void setPublisher(String publisher) { this.publisher = publisher; }
 
     public String getRoomId() {
         return roomId;
