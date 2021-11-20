@@ -21,7 +21,9 @@
         android:text="언제 어디서 만나나요?"
         android:textColor="@color/Navy_700"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="65dp" />
     <ScrollView
         android:layout_width="327sp"
         android:layout_height="match_parent"
@@ -55,14 +57,16 @@
                     android:layout_marginStart="25sp"
                     android:text="날짜선택"
                     android:textColor="@color/Navy_700"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginLeft="25sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginStart="20sp"
                     android:text="YY.MM.dd"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:layout_marginLeft="20sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -111,14 +115,16 @@
                     android:layout_marginStart="25sp"
                     android:text="시간선택"
                     android:textColor="@color/Navy_700"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginLeft="25sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginStart="20sp"
                     android:text="hh.mm"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:layout_marginLeft="20sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -165,14 +171,16 @@
                     android:layout_marginStart="25sp"
                     android:text="장소선택"
                     android:textColor="@color/Navy_700"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginLeft="25sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:layout_marginStart="20sp"
                     android:text="place"
-                    android:textColor="@color/gray" />
+                    android:textColor="@color/gray"
+                    android:layout_marginLeft="20sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -248,7 +256,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="25sp"
+                    android:layout_marginleft="25sp"
                     android:text="인원선택"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -256,7 +264,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="20sp"
+                    android:layout_marginleft="20sp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
@@ -334,7 +342,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="25sp"
+                    android:layout_marginleft="25sp"
                     android:text="채팅방 링크"
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
@@ -342,7 +350,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
-                    android:layout_marginStart="20sp"
+                    android:layout_marginleft="20sp"
                     android:text="place"
                     android:textColor="@color/gray" />
 
