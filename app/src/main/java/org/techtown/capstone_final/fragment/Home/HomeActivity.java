@@ -15,12 +15,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.techtown.capstone_final.Detail.HomeDetail.MainRoomDetailActivity;
+import org.techtown.capstone_final.Model.Room;
 import org.techtown.capstone_final.databinding.FragmentHomeBinding;
 import org.techtown.capstone_final.fragment.Home.Adapters.FragementAdapter;
+
+import java.util.ArrayList;
 
 public class HomeActivity extends Fragment {
 
     FragmentHomeBinding binding;
+    ArrayList<Room> list = new ArrayList<>();
     ProgressDialog progressDialog;
     FirebaseAuth auth;
     FirebaseDatabase database;
@@ -32,20 +36,17 @@ public class HomeActivity extends Fragment {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
-        
-
-
-
     }
 
     @Nullable
-
     @Override // oncreatview MainActivty => activy_main_xml 연동하는 느낌이라고 생각하면됩니다. 연결되게 해주는거
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable Bundle savedInstanceState)
     {
 
         binding = FragmentHomeBinding.inflate(inflater,container,false);
-        View view = binding.getRoot();
+
+//        RoomsAdapter adapter = new RoomsAdapter(list,getContext());
+
 
         binding.viewPager.setAdapter(new FragementAdapter(getActivity().getSupportFragmentManager()));
         binding.tablayout.setupWithViewPager(binding.viewPager);
@@ -57,6 +58,6 @@ public class HomeActivity extends Fragment {
                 startActivity(intent);
             }
         });
-        return  view;
+        return  binding.getRoot();
     }
 }

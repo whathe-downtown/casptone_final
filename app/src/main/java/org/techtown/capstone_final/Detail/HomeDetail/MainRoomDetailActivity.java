@@ -34,7 +34,8 @@ public class MainRoomDetailActivity extends AppCompatActivity {
 
 
         auth = FirebaseAuth.getInstance();
-
+    }
+}
 
         /*binding.makeroomDetailSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +75,3 @@ public class MainRoomDetailActivity extends AppCompatActivity {
         });*/
 
 
-    }
-}
