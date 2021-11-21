@@ -96,6 +96,7 @@ public class MainRoomDetailActivity extends AppCompatActivity {
 
                 if(open_date) {
                     Layout_Get_Date.setVisibility(Layout_Get_Date.VISIBLE);
+                    this.open_date = !open_date;
                 }
                 else{
                     Layout_Get_Date.setVisibility(Layout_Get_Date.GONE);
