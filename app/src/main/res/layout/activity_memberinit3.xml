@@ -16,7 +16,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
@@ -35,14 +34,16 @@
         android:layout_below="@+id/welcome_message"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="57dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="42dp"
         android:layout_marginRight="42dp"
         android:text="자기소개"
         android:textColor="@color/Navy_700"
         android:textSize="15sp"
         android:textStyle="bold" />
+
     <EditText
         android:id="@+id/status"
         android:layout_width="327sp"
@@ -66,7 +67,7 @@
         android:background="@drawable/rounded_corner"
         android:gravity="top"
         android:hint="자기소개 예시\nex)교내대회 ooo우승\n      해커톤 000입상\n      00전공 A+, 100시간 "
-        android:inputType="text"
+        android:inputType="textMultiLine"
         android:maxLines="1"
         android:padding="15dp"
         android:textSize="12dp" />

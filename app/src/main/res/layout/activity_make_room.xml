@@ -157,7 +157,7 @@
                     android:background="@drawable/rounded_corner"
                     android:gravity="top"
                     android:hint="무슨 활동을 하나요?"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:maxLines="1"
                     android:padding="15dp"
                     android:textSize="12dp" />

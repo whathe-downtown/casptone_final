@@ -1,28 +1,17 @@
 package org.techtown.capstone_final.Detail.HomeDetail;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
-import org.techtown.capstone_final.MainActivity;
 import org.techtown.capstone_final.databinding.ActivityMakeRoomBinding;
-import org.techtown.capstone_final.fragment.Home.HomeActivity;
-
-import java.util.HashMap;
 
 public class MakeRoomActivity extends AppCompatActivity {
 
@@ -54,7 +43,7 @@ public class MakeRoomActivity extends AppCompatActivity {
             }
         });
     }
-
+/*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -136,6 +125,5 @@ public class MakeRoomActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        });
+        });*/
     }
-}
