@@ -120,7 +120,7 @@
                 android:background="@drawable/rounded_corner"
                 android:gravity="top"
                 android:hint="경력사항"
-                android:inputType="textPersonName"
+                android:inputType="textMultiLine"
                 android:padding="15dp"
                 android:textSize="12dp" />
 
