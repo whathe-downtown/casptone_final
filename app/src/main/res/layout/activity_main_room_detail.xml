@@ -490,15 +490,30 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:layout_width="327sp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_navy_button"
-        android:text="만들기"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="700sp"
-        ></Button>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+
+            android:background="@color/Navy_700" />
+        <Button
+            android:layout_width="327sp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_corner_navy_button"
+            android:text="NEXT"
+            android:layout_marginTop="5sp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+
+            ></Button>
+    </LinearLayout>
 
 </RelativeLayout>
