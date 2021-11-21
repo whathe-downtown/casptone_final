@@ -4,68 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/orange_100"
+    android:background="@color/anyangcolor"
     tools:context=".Detail.HomeDetail.GroupchatDetailActivity">
 
 
-    <ScrollView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" >
 
-        <ImageView
-            android:id="@+id/room_backgrounImage"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:background="@color/lightgray"/>
+            android:layout_height="match_parent">
 
-
-            <TextView
-                android:id="@+id/room_user_name"
+            <ImageView
+                android:id="@+id/iamgeview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="userName"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginTop="35dp"
+                android:src="@drawable/ic_backarrow"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:maxLines="1"/>
+                android:src="@drawable/ic_hamburger" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
 
-            <TextView
-                android:id="@+id/room_title_insert"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Roomtitle"
-                android:textColor="@color/black"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                android:padding="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/room_user_name" />
-
-            <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar2">
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/room_backgrounImage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="-29dp"
-                tools:layout_editor_absoluteY="-246dp">
+                android:layout_height="230dp"
+                android:background="@color/organe_yellow"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="200dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_edit_text_size">
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/room_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="userName"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="35dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:maxLines="1"/>
+
+                <TextView
+                    android:id="@+id/room_title_insert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roomtitle"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    android:padding="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/room_user_name" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout_editor_absoluteX="-29dp"
+                    tools:layout_editor_absoluteY="-246dp">
+
+                </LinearLayout>
 
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="160dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_user"
-            />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="160dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_user"
+                />
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="195dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_edit"
+                android:background="@color/white"/>
+
+
+        </FrameLayout>
 
     </ScrollView>
 
@@ -89,18 +147,19 @@
             android:layout_marginRight="5dp"
             android:src="@drawable/ic_hear_empty__2_" />
 
-        <Button
+        <TextView
             android:id="@+id/editTextTextPersonName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/login_button_style"
+            android:background="@drawable/round_edit_text_size"
             android:ems="10"
             android:text="방 참가하기"
             android:textSize="28sp"
             android:gravity="center"
             android:textColor="@color/white"
             android:padding="5dp"
+            android:backgroundTint="@color/organe_yellow"
             />
 
     </LinearLayout>

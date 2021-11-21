@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
+    tools:context=".Detail.HomeDetail.GroupchatDetailActivity">
+
+    <ImageView
+        android:id="@+id/room_img"
+        android:layout_width="match_parent"
+        android:layout_height="250sp"
+        android:background="@color/Navy_100"></ImageView>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="asdasd\nss"
+            android:layout_marginTop="50sp"
+            android:textColor="@color/white"/>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+          <View
+              android:layout_width="match_parent"
+              android:layout_height="250sp"/>
+
+
+      </LinearLayout>
+
+
+
+
+
+<!-- 하단바 -->
+    <RelativeLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+
+        android:background="@color/Navy_700" />
+
+        <ImageView
+            android:id="@+id/sendMessage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="8sp"
+            android:src="@drawable/ic_hear_empty__2_" />
+    <Button
+        android:layout_width="327sp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/sendMessage"
+        android:layout_centerVertical="true"
+        android:background="@drawable/rounded_corner_navy_button"
+        android:text="NEXT"
+        android:textSize="15sp"
+        android:textStyle="bold"
+
+        ></Button></RelativeLayout>
+
+
+
+
+</RelativeLayout>
