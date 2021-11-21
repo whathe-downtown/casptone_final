@@ -4,66 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/anyangcolor"
+    android:background="@color/orange_100"
     tools:context=".Detail.HomeDetail.GroupchatDetailActivity">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/iamgeview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_backarrow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_hamburger" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.appcompat.widget.Toolbar>
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar2">
-    <FrameLayout
-        android:id="@+id/framelayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/room_backgrounImage"
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:background="@color/organe_yellow"/>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="200dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_edit_text_size">
+            android:background="@color/lightgray"/>
+
 
             <TextView
                 android:id="@+id/room_user_name"
@@ -101,7 +55,6 @@
             </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -113,17 +66,6 @@
             android:src="@drawable/ic_user"
             />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="195dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_edit"
-            android:background="@color/white"/>
-
-
-    </FrameLayout>
 
     </ScrollView>
 
@@ -147,19 +89,18 @@
             android:layout_marginRight="5dp"
             android:src="@drawable/ic_hear_empty__2_" />
 
-        <TextView
+        <Button
             android:id="@+id/editTextTextPersonName"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/round_edit_text_size"
+            android:background="@drawable/login_button_style"
             android:ems="10"
             android:text="방 참가하기"
             android:textSize="28sp"
             android:gravity="center"
             android:textColor="@color/white"
             android:padding="5dp"
-            android:backgroundTint="@color/organe_yellow"
             />
 
     </LinearLayout>
