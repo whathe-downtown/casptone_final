@@ -84,7 +84,7 @@ public class MainRoomDetailActivity extends AppCompatActivity {
 
 
 
-        view_date.setText("언제 모이나요?");
+        view_date.setText("언제 모이나요??");
         view_time.setText("몇시에 모이나요?");
         view_place.setText("어디소 모이나요?");
         view_personnel.setText("몇명이서 모이나요?");
