@@ -255,7 +255,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="15sp">
+                android:layout_marginTop="15sp"
+                app:selectionRequired="true"
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Online"
@@ -364,7 +366,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15sp"
                 android:visibility="visible"
-                app:selectionRequired="true">
+                app:selectionRequired="true"
+                app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_individual"
