@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@color/backgroundcolor"
-    android:visibility="visible">
+    android:visibility="gone">
 
     <TextView
         android:id="@+id/title"
@@ -509,8 +509,9 @@
             android:layout_height="2dp"
 
             android:background="@color/Navy_700" />
-        <Button
 
+        <Button
+            android:id="@+id/makeroom_next2"
             android:layout_width="327sp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
