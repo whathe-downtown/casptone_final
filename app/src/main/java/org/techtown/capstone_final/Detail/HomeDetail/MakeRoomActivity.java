@@ -47,7 +47,7 @@ public class MakeRoomActivity extends AppCompatActivity {
         binding.makeroomNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MakeRoomActivity.this, MainRoomDetailActivity.class);
+                Intent intent = new Intent(MakeRoomActivity.this, MakeRoomDetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -62,6 +62,21 @@ public class MakeRoomActivity extends AppCompatActivity {
         });
 
 
+        binding.spreadInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.LayoutGetInfo.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+        binding.submitInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.LayoutGetInfo.setVisibility(View.GONE);
+                binding.viewInfo.setText(binding.RoomStatus.getText());
+            }
+        });
     }
 /*
     @Override

@@ -114,11 +114,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/view_link"
+                    android:id="@+id/view_info"
                     android:layout_width="200dp"
                     android:layout_height="20sp"
                     android:layout_marginLeft="20sp"
-                    android:text="link"
+                    android:text="info"
                     android:textColor="@color/gray" />
 
                 <View
@@ -127,7 +127,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/spread_time"
+                    android:id="@+id/spread_info"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread" />
@@ -135,7 +135,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Layout_Get_Time"
+                android:id="@+id/Layout_Get_Info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -173,7 +173,7 @@
 
 
                 <Button
-                    android:id="@+id/submit_time"
+                    android:id="@+id/submit_info"
                     android:layout_width="230sp"
                     android:layout_height="30sp"
                     android:text="등록"

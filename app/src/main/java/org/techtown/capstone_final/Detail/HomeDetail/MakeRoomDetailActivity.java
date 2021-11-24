@@ -20,7 +20,7 @@ import org.techtown.capstone_final.databinding.ActivityMakeRoomDetailBinding;
 
 import java.util.Calendar;
 
-public class MainRoomDetailActivity extends AppCompatActivity {
+public class MakeRoomDetailActivity extends AppCompatActivity {
 
     ActivityMakeRoomDetailBinding binding;
     DatabaseReference databaseReference;

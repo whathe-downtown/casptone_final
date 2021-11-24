@@ -26,7 +26,7 @@
         <activity android:name=".Password_Reset" />
         <activity android:name=".Detail.HomeDetail.RoomseceondlistActivity" />
         <activity android:name=".Detail.HomeDetail.GroupchatDetailActivity" />
-        <activity android:name=".Detail.HomeDetail.MainRoomDetailActivity" />
+        <activity android:name=".Detail.HomeDetail.MakeRoomDetailActivity" />
 
         <activity android:name=".Detail.HomeDetail.MakeRoomActivity" />
 
