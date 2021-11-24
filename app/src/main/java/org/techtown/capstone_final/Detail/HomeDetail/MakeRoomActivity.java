@@ -61,7 +61,7 @@ public class MakeRoomActivity extends AppCompatActivity {
             }
         });
 
-
+        /* 인포 버튼 */
         binding.spreadInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
