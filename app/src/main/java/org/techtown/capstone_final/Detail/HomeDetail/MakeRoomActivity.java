@@ -89,12 +89,13 @@ public class MakeRoomActivity extends AppCompatActivity {
 
             // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
            Uri sFile = data.getData();
-           binding.Roomprofilepic.setImageURI(sFile);
+//           binding.Roomprofilepic.setImageURI(sFile);
 
 
         }
 
-
+    }
+}
 /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -178,5 +179,4 @@ public class MakeRoomActivity extends AppCompatActivity {
                 finish();nt
             }
         });*/
-    }
-}
+
