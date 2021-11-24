@@ -14,19 +14,78 @@
             android:layout_width="350dp"
             android:layout_height="160dp"
             android:orientation="vertical"
-            android:weightSum="5.1"
+            android:weightSum="5"
             android:background="@drawable/stroke">
 
-
-            <TextView
-                android:id="@+id/roomname"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="15sp"
                 android:layout_weight="1"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:text="TextView" />
+                android:orientation="horizontal"
+                android:gravity="bottom">
+                <TextView
+                    android:id="@+id/roomname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:text="TextView"
+                    android:padding="0sp"
+                    android:layout_marginLeft="10sp"/>
+                <TextView
+                    android:id="@+id/roomCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Category"
+                    android:padding="0sp"/>
+                <View
+                    android:layout_width="0sp"
+                    android:layout_height="0sp"
+                    android:layout_weight="1"/>
+                <ImageView
+                    android:layout_width="13sp"
+                    android:layout_height="13sp"
 
+                    android:src="@drawable/ic_ico_bookmark"/>
+                <TextView
+                    android:id="@+id/bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="13dp"
+                    android:text="x"
+                    android:layout_marginRight="5sp"
+                    />
+                <ImageView
+                    android:layout_width="13sp"
+                    android:layout_height="13sp"
+                    android:src="@drawable/ic_ico_hart"/>
+                <TextView
+                    android:id="@+id/start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="13dp"
+                    android:text="y"
+                    android:layout_marginRight="5sp"
+                     />
+                <ImageView
+                    android:layout_width="13sp"
+                    android:layout_height="13sp"
+                    android:src="@drawable/ic_ico_hart"/>
+                <TextView
+                    android:id="@+id/hart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="13dp"
+                    android:text="z"
+                    android:layout_marginRight="10sp"/>
+
+            </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/room_proifle_recyclerview"
                 android:layout_width="wrap_content"
@@ -35,30 +94,37 @@
                 android:orientation="horizontal"
                 android:weightSum="4"/>
 
+            <View
+                android:layout_width="327sp"
+                android:layout_height="2dp"
+                android:layout_margin="10sp"
+                android:layout_gravity="center"
 
+                android:background="@color/gray"
+                android:layout_weight="0.001"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:weightSum="2"
+                android:layout_weight="0.9"
                 android:orientation="horizontal"
                 android:gravity="bottom">
 
                 <TextView
                     android:id="@+id/roomlocation"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="TextView" />
+                    android:layout_height="match_parent"
+                    android:text="TextView"
+                    android:layout_marginLeft="10sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/roomdate"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="TextView" />
+                    android:layout_height="match_parent"
+
+                    android:text="TextView"
+                    android:layout_marginLeft="10sp"/>
             </LinearLayout>
 
 

@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@color/backgroundcolor"
-    android:visibility="gone">
+    android:visibility="visible">
 
     <TextView
         android:id="@+id/title"
@@ -510,6 +510,7 @@
 
             android:background="@color/Navy_700" />
         <Button
+
             android:layout_width="327sp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
