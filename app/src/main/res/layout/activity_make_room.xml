@@ -226,6 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="20sp"
                     android:entries="@array/subject"
+                    android:spinnerMode="dialog"
                     />
 
                 <View
