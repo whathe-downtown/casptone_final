@@ -1,23 +1,26 @@
 package org.techtown.capstone_final.Detail.HomeDetail;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 
+import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.ActivityMakeRoomBinding;
 import org.techtown.capstone_final.fragment.Home.HomeActivity;
 
 public class MakeRoomActivity extends AppCompatActivity {
 
     ActivityMakeRoomBinding binding;
-    FirebaseDatabase database;
+    FirebaseFirestore db;
     FirebaseStorage storage;
     FirebaseAuth auth;
     Spinner spinner;
@@ -31,53 +34,61 @@ public class MakeRoomActivity extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         auth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
+        db = FirebaseFirestore.getInstance();
 
-        //방 삽입할려고 사진첩으로 이동 부분
-        binding.Roomprofilepic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, 34);
+        findViewById(R.id.Roomprofilepic).setOnClickListener(onClickListener);
+        findViewById(R.id.makeroom_next).setOnClickListener(onClickListener);
+        findViewById(R.id.back_imageview).setOnClickListener(onClickListener);
+    }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.Roomprofilepic:
+                    pickImage();
+                    break;
+
+                case R.id.makeroom_next:
+                   Save();
+                    break;
+
+                case R.id.back_imageview:
+                   backButton();
+                    break;
+
             }
-        });
-        // 방의 내용을 저장하고 다음으로 이동
-        binding.makeroomNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MakeRoomActivity.this, MakeRoomDetailActivity.class);
+        }
+    };
+
+
+    private void pickImage() {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, 34);
+    }
+
+    private void Save(){
+        Intent intent = new Intent(MakeRoomActivity.this, MakeRoomDetailActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        binding.backImageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MakeRoomActivity.this, HomeActivity.class);
+    }
+    private void backButton(){
+        Intent intent = new Intent(MakeRoomActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
-            }
-        });
-
-        /* 인포 버튼 */
-        binding.spreadInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.LayoutGetInfo.setVisibility(View.VISIBLE);
-
-
-            }
-        });
-        binding.submitInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.LayoutGetInfo.setVisibility(View.GONE);
-                binding.viewInfo.setText(binding.RoomStatus.getText());
-            }
-        });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data.getData() != null) {
+
+            // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
+            Uri sFile = data.getData();
+//            binding..setImageURI(sFile);
+}
+
+
 /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
