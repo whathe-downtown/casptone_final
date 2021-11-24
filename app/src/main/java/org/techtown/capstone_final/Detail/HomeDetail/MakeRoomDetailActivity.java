@@ -93,7 +93,7 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
         view_link.setText("채팅방 주소를 알려주세요");
 
         boolean open_date=true;
-        
+
         binding.makeroomNext2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +114,7 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
                 else{
                     Layout_Get_Date.setVisibility(Layout_Get_Date.GONE);
                 }
-                    spread_date.setRotationX(180);
+                spread_date.setRotationX(180);
             }
         });
 

@@ -3,11 +3,9 @@ package org.techtown.capstone_final;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.techtown.capstone_final.Adapters.HorizonAdapter;
 import org.techtown.capstone_final.Model.Users;
 import org.techtown.capstone_final.databinding.SampleShowRoomBinding;
 
@@ -28,11 +26,7 @@ public class MentoDetailActivity extends AppCompatActivity {
         binding = SampleShowRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        HorizonAdapter adapter = new HorizonAdapter(list, getApplicationContext());
-        binding.roomProifleRecyclerview.setAdapter(adapter);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        binding.roomProifleRecyclerview.setLayoutManager(layoutManager);
 
 //        DocumentReference dbcRef = db.collection("user").document((FirebaseAuth.getInstance().getCurrentUser().getUid()));
 //        dbcRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {

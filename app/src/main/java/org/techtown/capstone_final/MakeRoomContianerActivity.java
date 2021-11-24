@@ -17,6 +17,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
     Button one = findViewById(R.id.makeroom_next);
     Button two = findViewById(R.id.makeroom_next2);
     int page = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +33,6 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                 page++;
             }
         });
-
-        //CASE 첫 번째에서 backpresdded누르는 경우
-        //CASE 두 번재에서 backpresddd누르는경우
-
 
     }
     public void onBackPressed() {
