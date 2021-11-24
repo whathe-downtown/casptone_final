@@ -16,13 +16,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.techtown.capstone_final.R;
-import org.techtown.capstone_final.databinding.ActivityMainRoomDetailBinding;
+import org.techtown.capstone_final.databinding.ActivityMakeRoomDetailBinding;
 
 import java.util.Calendar;
 
 public class MainRoomDetailActivity extends AppCompatActivity {
 
-    ActivityMainRoomDetailBinding binding;
+    ActivityMakeRoomDetailBinding binding;
     DatabaseReference databaseReference;
     FirebaseAuth auth;
     EditText roomname ,room_status;
@@ -39,7 +39,7 @@ public class MainRoomDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainRoomDetailBinding.inflate(getLayoutInflater());
+        binding = ActivityMakeRoomDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         databaseReference = FirebaseDatabase.getInstance().getReference("Room");
 
