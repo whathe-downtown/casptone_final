@@ -23,16 +23,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="250sp"
                 android:background="@color/Navy_100"/>
+
             <Button
                 android:id="@+id/modify"
                 android:layout_width="65sp"
                 android:layout_height="30sp"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="25sp"
+                android:layout_marginTop="25dp"
                 android:layout_marginRight="38dp"
                 android:background="@drawable/rounded_corner_navy_button"
                 android:padding="0sp"
-                android:text="수정" />
+                android:text="수정"
+                tools:ignore="TouchTargetSizeCheck" />
 
 
             <View
