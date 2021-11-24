@@ -66,11 +66,11 @@
                     android:layout_height="20sp"
                     android:layout_marginStart="20sp"
                     android:layout_marginLeft="20sp"
-                    android:hint="목"/>
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="asd"/>
+                    android:hint="title"
+                    android:padding="0sp"
+                    android:background="@null"
+                    />
+
 
                 <View
                     android:layout_width="0dp"
