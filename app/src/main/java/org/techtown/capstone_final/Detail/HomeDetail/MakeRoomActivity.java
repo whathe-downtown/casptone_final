@@ -24,6 +24,8 @@ public class MakeRoomActivity extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseAuth auth;
     Spinner spinner;
+    Uri uri;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +88,10 @@ public class MakeRoomActivity extends AppCompatActivity {
         if (data.getData() != null) {
 
             // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
-            Uri sFile = data.getData();
-//            binding..setImageURI(sFile);
+           Uri sFile = data.getData();
+           binding.Roomprofilepic.setImageURI(sFile);
+
+
         }
 
 
