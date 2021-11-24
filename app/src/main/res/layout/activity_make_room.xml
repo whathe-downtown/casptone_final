@@ -140,17 +140,16 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
-                android:visibility="gone">
-                    <LinearLayout
+                android:visibility="visible">
+                    <ImageView
                         android:id="@+id/Roomprofilepic"
                         android:layout_width="327sp"
                         android:layout_height="100dp"
                         android:background="@drawable/ic_img_img"
                         android:layout_marginTop="15dp"
                         android:layout_weight="1"
-                        android:gravity="center">
-
-                  </LinearLayout><!--  //android:elevation="5dp">// 그림자-->
+                        android:gravity="center"/>
+                <!--  //android:elevation="5dp">// 그림자-->
 
 
 
