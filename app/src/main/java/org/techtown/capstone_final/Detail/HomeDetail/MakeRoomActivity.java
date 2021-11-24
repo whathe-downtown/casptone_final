@@ -50,11 +50,11 @@ public class MakeRoomActivity extends AppCompatActivity {
                     break;
 
                 case R.id.makeroom_next:
-                   Save();
+                    Save();
                     break;
 
                 case R.id.back_imageview:
-                   backButton();
+                    backButton();
                     break;
 
             }
@@ -69,15 +69,17 @@ public class MakeRoomActivity extends AppCompatActivity {
         startActivityForResult(intent, 34);
     }
 
-    private void Save(){
+    private void Save() {
         Intent intent = new Intent(MakeRoomActivity.this, MakeRoomDetailActivity.class);
-                startActivity(intent);
+        startActivity(intent);
     }
-    private void backButton(){
+
+    private void backButton() {
         Intent intent = new Intent(MakeRoomActivity.this, HomeActivity.class);
-                startActivity(intent);
-                finish();
+        startActivity(intent);
+        finish();
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -86,7 +88,7 @@ public class MakeRoomActivity extends AppCompatActivity {
             // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
             Uri sFile = data.getData();
 //            binding..setImageURI(sFile);
-}
+        }
 
 
 /*
@@ -173,3 +175,4 @@ public class MakeRoomActivity extends AppCompatActivity {
             }
         });*/
     }
+}
