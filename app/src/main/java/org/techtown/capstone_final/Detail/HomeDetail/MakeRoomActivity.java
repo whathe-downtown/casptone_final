@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
 import org.techtown.capstone_final.databinding.ActivityMakeRoomBinding;
+import org.techtown.capstone_final.fragment.Home.HomeActivity;
 
 public class MakeRoomActivity extends AppCompatActivity {
 
@@ -42,6 +43,25 @@ public class MakeRoomActivity extends AppCompatActivity {
                 startActivityForResult(intent, 34);
             }
         });
+        // 방의 내용을 저장하고 다음으로 이동
+        binding.makeroomNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MakeRoomActivity.this, MainRoomDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        binding.backImageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MakeRoomActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 /*
     @Override
@@ -121,9 +141,9 @@ public class MakeRoomActivity extends AppCompatActivity {
         binding.mypageDetailBackarrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MakeRoomActivity.this, HomeActivity.class);
+                Ient intent = new Intent(MakeRoomActivity.this, HomeActivity.class);
                 startActivity(intent);
-                finish();
+                finish();nt
             }
         });*/
     }

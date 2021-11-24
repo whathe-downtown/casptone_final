@@ -153,7 +153,7 @@
                             android:layout_width="30sp"
                             android:layout_height="30sp"
                             android:background="@drawable/ic_ico_img"/>
-                    </LinearLayout>//android:elevation="5dp">// 그림자
+                  </LinearLayout><!--  //android:elevation="5dp">// 그림자-->
 
 
 
@@ -276,4 +276,12 @@
 
             ></Button>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/back_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_backarrow" />
 </RelativeLayout>
