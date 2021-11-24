@@ -113,7 +113,13 @@
                     android:textColor="@color/Navy_700"
                     android:textStyle="bold" />
 
-
+                <TextView
+                    android:id="@+id/view_link"
+                    android:layout_width="200dp"
+                    android:layout_height="20sp"
+                    android:layout_marginLeft="20sp"
+                    android:text="link"
+                    android:textColor="@color/gray" />
 
                 <View
                     android:layout_width="0dp"
