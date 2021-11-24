@@ -93,8 +93,7 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
         view_link.setText("채팅방 주소를 알려주세요");
 
         boolean open_date=true;
-
-        /* 데이터 피커 */
+        
         binding.makeroomNext2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

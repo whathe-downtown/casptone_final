@@ -40,7 +40,7 @@ public class MakeRoomActivity extends AppCompatActivity {
 
         findViewById(R.id.Roomprofilepic).setOnClickListener(onClickListener);
         findViewById(R.id.makeroom_next).setOnClickListener(onClickListener);
-        findViewById(R.id.back_imageview).setOnClickListener(onClickListener);
+
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -54,11 +54,6 @@ public class MakeRoomActivity extends AppCompatActivity {
                 case R.id.makeroom_next:
                     Save();
                     break;
-
-                case R.id.back_imageview:
-                    backButton();
-                    break;
-
             }
         }
     };
