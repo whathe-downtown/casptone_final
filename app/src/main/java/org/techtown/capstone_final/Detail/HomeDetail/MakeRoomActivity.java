@@ -25,6 +25,7 @@ public class MakeRoomActivity extends AppCompatActivity {
     FirebaseAuth auth;
     Spinner spinner;
     Uri uri;
+    int infoState = 1;
 
 
     @Override
@@ -40,6 +41,29 @@ public class MakeRoomActivity extends AppCompatActivity {
 
         findViewById(R.id.Roomprofilepic).setOnClickListener(onClickListener);
         findViewById(R.id.makeroom_next).setOnClickListener(onClickListener);
+
+        binding.spreadInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(infoState == 1){
+                    binding.LayoutGetInfo.setVisibility(View.VISIBLE);
+                    binding.spreadInfo.setRotation(180);
+                    infoState--; }
+                else{
+                    binding.LayoutGetInfo.setVisibility(View.GONE);
+                    binding.spreadInfo.setRotation(0);
+                    infoState++; }
+            }
+        });
+        binding.submitInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.viewInfo.setText(binding.RoomStatus.getText());
+                binding.LayoutGetInfo.setVisibility(View.GONE);
+                binding.spreadInfo.setRotation(0);
+                infoState++;
+            }
+        });
 
     }
 
@@ -90,6 +114,7 @@ public class MakeRoomActivity extends AppCompatActivity {
         }
 
     }
+
 }
 /*
     @Override

@@ -127,7 +127,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void emailcheck(){
-        binding.signUpButton.setEnabled(true);
+
+        .signUpButton.setEnabled(true);
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
         startActivity(intent);
 

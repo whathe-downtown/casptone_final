@@ -3,7 +3,6 @@ package org.techtown.capstone_final.Detail.HomeDetail;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,14 +28,14 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
     FirebaseAuth auth;
     EditText roomname ,room_status;
 
-    Button spread_date,spread_time,spread_place,spread_Personnel,spread_link;
-    Button submit_date,submit_time,submit_place,submit_Personnel,submit_link;
     LinearLayout Layout_Get_Date,Layout_Get_Time,Layout_Get_place,Layout_Get_Personnel,Layout_Get_Link;
     TextView view_date,view_time,view_place,view_personnel,view_link;
     TimePicker timePicker;
     DatePicker datePicker;
     Calendar c;
     TextView getplace,getpersonnel,getlink;
+
+    int dateState, timeState, placeState, personnelState, viewState = 1 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +49,6 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         /* id 찾기 */
-
-        spread_date = findViewById(R.id.spread_date);
-        spread_time = findViewById(R.id.spread_time);
-        spread_place = findViewById(R.id.spread_place);
-        spread_Personnel = findViewById(R.id.spread_Personnel);
-        spread_link = findViewById(R.id.spread_Link);
-
-        submit_date = findViewById(R.id.submit_date);
-        submit_time = findViewById(R.id.submit_time);
-        submit_place = findViewById(R.id.submit_place);
-        submit_Personnel = findViewById(R.id.submit_personnel);
-        submit_link = findViewById(R.id.submit_link);
 
         Layout_Get_Date = findViewById(R.id.Layout_Get_Date);
         Layout_Get_Time = findViewById(R.id.Layout_Get_Time);
@@ -103,22 +90,16 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
             }
         });
 
-        spread_date.setOnClickListener(new View.OnClickListener() {
+
+        binding.spreadDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(open_date) {
-                    Layout_Get_Date.setVisibility(Layout_Get_Date.VISIBLE);
-
-                }
-                else{
-                    Layout_Get_Date.setVisibility(Layout_Get_Date.GONE);
-                }
-                spread_date.setRotationX(180);
+                Layout_Get_Date.setVisibility(Layout_Get_Date.VISIBLE);
+                binding.spreadDate.setRotationX(180);
             }
         });
 
-        submit_date.setOnClickListener(new View.OnClickListener() {
+        binding.submitDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int year = datePicker.getYear();
@@ -126,27 +107,28 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
                 int dayOfMonth = datePicker.getDayOfMonth();
                 view_date.setText(year+"년"+month+"월"+dayOfMonth+"일");
                 Layout_Get_Date.setVisibility(Layout_Get_Date.GONE);
-                spread_date.setRotationX(0);
+                binding.spreadDate.setRotationX(0);
             }
         });
 
         /* 타임피커 피커 */
 
-        spread_time.setOnClickListener(new View.OnClickListener() {
+        binding.spreadTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Layout_Get_Time.setVisibility(Layout_Get_Time.VISIBLE);
-                spread_time.setRotationX(180);
+                binding.spreadTime.setRotationX(180);
             }
         });
 
-        submit_time.setOnClickListener(new View.OnClickListener() {
+        binding.submitTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 int hourOfDay = timePicker.getCurrentHour();
                 int minute = timePicker.getCurrentMinute();
                 view_time.setText(hourOfDay+"시"+minute+"분");
+
 /*
                 timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
                     @Override
@@ -156,65 +138,65 @@ public class MakeRoomDetailActivity extends AppCompatActivity {
                 });
 */
                 Layout_Get_Time.setVisibility(Layout_Get_Time.GONE);
-                spread_time.setRotationX(0);
+                binding.spreadTime.setRotationX(0);
             }
         });
 
         /* 장소 선택 */
 
-        spread_place.setOnClickListener(new View.OnClickListener() {
+        binding.spreadPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Layout_Get_place.setVisibility(Layout_Get_place.VISIBLE);
-                spread_place.setRotationX(180);
+                binding.spreadPlace.setRotationX(180);
             }
         });
 
-        submit_place.setOnClickListener(new View.OnClickListener() {
+        binding.submitPlace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Layout_Get_place.setVisibility(Layout_Get_place.GONE);
-                spread_place.setRotationX(0);
+                binding.spreadPlace.setRotationX(0);
                 view_place.setText(getplace.getText());
             }
         });
 
         /* 인원 선택 */
 
-        spread_Personnel.setOnClickListener(new View.OnClickListener() {
+        binding.spreadPersonnel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Layout_Get_Personnel.setVisibility(Layout_Get_Personnel.VISIBLE);
-                spread_Personnel.setRotationX(180);
+                binding.spreadPersonnel.setRotationX(180);
             }
         });
 
-        submit_Personnel.setOnClickListener(new View.OnClickListener() {
+        binding.submitPersonnel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Layout_Get_Personnel.setVisibility(Layout_Get_Personnel.GONE);
-                spread_Personnel.setRotationX(0);
+                binding.spreadPersonnel.setRotationX(0);
                 view_personnel.setText(getpersonnel.getText());
             }
         });
 
         /* 채팅방 링크 */
 
-        spread_link.setOnClickListener(new View.OnClickListener() {
+        binding.spreadLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Layout_Get_Link.setVisibility(Layout_Get_Link.VISIBLE);
-                spread_link.setRotationX(180);
+                binding.spreadLink.setRotationX(180);
             }
         });
-        submit_link.setOnClickListener(new View.OnClickListener() {
+        binding.submitLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Layout_Get_Link.setVisibility(Layout_Get_Link.GONE);
-                spread_link.setRotationX(0);
+                binding.spreadLink.setRotationX(0);
             }
         });
 
