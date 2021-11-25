@@ -7,6 +7,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.chip.Chip;
+
 import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 
 import static android.service.controls.ControlsProviderService.TAG;
@@ -91,6 +93,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         binding.makeRoom2.viewPersonnel.setText("몇명이서 모이나요?");
         binding.makeRoom2.viewLink.setText("채팅방 주소를 알려주세요");
 
+        Chip chip = ((Chip) binding.makeRoom2.infacyChipGroupPlace.getChildAt(binding.makeRoom2.infacyChipGroupPlace.getCheckedChipId()));
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -167,7 +170,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
                         break;
                     case R.id.submit_place:
-
+                        binding.makeRoom2.infacyChipGroupPlace.getCheckedChipId();
+                                binding.makeRoom2.viewPalce.setText(chip.getText().toString());
                         break;
                     case R.id.submit_personnel:
 
