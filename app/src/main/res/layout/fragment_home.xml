@@ -4,29 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:background="@color/backgroundcolor">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:contentInsetStart="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20sp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@drawable/rounded_corner1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:orientation="horizontal"
+            android:gravity="center">
 
-            <androidx.appcompat.widget.SearchView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="300sp"
+                android:layout_height="45sp"
+                android:background="@drawable/stroke_navy"
+                android:paddingLeft="20sp"
+                android:gravity="center_vertical">
+                <EditText
+                    android:layout_width="240sp"
+                    android:layout_height="match_parent"
+                    android:hint="검색어를 입력하세요"
+                    android:paddingLeft="20sp"
+                    android:background="@null"
+                    />
+                <Button
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:background="@drawable/ic_ico_search"/>
+            </LinearLayout>
+            <Button
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:background="@drawable/ic_ico_bell"
+                android:layout_marginLeft="20sp"/>
+
+        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
@@ -35,7 +54,8 @@
         android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/backgroundcolor"/>
 
     <HorizontalScrollView
         android:id="@+id/filterScrollView"
@@ -53,54 +73,78 @@
             app:chipSpacingVertical="6dp"
             app:singleLine="true"
             app:singleSelection="true"
-            app:checkedChip="@id/chipDefault"
             android:paddingHorizontal="12dp"
-            app:selectionRequired="true"
             tools:visibility="visible">
             <com.google.android.material.chip.Chip
-                android:id="@+id/chipDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
-                android:text="@string/initialize"
-                app:chipIconEnabled="true"
-                app:chipIconTint="@color/icon_filter_chip_state_list_reset"/>
+                android:text="@string/Humanities"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
-                android:text="@string/software"
-                app:chipIconEnabled="true"
-                app:chipIconTint="@color/icon_filter_chip_state_list_reset"/>
+                android:text="@string/TheFineArts"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
-                android:text="@string/economic"
-                app:chipIconEnabled="true"
-                app:chipIconTint="@color/icon_filter_chip_state_list_reset"/>
+                android:text="@string/Law"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
-                android:text="@string/music"
-                app:chipIconEnabled="true"
-                app:chipIconTint="@color/icon_filter_chip_state_list_reset"/>
+                android:text="@string/Management"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
-                android:text="@string/foreign"
-                app:chipIconEnabled="true"
-                app:chipIconTint="@color/icon_filter_chip_state_list_reset"/>
+                android:text="@string/Music"/>
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
-                android:text="@string/administration"
-                app:chipIconEnabled="true"
-                app:chipIconTint="@color/icon_filter_chip_state_list_reset"/>
-
+                android:text="@string/Public"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/Information"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/Agriculture"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/PhysicalEducation"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/Marine"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/Art"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/SocialScience"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/NaturalScience"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.casptonefinal.chip"
+                android:text="@string/LifeScience"/>
 
         </com.google.android.material.chip.ChipGroup>
     </HorizontalScrollView>
@@ -114,12 +158,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/basketButtonContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/basketButton"
@@ -134,6 +172,6 @@
             android:layout_marginBottom="80sp"/>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

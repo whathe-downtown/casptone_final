@@ -8,9 +8,11 @@
         android:topRightRadius="10dp"/>
     <stroke
         android:width="2dp"
-        android:color="@color/organe_yellow" />
+        android:color="@color/Navy_700" />
     <corners android:bottomRightRadius="30dp"
         android:bottomLeftRadius="30dp"
         android:topLeftRadius="30dp"
         android:topRightRadius="30dp"/>
+
+
 </shape>
