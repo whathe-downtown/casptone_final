@@ -3,21 +3,30 @@ package org.techtown.capstone_final;
 import static android.service.controls.ControlsProviderService.TAG;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
     FirebaseAuth auth;
     FirebaseFirestore db;
+    FirebaseStorage storage;
 
     int page = 1;
     int infoState=1;
@@ -78,15 +87,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             }
         });
         // 첫 번째 방 이미지 클릭했을때
-        binding.makeRoom1.Roomprofilepic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, 34);
-            }
-        });
+
 
         //  두 번째 방 로직 ------------------------------------------------------------------------------
         findViewById(R.id.spread_date).setOnClickListener(onClickListener);
@@ -99,18 +100,97 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         findViewById(R.id.submit_place).setOnClickListener(onClickListener);
         findViewById(R.id.submit_personnel).setOnClickListener(onClickListener);
         findViewById(R.id.submit_link).setOnClickListener(onClickListener);
-
+        // 사용자 정보 로직
+        findViewById(R.id.Roomprofilepic).setOnClickListener(onClickListener);
+        findViewById(R.id.makeroom_next2).setOnClickListener(onClickListener);
         binding.makeRoom2.viewDate.setText("언제 모이나요??");
         binding.makeRoom2.viewTime.setText("몇시에 모이나요?");
         binding.makeRoom2.viewPalce.setText("어디소 모이나요?");
         binding.makeRoom2.viewPersonnel.setText("몇명이서 모이나요?");
         binding.makeRoom2.viewLink.setText("채팅방 주소를 알려주세요");
     }
+    private void Roomprofileupdate(){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, 33);
+    }
+    private void save(){
+        String roomname = binding.makeRoom1.Roomname.getText().toString();
+        String roominfo = binding.makeRoom1.RoomStatus.getText().toString();
+        String roomcategory = binding.makeRoom1.spinnerItem.getSelectedItem().toString();
+        String roomdate = binding.makeRoom2.viewDate.getText().toString();
+        String roomtime = binding.makeRoom2.viewDate.getText().toString();
+        String roomplocation =binding.makeRoom2.viewPalce.getText().toString();
 
-        View.OnClickListener onClickListener = new View.OnClickListener() {
+        String roomlink = binding.makeRoom2.viewLink.getText().toString();
+
+
+//        this.roomId = roomId;
+//        this.roomprofilepic = roomprofilepic;
+//        this.publisher = publisher;
+//        this.roomTitle = roomTitle;
+//
+//        this.roomcategory = roomcategory;
+//        this.roomContent = roomContent;
+//        this.roomdate = roomdate;
+//        this.roomTime = roomTime;
+//        this.roomlocation = roomlocation;
+//        this.roomHeadcount = roomHeadcount;
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data.getData() != null) {
+            // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
+            Uri sFile = data.getData();
+            binding.makeRoom1.Roomprofilepic.setImageURI(sFile);
+
+            storage = FirebaseStorage.getInstance();
+            final StorageReference reference = storage.getReference().child("profile pictures")
+                    .child(FirebaseAuth.getInstance().getUid());
+
+            reference.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            db.collection("users").document(FirebaseAuth.getInstance().getUid()).update("profilepic",uri.toString())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            startToast("성공적으로 이미지가 업로드 완료되었습니다.");
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            startToast("이미지가 업로드 되지 않았습니다.");
+                                        }
+                                    });
+
+                        }
+                    });
+
+                }
+            });
+        }
+    }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
+                    case R.id.Roomprofilepic:
+                        Roomprofileupdate();
+                        break;
+
+                    case R.id.makeroom_next2:
+                        save();
+                        break;
+
                     case R.id.spread_date:
                         if(state[0]==0){
                             binding.makeRoom2.LayoutGetDate.setVisibility(View.VISIBLE);
