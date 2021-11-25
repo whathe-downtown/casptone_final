@@ -240,6 +240,7 @@
                     android:id="@+id/spread_place"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
+                    style=""
                     android:background="@drawable/ic_ico_spread"
                      />
 
@@ -251,7 +252,19 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
-                android:visibility="gone">
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stroke_navy"
+                        android:backgroundTint="@color/white"/>
+
+                </LinearLayout>
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_place"
@@ -260,7 +273,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15sp"
                 app:selectionRequired="true"
-                app:singleSelection="true">
+                app:singleSelection="true"
+                android:visibility="gone">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Online"
@@ -279,6 +293,7 @@
                     android:text="@string/Offline"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
+            </com.google.android.material.chip.ChipGroup>
 
                 <EditText
                     android:id="@+id/Get_place"
@@ -290,7 +305,7 @@
                     android:textSize="12sp"
                     android:visibility="visible" />
 
-            </com.google.android.material.chip.ChipGroup>
+
 
             <Button
                 android:id="@+id/submit_place"

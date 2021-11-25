@@ -100,6 +100,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         findViewById(R.id.submit_place).setOnClickListener(onClickListener);
         findViewById(R.id.submit_personnel).setOnClickListener(onClickListener);
         findViewById(R.id.submit_link).setOnClickListener(onClickListener);
+
+
         // 사용자 정보 로직
         findViewById(R.id.Roomprofilepic).setOnClickListener(onClickListener);
         findViewById(R.id.makeroom_next2).setOnClickListener(onClickListener);
@@ -138,6 +140,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 //        this.roomlocation = roomlocation;
 //        this.roomHeadcount = roomHeadcount;
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -266,6 +269,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     break;
             }
         }
+
     };
 
 
