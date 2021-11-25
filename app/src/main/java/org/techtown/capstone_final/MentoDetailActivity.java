@@ -26,7 +26,11 @@ public class MentoDetailActivity extends AppCompatActivity {
         binding = SampleShowRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+//        HorizonAdapter adapter = new HorizonAdapter(list, getApplicationContext());
+//        binding.roomProifleRecyclerview.setAdapter(adapter);
+//
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+//        binding.roomProifleRecyclerview.setLayoutManager(layoutManager);
 
 //        DocumentReference dbcRef = db.collection("user").document((FirebaseAuth.getInstance().getCurrentUser().getUid()));
 //        dbcRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {

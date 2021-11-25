@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import org.techtown.capstone_final.fragment.Home.viewpager.CompetitionFragment;
-import org.techtown.capstone_final.fragment.Home.viewpager.FreeMeetingFragment;
 import org.techtown.capstone_final.fragment.Home.viewpager.MentorFragment;
 import org.techtown.capstone_final.fragment.Home.viewpager.StudyFragment;
 
@@ -27,8 +25,8 @@ public class FragementAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0 : return  new MentorFragment();
             case 1 : return  new StudyFragment();
-            case 2 : return  new CompetitionFragment();
-            case 3 : return  new FreeMeetingFragment();
+//            case 2 : return  new CompetitionFragment();
+//            case 3 : return  new FreeMeetingFragment();
             default: return  new MentorFragment();
         }
 
@@ -36,7 +34,7 @@ public class FragementAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 2;
     }
 
     @Nullable
@@ -44,17 +42,17 @@ public class FragementAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         String title = null;
         if (position==0){
-            title = "멘토링";
+            title = "1:1";
         }
         if (position==1){
-            title = "스터디";
+            title = "1:N";
         }
-        if (position==2){
-            title = "소모임";
-        }
-        if (position==3){
-            title = "공모전";
-        }
+//        if (position==2){
+//            title = "소모임";
+//        }
+//        if (position==3){
+//            title = "공모전";
+//        }
         return title;
     }
 }

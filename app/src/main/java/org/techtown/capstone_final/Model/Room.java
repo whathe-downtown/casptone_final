@@ -5,16 +5,18 @@ public class Room {
     private String publisher,roomTitle,  roomprofilepic,roomcategory, roomContent, roomdate,roomTime,roomlocation,roomHeadcount,roomId;
 
     public Room(String publisher, String roomTitle, String roomprofilepic, String roomcategory, String roomContent, String roomdate, String roomTime, String roomlocation, String roomHeadcount, String roomId) {
+        this.roomId = roomId;
+        this.roomprofilepic = roomprofilepic;
         this.publisher = publisher;
         this.roomTitle = roomTitle;
-        this.roomprofilepic = roomprofilepic;
+
         this.roomcategory = roomcategory;
         this.roomContent = roomContent;
         this.roomdate = roomdate;
         this.roomTime = roomTime;
         this.roomlocation = roomlocation;
         this.roomHeadcount = roomHeadcount;
-        this.roomId = roomId;
+
     }
 
     public  Room(){}

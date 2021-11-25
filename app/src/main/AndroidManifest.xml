@@ -28,8 +28,6 @@
         <activity android:name=".memberinit.memberinit1" />
         <activity android:name=".Password_Reset" />
         <activity android:name=".Detail.HomeDetail.GroupchatDetailActivity" />
-        <activity android:name=".Detail.HomeDetail.MakeRoomDetailActivity" />
-        <activity android:name=".Detail.HomeDetail.MakeRoomActivity" />
         <activity android:name=".Detail.MypageDetail.MypageDetailActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".SignInActivity"></activity>
