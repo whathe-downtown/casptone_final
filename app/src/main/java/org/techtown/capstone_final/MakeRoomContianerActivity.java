@@ -152,16 +152,22 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                         int Month = binding.makeRoom2.datePicker.getMonth();
                         int DayOfMonth = binding.makeRoom2.datePicker.getDayOfMonth();
                         binding.makeRoom2.viewDate.setText(Year + "년 " + Month + "월 " + DayOfMonth + "일" );
+                        binding.makeRoom2.LayoutGetDate.setVisibility(View.GONE);
+                        binding.makeRoom2.spreadDate.setRotation(0);
+                        state[0]--;
 
                         break;
                     case R.id.submit_time:
                         int hourOfDay = binding.makeRoom2.timePicker.getCurrentHour();
                         int minute = binding.makeRoom2.timePicker.getCurrentMinute();
                         binding.makeRoom2.viewTime.setText(hourOfDay+"시 "+minute+"분");
+                        binding.makeRoom2.LayoutGetTime.setVisibility(View.GONE);
+                        binding.makeRoom2.spreadTime.setRotation(0);
+                        state[1]--;
 
                         break;
                     case R.id.submit_place:
-                        
+
                         break;
                     case R.id.submit_personnel:
 

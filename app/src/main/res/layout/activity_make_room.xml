@@ -236,13 +236,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/spread_place"
-                    android:layout_width="30sp"
-                    android:layout_height="20sp"
-                    android:background="@drawable/ic_ico_spread"
-                    android:visibility="invisible"
-                    />
+
 
             </LinearLayout>
 
