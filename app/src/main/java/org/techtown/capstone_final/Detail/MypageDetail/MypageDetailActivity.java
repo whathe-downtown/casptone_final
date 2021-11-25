@@ -41,8 +41,6 @@
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        findViewById(R.id.mypage_detail_backarrow).setOnClickListener(onClickListener);
-        findViewById(R.id.mypage_detail_save_button).setOnClickListener(onClickListener);
         findViewById(R.id.mypage_detail_profileImage).setOnClickListener(onClickListener);
     }
 
@@ -50,13 +48,7 @@
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.mypage_detail_backarrow:
-                    back();
-                    break;
 
-                case R.id.mypage_detail_save_button:
-                    userinfo();
-                    break;
 
                 case R.id.mypage_detail_profileImage:
                     profileUpdate();
