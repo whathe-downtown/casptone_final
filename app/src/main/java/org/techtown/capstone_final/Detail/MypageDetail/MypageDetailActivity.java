@@ -1,32 +1,32 @@
- package org.techtown.capstone_final.Detail.MypageDetail;
+package org.techtown.capstone_final.Detail.MypageDetail;
 
- import android.content.Intent;
- import android.net.Uri;
- import android.os.Bundle;
- import android.view.View;
- import android.widget.Toast;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
- import androidx.annotation.NonNull;
- import androidx.annotation.Nullable;
- import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
- import com.google.android.gms.tasks.OnFailureListener;
- import com.google.android.gms.tasks.OnSuccessListener;
- import com.google.firebase.auth.FirebaseAuth;
- import com.google.firebase.auth.FirebaseUser;
- import com.google.firebase.firestore.FirebaseFirestore;
- import com.google.firebase.storage.FirebaseStorage;
- import com.google.firebase.storage.StorageReference;
- import com.google.firebase.storage.UploadTask;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
- import org.techtown.capstone_final.R;
- import org.techtown.capstone_final.databinding.ActivityMypageDetailBinding;
- import org.techtown.capstone_final.fragment.mypage.MypageActivity;
+import org.techtown.capstone_final.R;
+import org.techtown.capstone_final.databinding.ActivityMypageDetailBinding;
+import org.techtown.capstone_final.fragment.mypage.MypageActivity;
 
- import java.util.HashMap;
- import java.util.Map;
+import java.util.HashMap;
+import java.util.Map;
 
- public class MypageDetailActivity extends AppCompatActivity {
+public class MypageDetailActivity extends AppCompatActivity {
 
     ActivityMypageDetailBinding binding;
     FirebaseStorage storage;
@@ -60,17 +60,17 @@
 
     private void back(){
         Intent intent = new Intent(MypageDetailActivity.this, MypageActivity.class);
-                startActivity(intent);
-                finish();
+        startActivity(intent);
+        finish();
     }
     private void profileUpdate(){
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, 33);
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, 33);
     }
 
-         //데이터 값을 받아 오기위한 로직
+    //데이터 값을 받아 오기위한 로직
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -141,9 +141,9 @@
             });
         }
     }
-     private void startToast(String msg) { Toast.makeText(this, msg, Toast.LENGTH_SHORT).show(); }
+    private void startToast(String msg) { Toast.makeText(this, msg, Toast.LENGTH_SHORT).show(); }
 }
-        //이미지상세피이지 뒤로가기 버튼 로직
+//이미지상세피이지 뒤로가기 버튼 로직
 //        binding.mypageDetailBackarrow.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -272,4 +272,3 @@
 //
 //        }
 //    }
-

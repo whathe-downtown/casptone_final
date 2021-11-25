@@ -1,20 +1,23 @@
 package org.techtown.capstone_final;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.chip.Chip;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
-
-import static android.service.controls.ControlsProviderService.TAG;
-
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
+    FirebaseAuth auth;
+    FirebaseFirestore db;
 
     int page = 1;
     int infoState=1;
@@ -26,8 +29,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         binding = ActivityMakeContainerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         // VISBILE UNVISBLE 로직
         binding.makeRoom1.makeroomNext.setOnClickListener(new View.OnClickListener() {
@@ -86,14 +89,23 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         });
 
         //  두 번째 방 로직 ------------------------------------------------------------------------------
+        findViewById(R.id.spread_date).setOnClickListener(onClickListener);
+        findViewById(R.id.spread_time).setOnClickListener(onClickListener);
+        findViewById(R.id.spread_place).setOnClickListener(onClickListener);
+        findViewById(R.id.spread_Personnel).setOnClickListener(onClickListener);
+        findViewById(R.id.spread_Link).setOnClickListener(onClickListener);
+        findViewById(R.id.submit_date).setOnClickListener(onClickListener);
+        findViewById(R.id.submit_time).setOnClickListener(onClickListener);
+        findViewById(R.id.submit_place).setOnClickListener(onClickListener);
+        findViewById(R.id.submit_personnel).setOnClickListener(onClickListener);
+        findViewById(R.id.submit_link).setOnClickListener(onClickListener);
 
         binding.makeRoom2.viewDate.setText("언제 모이나요??");
         binding.makeRoom2.viewTime.setText("몇시에 모이나요?");
         binding.makeRoom2.viewPalce.setText("어디소 모이나요?");
         binding.makeRoom2.viewPersonnel.setText("몇명이서 모이나요?");
         binding.makeRoom2.viewLink.setText("채팅방 주소를 알려주세요");
-
-        Chip chip = ((Chip) binding.makeRoom2.infacyChipGroupPlace.getChildAt(binding.makeRoom2.infacyChipGroupPlace.getCheckedChipId()));
+    }
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -155,23 +167,16 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                         int Month = binding.makeRoom2.datePicker.getMonth();
                         int DayOfMonth = binding.makeRoom2.datePicker.getDayOfMonth();
                         binding.makeRoom2.viewDate.setText(Year + "년 " + Month + "월 " + DayOfMonth + "일" );
-                        binding.makeRoom2.LayoutGetDate.setVisibility(View.GONE);
-                        binding.makeRoom2.spreadDate.setRotation(0);
-                        state[0]--;
 
                         break;
                     case R.id.submit_time:
                         int hourOfDay = binding.makeRoom2.timePicker.getCurrentHour();
                         int minute = binding.makeRoom2.timePicker.getCurrentMinute();
                         binding.makeRoom2.viewTime.setText(hourOfDay+"시 "+minute+"분");
-                        binding.makeRoom2.LayoutGetTime.setVisibility(View.GONE);
-                        binding.makeRoom2.spreadTime.setRotation(0);
-                        state[1]--;
 
                         break;
                     case R.id.submit_place:
-                        binding.makeRoom2.infacyChipGroupPlace.getCheckedChipId();
-                                binding.makeRoom2.viewPalce.setText(chip.getText().toString());
+                        
                         break;
                     case R.id.submit_personnel:
 
@@ -183,16 +188,6 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             }
         };
 
-        findViewById(R.id.spread_date).setOnClickListener(onClickListener);
-        findViewById(R.id.spread_time).setOnClickListener(onClickListener);
-        findViewById(R.id.spread_place).setOnClickListener(onClickListener);
-        findViewById(R.id.spread_Personnel).setOnClickListener(onClickListener);
-        findViewById(R.id.spread_Link).setOnClickListener(onClickListener);
-        findViewById(R.id.submit_date).setOnClickListener(onClickListener);
-        findViewById(R.id.submit_time).setOnClickListener(onClickListener);
-        findViewById(R.id.submit_place).setOnClickListener(onClickListener);
-        findViewById(R.id.submit_personnel).setOnClickListener(onClickListener);
-        findViewById(R.id.submit_link).setOnClickListener(onClickListener);
 
 
 /*
@@ -296,6 +291,6 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             Intent intent = new Intent(MakeRoomContianerActivity.this, HomeActivity.class);
             startActivity(intent);
         }
-*/  }
-
+*/
+    private void startToast(String msg) { Toast.makeText(this, msg, Toast.LENGTH_SHORT).show(); }
 }

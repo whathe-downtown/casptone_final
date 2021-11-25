@@ -522,7 +522,7 @@
             android:layout_marginTop="5sp"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:enabled="false"
+            android:enabled="true"
             ></Button>
     </LinearLayout>
 
