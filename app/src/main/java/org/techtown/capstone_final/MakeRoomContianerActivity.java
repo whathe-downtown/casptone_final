@@ -14,8 +14,7 @@ import org.techtown.capstone_final.fragment.Home.HomeActivity;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
-    View layout1 = findViewById(R.id.make_room1);
-    View layout2 = findViewById(R.id.make_room2);
+
     int page = 1;
     int infoState = 1;
 
@@ -25,13 +24,14 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         binding = ActivityMakeContainerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         // VISBILE UNVISBLE 로직
         binding.makeRoom1.makeroomNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"next_step_one_Button_Click");
-                layout1.setVisibility(View.GONE);
-                layout2.setVisibility(View.VISIBLE);
+                binding.makeRoom1.getRoot().setVisibility(View.GONE);
+                binding.makeRoom2.getRoot().setVisibility(View.VISIBLE);
                 page++;
 
             }
@@ -179,8 +179,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         if (page ==2){
-            layout1.setVisibility(View.VISIBLE);
-            layout2.setVisibility(View.GONE);
+            binding.makeRoom1.getRoot().setVisibility(View.VISIBLE);
+            binding.makeRoom2.getRoot().setVisibility(View.GONE);
             page--;
         }else{
             Intent intent = new Intent(MakeRoomContianerActivity.this, HomeActivity.class);
