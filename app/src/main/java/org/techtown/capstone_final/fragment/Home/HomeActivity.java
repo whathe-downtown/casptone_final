@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.techtown.capstone_final.MakeRoomContianerActivity;
 import org.techtown.capstone_final.Model.Room;
 import org.techtown.capstone_final.databinding.FragmentHomeBinding;
 import org.techtown.capstone_final.fragment.Home.Adapters.FragementAdapter;
@@ -53,7 +54,7 @@ public class HomeActivity extends Fragment {
         binding.basketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), MakeRoomActivity.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), MakeRoomContianerActivity.class);
                 startActivity(intent);
             }
         });
