@@ -310,7 +310,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     state[2]--;
                     break;
                 case R.id.submit_personnel:
-                    if(button_checked[0]==0){
+                    if(button_checked[1]==0){
                         binding.makeRoom2.viewPersonnel.setText("몇명이서 모이나요?");
                     }
                     else if(button_checked[1]==1){
