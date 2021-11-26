@@ -50,14 +50,14 @@
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="52dp"
             android:isIndicator="false"
             android:max="5"
             android:numStars="5"
             android:rating="3"
             android:stepSize="0.5"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintHorizontal_bias="0.152"
 
             app:layout_constraintStart_toEndOf="@+id/username"
             app:layout_constraintTop_toTopOf="parent" />
@@ -151,8 +151,8 @@
             android:id="@+id/tablayout_mypage"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/litte_grey"
+            android:layout_marginTop="100dp"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_mypage_history" />
@@ -170,10 +170,10 @@
             android:id="@+id/image_mypage_bell"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:src="@drawable/ic_alarm_svgrepo_com"
+            android:src="@drawable/ic_ico_bell"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

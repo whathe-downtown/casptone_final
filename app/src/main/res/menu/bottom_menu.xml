@@ -15,7 +15,7 @@
     <item
         android:id="@+id/group_chat"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_chat_bubble_outline_24"
+        android:icon="@drawable/ic_ico_chat"
         android:title="채팅방"/>
     <item
         android:id="@+id/mypage"

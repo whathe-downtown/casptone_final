@@ -84,12 +84,4 @@
         android:textColor="@color/backgroundcolor"
         android:textSize="20dp" />
 
-    <ImageView
-        android:id="@+id/self_introudce_back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-
-        android:layout_alignParentTop="true"
-        android:src="@drawable/ic_backarrow" />
-
 </RelativeLayout>

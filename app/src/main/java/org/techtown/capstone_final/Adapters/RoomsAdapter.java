@@ -22,6 +22,8 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
     ArrayList<Room> list;
     Context context;
     private static final String TAG = "RoomsAdapter";
+    ImageView  bookmarkButton;
+    int bookmark =0;
 
     public RoomsAdapter(ArrayList<Room> roomlist, Context context) {
         this.list= roomlist;
@@ -31,7 +33,11 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.sample_show_room, parent,false);
+        bookmarkButton=(ImageView)view.findViewById(R.id.bookmarkButton);
+
         return new ViewHolder(view);
+
+
     }
 
     @Override
@@ -40,7 +46,6 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         holder.roomname.setText(room.getRoomTitle());//username도 얻음
         holder.roomlocation.setText(room.getRoomlocation());
         holder.roomdate.setText(room.getRoomdate());
-
         holder.itemView.setTag(position); // 값 가져오고고
 
        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +53,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
             public void onClick(View v) {
                 Log.d(TAG,"Roomitem onclick");
                 startToast("itme을 클릭하셨습니다.");
+
                 //Intent intent = new Intent(context, RoomseceondlistActivity.class);
                 //intent.putExtra("RoomId", room.getRoomId());
                // intent.putExtra("Roomtitle",room.getRoomTitle());
@@ -61,9 +67,23 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
            @Override
            public boolean onLongClick(View v) {
-               Log.d(TAG,"오래 누르면 방 상세페이지가 뜨게 만들것입니다.");
-               startToast("item을 오래 클릭하셨습니다.");
-               return false;
+
+               if(bookmark ==0){
+                    bookmarkButton.setImageResource(R.drawable.ic_ico_bookmark_orange);
+                    bookmark ++;
+               } else {
+                   bookmarkButton.setImageResource(R.drawable.ic_ico_bookmark_gray);
+                   bookmark --;
+               }
+
+              // Log.d(TAG,"오래 누르면 방 상세페이지가 뜨게 만들것입니다.");
+              startToast("item을 오래 클릭하셨습니다.");
+
+
+
+
+
+               return true;
            }
        });
     }
