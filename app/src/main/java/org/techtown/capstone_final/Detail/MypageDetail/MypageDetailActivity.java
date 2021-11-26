@@ -42,6 +42,7 @@ public class MypageDetailActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         findViewById(R.id.mypage_detail_profileImage).setOnClickListener(onClickListener);
+        findViewById(R.id.profile_update).setOnClickListener(onClickListener);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -52,6 +53,10 @@ public class MypageDetailActivity extends AppCompatActivity {
 
                 case R.id.mypage_detail_profileImage:
                     profileUpdate();
+                    break;
+
+                case R.id.profile_update:
+                    userinfo();
                     break;
 
             }
