@@ -250,7 +250,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:visibility="gone">
-
+<!--
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -260,7 +260,7 @@
                         android:id="@+id/button_online"
                         android:layout_width="100sp"
                         android:layout_height="30sp"
-                        android:background="@drawable/stroke_navy"
+                        android:background="@drawable/chipbutton"
                         android:text="@string/Online" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -272,8 +272,8 @@
                         android:text="@string/Offline" />
 
 
-                </LinearLayout>
-                <!--
+                </LinearLayout>-->
+
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_place"
                 android:layout_width="wrap_content"
@@ -282,7 +282,7 @@
                 android:layout_marginTop="15sp"
                 app:selectionRequired="true"
                 app:singleSelection="true"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_Online"
@@ -301,7 +301,7 @@
                     android:text="@string/Offline"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
-            </com.google.android.material.chip.ChipGroup>-->
+            </com.google.android.material.chip.ChipGroup>
 
                 <EditText
                     android:id="@+id/Get_place"
@@ -385,7 +385,7 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <LinearLayout
+                <!--<LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -405,9 +405,9 @@
                         android:background="@drawable/stroke_navy"
                         android:text="@string/Group" />
 
-                </LinearLayout>
+                </LinearLayout>-->
 
-                <!--         <com.google.android.material.chip.ChipGroup
+                <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_Personnel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -435,7 +435,7 @@
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
 
-            </com.google.android.material.chip.ChipGroup>-->
+            </com.google.android.material.chip.ChipGroup>
                 <EditText
                     android:id="@+id/Get_Personnel"
                     android:layout_width="230sp"

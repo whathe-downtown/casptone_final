@@ -1,7 +1,5 @@
 package org.techtown.capstone_final;
 
-import static android.service.controls.ControlsProviderService.TAG;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,6 +24,8 @@ import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.service.controls.ControlsProviderService.TAG;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
@@ -106,10 +106,14 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         findViewById(R.id.submit_place).setOnClickListener(onClickListener);
         findViewById(R.id.submit_personnel).setOnClickListener(onClickListener);
         findViewById(R.id.submit_link).setOnClickListener(onClickListener);
-        findViewById(R.id.button_online).setOnClickListener(onClickListener);
-        findViewById(R.id.button_offline).setOnClickListener(onClickListener);
-        findViewById(R.id.button_individual).setOnClickListener(onClickListener);
-        findViewById(R.id.button_Group).setOnClickListener(onClickListener);
+//        findViewById(R.id.button_online).setOnClickListener(onClickListener);
+//        findViewById(R.id.button_offline).setOnClickListener(onClickListener);
+//        findViewById(R.id.button_individual).setOnClickListener(onClickListener);
+//        findViewById(R.id.button_Group).setOnClickListener(onClickListener);
+        findViewById(R.id.chip_Online).setOnClickListener(onClickListener);
+        findViewById(R.id.chip_Offline).setOnClickListener(onClickListener);
+        findViewById(R.id.chip_individual).setOnClickListener(onClickListener);
+        findViewById(R.id.chip_Group).setOnClickListener(onClickListener);
 
         // 사용자 정보 로직
         findViewById(R.id.Roomprofilepic).setOnClickListener(onClickListener);
@@ -377,19 +381,20 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     state[4]--;
                     break;
 
-                case R.id.button_online:
+                case R.id.chip_Online:
                     get_Button_checked (0,1);
+
                     break;
 
-                case R.id.button_offline:
+                case R.id.chip_Offline:
                     get_Button_checked (0,2);
                     break;
 
-                case R.id.button_individual:
+                case R.id.chip_individual:
                     get_Button_checked (1,1);
                     break;
 
-                case R.id.button_Group:
+                case R.id.chip_Group:
                     get_Button_checked (1,2);
                     break;
             }
@@ -397,109 +402,5 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
     };
 
-
-
-    /*
-            //날짜 선택
-            binding.makeRoom2.spreadDate.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    binding.makeRoom2.LayoutGetDate.setVisibility(binding.makeRoom2.LayoutGetDate.VISIBLE);
-                    binding.makeRoom2.spreadDate.setRotationX(180);
-                }
-            });
-
-
-
-            binding.makeRoom2.submitTime.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    int hourOfDay = binding.makeRoom2.timePicker.getCurrentHour();
-                    int minute = binding.makeRoom2.timePicker.getCurrentMinute();
-                    binding.makeRoom2.viewTime.setText(hourOfDay+"시"+minute+"분");
-
-
-                    timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-                        @Override
-                        public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                            view_time.setText(hourOfDay+"시"+minute+"분");
-                        }
-                    });
-
-                    binding.makeRoom2.LayoutGetTime.setVisibility(binding.makeRoom2.LayoutGetTime.GONE);
-                    binding.makeRoom2.spreadTime.setRotationX(0);
-                }
-            });
-            //장소 선택
-
-            binding.makeRoom2.spreadPlace.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    binding.makeRoom2.LayoutGetPlace.setVisibility(binding.makeRoom2.LayoutGetPlace.VISIBLE);
-                    binding.makeRoom2.spreadPlace.setRotationX(180);
-                }
-            });
-
-            binding.makeRoom2.submitPlace.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    binding.makeRoom2.LayoutGetPlace.setVisibility(binding.makeRoom2.LayoutGetPlace.GONE);
-                    binding.makeRoom2.spreadPlace.setRotationX(0);
-                    binding.makeRoom2.viewPalce.setText(binding.makeRoom2.GetPersonnel.getText());
-                }
-            });
-
-            // 인원 선택
-
-            binding.makeRoom2.spreadPersonnel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    binding.makeRoom2.LayoutGetPersonnel.setVisibility( binding.makeRoom2.LayoutGetPersonnel.VISIBLE);
-                    binding.makeRoom2.spreadPersonnel.setRotationX(180);
-                }
-            });
-
-            binding.makeRoom2.submitPersonnel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    binding.makeRoom2.LayoutGetPersonnel.setVisibility(binding.makeRoom2.LayoutGetPersonnel.GONE);
-                    binding.makeRoom2.spreadPersonnel.setRotationX(0);
-                    binding.makeRoom2.viewPersonnel.setText(binding.makeRoom2.GetPersonnel.getText());
-                }
-            });
-
-            //채팅방 링크
-
-            binding.makeRoom2.spreadLink.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    binding.makeRoom2.LayoutGetLink.setVisibility(  binding.makeRoom2.LayoutGetLink.VISIBLE);
-                    binding.makeRoom2.spreadLink.setRotationX(180);
-                }
-            });
-            binding.makeRoom2.submitLink.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    binding.makeRoom2.LayoutGetLink.setVisibility(binding.makeRoom2.LayoutGetLink.GONE);
-                    binding.makeRoom2.spreadLink.setRotationX(0);
-                }
-            });
-
-        }
-        public void onBackPressed() {
-            super.onBackPressed();
-            if (page ==2){
-                binding.makeRoom1.getRoot().setVisibility(View.VISIBLE);
-                binding.makeRoom2.getRoot().setVisibility(View.GONE);
-                page--;
-            }else{
-                Intent intent = new Intent(MakeRoomContianerActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-    */
     private void startToast(String msg) { Toast.makeText(this, msg, Toast.LENGTH_SHORT).show(); }
 }

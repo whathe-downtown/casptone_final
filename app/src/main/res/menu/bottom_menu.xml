@@ -9,8 +9,8 @@
     <item
         android:id="@+id/bookmark"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_bookmark_border_24"
-        android:title="찜"/>
+        android:icon="@drawable/ic_ico_bookmark"
+        android:title="북마크"/>
 
     <item
         android:id="@+id/group_chat"

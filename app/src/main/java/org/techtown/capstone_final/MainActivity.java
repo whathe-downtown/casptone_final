@@ -152,31 +152,31 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+//@Override
+//  public boolean onCreateOptionsMenu(Menu menu) {
+//      MenuInflater inflater =getMenuInflater();
+//      inflater.inflate(R.menu.menu, menu);
+//      return super.onCreateOptionsMenu(menu);
+//  }
+//
+//  //상단 옵션 바 쓸때 쓸려고
 //    @Override
-////    public boolean onCreateOptionsMenu(Menu menu) {
-////        MenuInflater inflater =getMenuInflater();
-////        inflater.inflate(R.menu.menu, menu);
-////        return super.onCreateOptionsMenu(menu);
-////    }
-////
-////    //상단 옵션 바 쓸때 쓸려고
-//////    @Override
-//////    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//////
-//////        switch (item.getItemId())
-//////        {
-//////            case R.id.setttings:
-//////                Toast.makeText(this, "Setting Clicked", Toast.LENGTH_SHORT).show();
-//////                break;
-//////
-//////            case R.id.logout:
-//////                auth.signOut();
-//////                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-//////                startActivity(intent);
-//////                break;
-//////        }
-//////        return super.onOptionsItemSelected(item);
-//////    }
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        switch (item.getItemId())
+//        {
+//            case R.id.setttings:
+//                Toast.makeText(this, "Setting Clicked", Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.logout:
+//                auth.signOut();
+//                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+//                startActivity(intent);
+//                break;
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 private  void myStartActivity(Class c){
     Intent intent = new Intent(this,c);
     startActivity(intent);
