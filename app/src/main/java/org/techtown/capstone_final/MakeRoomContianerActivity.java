@@ -207,12 +207,15 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         if(PP==0){
             if (button_checked[0]==0){
             binding.makeRoom2.GetPlace.setVisibility(View.GONE);
+                binding.makeRoom2.submitPlace.setClickable(true);
             }
             else if(button_checked[0]==1){
                 binding.makeRoom2.GetPlace.setVisibility(View.GONE);
+                binding.makeRoom2.submitPlace.setClickable(true);
             }
             else if(button_checked[0]==2){
                 binding.makeRoom2.GetPlace.setVisibility(View.VISIBLE);
+                binding.makeRoom2.submitPlace.setClickable(false);
                 binding.makeRoom2.GetPlace.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -239,13 +242,15 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         else if(PP==1){
             if (button_checked[1]==0){
                binding.makeRoom2.GetPersonnel.setVisibility(View.GONE);
+                binding.makeRoom2.submitPersonnel.setClickable(true);
             }
             else if(button_checked[1]==1){
                 binding.makeRoom2.GetPersonnel.setVisibility(View.GONE);
+                binding.makeRoom2.submitPersonnel.setClickable(true);
             }
             else if(button_checked[1]==2){
                 binding.makeRoom2.GetPersonnel.setVisibility(View.VISIBLE);
-
+                binding.makeRoom2.submitPersonnel.setClickable(false);
                 binding.makeRoom2.GetPersonnel.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {

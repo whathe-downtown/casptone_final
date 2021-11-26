@@ -236,7 +236,6 @@
 
                 <Button
                     android:id="@+id/spread_place"
-                    style=""
                     android:layout_width="30sp"
                     android:layout_height="20sp"
                     android:background="@drawable/ic_ico_spread" />
@@ -323,7 +322,8 @@
                     android:padding="0sp"
                     android:text="등록"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:clickable="true"/>
 
             </LinearLayout>
 
@@ -455,7 +455,8 @@
                     android:padding="0sp"
                     android:text="등록"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:clickable="true"/>
 
             </LinearLayout>
 
