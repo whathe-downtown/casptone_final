@@ -2,21 +2,20 @@ package org.techtown.capstone_final.Model;
 
 public class Room {
 
-    private String publisher,roomTitle,  roomprofilepic,roomcategory, roomContent, roomdate,roomTime,roomlocation,roomHeadcount,roomId;
+    private String publisher,roomTitle,  roomprofilepic,roomcategory, roomContent, roomdate,roomTime,roomlocation,roomHeadcount,roomId ,roomlink;
 
-    public Room(String publisher, String roomTitle, String roomprofilepic, String roomcategory, String roomContent, String roomdate, String roomTime, String roomlocation, String roomHeadcount, String roomId) {
-        this.roomId = roomId;
-        this.roomprofilepic = roomprofilepic;
+    public Room(String publisher, String roomTitle, String roomprofilepic, String roomcategory, String roomContent, String roomdate, String roomTime, String roomlocation, String roomHeadcount, String roomId, String roomlink) {
         this.publisher = publisher;
         this.roomTitle = roomTitle;
-
+        this.roomprofilepic = roomprofilepic;
         this.roomcategory = roomcategory;
         this.roomContent = roomContent;
         this.roomdate = roomdate;
         this.roomTime = roomTime;
         this.roomlocation = roomlocation;
         this.roomHeadcount = roomHeadcount;
-
+        this.roomId = roomId;
+        this.roomlink = roomlink;
     }
 
     public  Room(){}
@@ -32,6 +31,14 @@ public class Room {
 //        this.roomHeadcount = roomHeadcount;
 //    }
 
+
+    public String getRoomlink() {
+        return roomlink;
+    }
+
+    public void setRoomlink(String roomlink) {
+        this.roomlink = roomlink;
+    }
 
     public String getPublisher() {
         return publisher;

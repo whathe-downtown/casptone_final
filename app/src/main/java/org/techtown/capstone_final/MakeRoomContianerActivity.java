@@ -1,5 +1,7 @@
 package org.techtown.capstone_final;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -21,13 +24,15 @@ import com.google.firebase.storage.UploadTask;
 
 import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 
-import static android.service.controls.ControlsProviderService.TAG;
+import java.util.HashMap;
+import java.util.Map;
+
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
     FirebaseAuth auth;
     FirebaseFirestore db;
     FirebaseStorage storage;
-
+    int people = 1;
     int page = 1;
     int infoState=1;
     int state[] = {0,0,0,0,0},button_checked[] = {0,0};
@@ -40,6 +45,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        storage = FirebaseStorage.getInstance();
 
         // VISBILE UNVISBLE 로직
         binding.makeRoom1.makeroomNext.setOnClickListener(new View.OnClickListener() {
@@ -126,11 +132,52 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         String roomcategory = binding.makeRoom1.spinnerItem.getSelectedItem().toString();
         String roomdate = binding.makeRoom2.viewDate.getText().toString();
         String roomtime = binding.makeRoom2.viewDate.getText().toString();
-        String roomplocation =binding.makeRoom2.viewPalce.getText().toString();
-
+        String roomlocation =binding.makeRoom2.viewPalce.getText().toString();
         String roomlink = binding.makeRoom2.viewLink.getText().toString();
 
+        if(roomname.length()>0 && roominfo.length()>0 && roomcategory.length()>0 &&roomdate.length()>0 &&roomtime.length()>0 &&roomlocation.length()>0 &&roomlink.length()>0 ){
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+            Map<String, Object> obj = new HashMap<>();
+            obj.put("roomTitle",roomname);
+            obj.put("roomContent",roominfo);
+            obj.put("roomcategory",roomcategory);
+            obj.put("roomdate",roomdate);
+            obj.put("roomTime",roomtime);
+            obj.put("roomlocation",roomlocation);
+            obj.put("roomlink",roomlink);
+            if (people ==1){
+            db.collection("Room").document("1:1").update(obj)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            startToast("저장이 완료 되었습니다");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    startToast("저장을 실패 하였습니다");
+                }
+            });
+            }else{
+                db.collection("Room").document("1:N").update(obj)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                startToast("저장이 완료 되었습니다");
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        startToast("저장을 실패 하였습니다");
+                    }
+                });
+            }
+
+        }else{
+            startToast("방 내용을 모두 채워주세요");
+        }
 //        this.roomId = roomId;
 //        this.roomprofilepic = roomprofilepic;
 //        this.publisher = publisher;

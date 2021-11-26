@@ -80,8 +80,7 @@
                     android:id="@+id/spread_date"
                     android:layout_width="30sp"
                     android:layout_height="20sp"
-                    android:background="@drawable/ic_ico_spread"
-                     />
+                    android:background="@drawable/ic_ico_spread" />
 
             </LinearLayout>
 
@@ -89,8 +88,8 @@
                 android:id="@+id/Layout_Get_Date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
                 <DatePicker
@@ -98,8 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="150sp"
                     android:calendarViewShown="false"
-                    android:datePickerMode="spinner"
-                     />
+                    android:datePickerMode="spinner" />
 
                 <Button
                     android:id="@+id/submit_date"
@@ -170,25 +168,25 @@
                 android:id="@+id/Layout_Get_Time"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
-            <TimePicker
-                android:id="@+id/time_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="150sp"
-                android:timePickerMode="spinner" />
+                <TimePicker
+                    android:id="@+id/time_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150sp"
+                    android:timePickerMode="spinner" />
 
-            <Button
-                android:id="@+id/submit_time"
-                android:layout_width="230sp"
-                android:layout_height="30sp"
-                android:text="등록"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@drawable/rounded_corner_navy_button"
-                android:padding="0sp"/>
+                <Button
+                    android:id="@+id/submit_time"
+                    android:layout_width="230sp"
+                    android:layout_height="30sp"
+                    android:background="@drawable/rounded_corner_navy_button"
+                    android:padding="0sp"
+                    android:text="등록"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -238,11 +236,10 @@
 
                 <Button
                     android:id="@+id/spread_place"
+                    style=""
                     android:layout_width="30sp"
                     android:layout_height="20sp"
-                    style=""
-                    android:background="@drawable/ic_ico_spread"
-                     />
+                    android:background="@drawable/ic_ico_spread" />
 
             </LinearLayout>
 
@@ -250,8 +247,8 @@
                 android:id="@+id/Layout_Get_place"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -264,21 +261,19 @@
                         android:layout_width="100sp"
                         android:layout_height="30sp"
                         android:background="@drawable/stroke_navy"
-                        android:text="@string/Online"
-                        />
+                        android:text="@string/Online" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/button_offline"
                         android:layout_width="100sp"
                         android:layout_height="30sp"
+                        android:layout_marginLeft="20sp"
                         android:background="@drawable/stroke_navy"
-                        android:text="@string/Offline"
-                        android:layout_marginLeft="20sp"/>
-
+                        android:text="@string/Offline" />
 
 
                 </LinearLayout>
-<!--
+                <!--
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_place"
                 android:layout_width="wrap_content"
@@ -316,20 +311,19 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="12sp"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
 
-
-            <Button
-                android:id="@+id/submit_place"
-                android:layout_width="230sp"
-                android:layout_height="30sp"
-                android:text="등록"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@drawable/rounded_corner_navy_button"
-                android:padding="0sp"
-                android:layout_marginTop="10sp"/>
+                <Button
+                    android:id="@+id/submit_place"
+                    android:layout_width="230sp"
+                    android:layout_height="30sp"
+                    android:layout_marginTop="10sp"
+                    android:background="@drawable/rounded_corner_navy_button"
+                    android:padding="0sp"
+                    android:text="등록"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -387,8 +381,8 @@
                 android:id="@+id/Layout_Get_Personnel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
                 <LinearLayout
@@ -401,20 +395,19 @@
                         android:layout_width="100sp"
                         android:layout_height="30sp"
                         android:background="@drawable/stroke_navy"
-                        android:text="@string/individual"
-                        />
+                        android:text="@string/individual" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/button_Group"
                         android:layout_width="100sp"
                         android:layout_height="30sp"
+                        android:layout_marginLeft="20sp"
                         android:background="@drawable/stroke_navy"
-                        android:text="@string/Group"
-                        android:layout_marginLeft="20sp"/>
+                        android:text="@string/Group" />
 
                 </LinearLayout>
 
-   <!--         <com.google.android.material.chip.ChipGroup
+                <!--         <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_Personnel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -452,16 +445,17 @@
                     android:padding="10dp"
                     android:textSize="12sp"
                     android:visibility="gone" />
-            <Button
-                android:id="@+id/submit_personnel"
-                android:layout_width="230sp"
-                android:layout_height="30sp"
-                android:text="등록"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@drawable/rounded_corner_navy_button"
-                android:padding="0sp"
-                android:layout_marginTop="10sp"/>
+
+                <Button
+                    android:id="@+id/submit_personnel"
+                    android:layout_width="230sp"
+                    android:layout_height="30sp"
+                    android:layout_marginTop="10sp"
+                    android:background="@drawable/rounded_corner_navy_button"
+                    android:padding="0sp"
+                    android:text="등록"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -519,31 +513,30 @@
                 android:id="@+id/Layout_Get_Link"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:visibility="gone">
 
-            <EditText
-                android:id="@+id/Get_Link"
-                android:layout_width="250sp"
-                android:layout_height="wrap_content"
-                android:hint="주소 입력"
-                android:inputType="textPersonName"
-                android:padding="10sp"
-                android:textSize="12sp"
-                android:visibility="visible" />
+                <EditText
+                    android:id="@+id/Get_Link"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:hint="주소 입력"
+                    android:inputType="textPersonName"
+                    android:padding="10sp"
+                    android:textSize="12sp"
+                    android:visibility="visible" />
 
-            <Button
-                android:id="@+id/submit_link"
-                android:layout_width="230sp"
-                android:layout_height="30sp"
-                android:text="등록"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:background="@drawable/rounded_corner_navy_button"
-                android:padding="0sp"
-                android:layout_marginBottom="50sp"
-                />
+                <Button
+                    android:id="@+id/submit_link"
+                    android:layout_width="230sp"
+                    android:layout_height="30sp"
+                    android:layout_marginBottom="50sp"
+                    android:background="@drawable/rounded_corner_navy_button"
+                    android:padding="0sp"
+                    android:text="등록"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
