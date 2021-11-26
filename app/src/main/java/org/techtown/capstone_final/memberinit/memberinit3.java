@@ -63,10 +63,11 @@ public class memberinit3 extends AppCompatActivity {
 
 
                 case R.id.self_introduce_button:
+                    profileUpdate();
                     Intent intent = new Intent(memberinit3.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
-                    profileUpdate();
+
                     break;
 
             }
