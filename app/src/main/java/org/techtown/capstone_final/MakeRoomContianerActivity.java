@@ -1,7 +1,5 @@
 package org.techtown.capstone_final;
 
-import static android.service.controls.ControlsProviderService.TAG;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +26,8 @@ import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.service.controls.ControlsProviderService.TAG;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
@@ -159,18 +159,18 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             obj.put("roomlink",roomlink);
             // 개인을 클릭했을때
             if (button_checked[1]==1){
-            db.collection("1:1").document(user.getUid()).set(obj)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            startToast("1:1에저장이 완료 되었습니다");
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    startToast("1:1저장을 실패 하였습니다");
-                }
-            });
+                db.collection("1:1").document(user.getUid()).set(obj)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                startToast("1:1에저장이 완료 되었습니다");
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        startToast("1:1저장을 실패 하였습니다");
+                    }
+                });
                 // 그룹을 클릭했을때
             }else if(button_checked[1]==2){
                 db.collection("1:N").document(user.getUid()).update(obj)
@@ -209,7 +209,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
         if(PP==0){
             if (button_checked[0]==0){
-            binding.makeRoom2.GetPlace.setVisibility(View.GONE);
+                binding.makeRoom2.GetPlace.setVisibility(View.GONE);
                 binding.makeRoom2.submitPlace.setClickable(true);
             }
             else if(button_checked[0]==1){
@@ -244,7 +244,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         }
         else if(PP==1){
             if (button_checked[1]==0){
-               binding.makeRoom2.GetPersonnel.setVisibility(View.GONE);
+                binding.makeRoom2.GetPersonnel.setVisibility(View.GONE);
                 binding.makeRoom2.submitPersonnel.setClickable(true);
             }
             else if(button_checked[1]==1){
@@ -411,7 +411,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                         binding.makeRoom2.viewPalce.setText("어디서 모이나요?");
                     }
                     else if(button_checked[0]==1){
-                    binding.makeRoom2.viewPalce.setText("온라인");
+                        binding.makeRoom2.viewPalce.setText("온라인");
                     }
                     else{
                         binding.makeRoom2.viewPalce.setText(binding.makeRoom2.GetPlace.getText());
