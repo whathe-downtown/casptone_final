@@ -3,6 +3,8 @@ package org.techtown.capstone_final;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -123,6 +125,9 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         binding.makeRoom2.viewPalce.setText("어디서 모이나요?");
         binding.makeRoom2.viewPersonnel.setText("몇명이서 모이나요?");
         binding.makeRoom2.viewLink.setText("채팅방 주소를 알려주세요");
+
+        //장소, 인원 값 있을때만 버튼 눌림
+
     }
     private void Roomprofileupdate(){
         Intent intent = new Intent();
@@ -194,6 +199,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 //        this.roomlocation = roomlocation;
 //        this.roomHeadcount = roomHeadcount;
     }
+
     private void get_Button_checked (int PP, int what){
 
         button_checked[PP] = what;
@@ -207,6 +213,27 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             }
             else if(button_checked[0]==2){
                 binding.makeRoom2.GetPlace.setVisibility(View.VISIBLE);
+                binding.makeRoom2.GetPlace.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        if (s.length() >0) {
+                            binding.makeRoom2.submitPlace.setClickable(true);
+                        } else{
+                            binding.makeRoom2.submitPlace.setClickable(false);
+                        }
+
+                    }
+                });
             }
         }
         else if(PP==1){
@@ -218,6 +245,29 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             }
             else if(button_checked[1]==2){
                 binding.makeRoom2.GetPersonnel.setVisibility(View.VISIBLE);
+
+                binding.makeRoom2.GetPersonnel.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        if (s.length() >0) {
+                            binding.makeRoom2.submitPersonnel.setClickable(true);
+                        } else{
+                            binding.makeRoom2.submitPersonnel.setClickable(false);
+
+                        }
+
+                    }
+                });
             }
         }
 
@@ -263,6 +313,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             });
         }
     }
+
+
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
