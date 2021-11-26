@@ -1,15 +1,13 @@
 package org.techtown.capstone_final.memberinit;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,14 +24,15 @@ import com.google.firebase.storage.UploadTask;
 import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.ActivityMemberinit2Binding;
 
-import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class memberinit2 extends AppCompatActivity {
 
     ActivityMemberinit2Binding binding;
     private FirebaseAuth auth;
     FirebaseDatabase database;
-
+    FirebaseFirestore db;
     private final String TAG = "memberinit2";
     private final int GALLERY_CODE = 10;
 
@@ -46,17 +45,56 @@ public class memberinit2 extends AppCompatActivity {
         binding = ActivityMemberinit2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
         findViewById(R.id.what_your_name_save_button).setOnClickListener(onClickListener);
         findViewById(R.id.userprofile).setOnClickListener(onClickListener);
 
-
     }
 
-//    @Override
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data.getData() !=null){
+
+            Uri sFile = data.getData();
+            binding.userprofile.setImageURI(sFile);
+
+            storage = FirebaseStorage.getInstance();
+            final StorageReference reference = storage.getReference().child("profile pictures")
+                    .child(FirebaseAuth.getInstance().getUid());
+
+            reference.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            db.collection("users").document(FirebaseAuth.getInstance().getUid()).update("profilepic",uri.toString())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            startToast("성공적으로 이미지 업로드 되었습니다");
+                                        }
+                                    }).
+                                    addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            startToast("이미지가 업로드 되지 않았습니다.");
+                                        }
+                                    });
+                        }
+                    });
+                }
+            });
+
+        }else{
+            startToast("이미지를 넣어주세요");
+        }
+    }
+    //    @Override
 //    public void onBackPressed() {
 //        super.onBackPressed();
 //        moveTaskToBack(true);
@@ -93,72 +131,32 @@ public class memberinit2 extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (data != null) {
-            //request code를 받으면 이미지를 올리는로직
-            if (requestCode == GALLERY_CODE) {
-                Uri file = data.getData();
-                binding.userprofile.setImageURI(file);
-                // storage 파일을 참조해서 거기에 데이터를 삽입함
-                final StorageReference reference = storage.getReference().child("profile pictures")
-                        .child(FirebaseAuth.getInstance().getUid());
-                // 받은 데이터 값을 참조해서 putfile(file)넣는다.
-                reference.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            // 이미지 파
-                            public void onSuccess(Uri uri) {
-                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                db.collection("users").document(user.getUid()).set(uri.toString());
-                                startToast("이미지가 업로드 되었습니다.");
-
-                            }
-                        });
-                    }
-                });
-                UploadTask uploadTask = reference.putFile(file);
-                try {
-                    InputStream in = getContentResolver().openInputStream(data.getData());
-                    Bitmap img = BitmapFactory.decodeStream(in);
-                    in.close();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        startToast("사진이 정상적으로 업로드 되지 않았습니다.");
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
-                        // ...
-                        startToast("사진이 정상적으로 업로드 되었습니다.");
-                    }
-                });
-
-
-            }
-
-
-        }else{
-            startToast("회원 정보를 입력 or 삽입 해주세요.");
-        }
-    }
-
-
-
 
     private void profileUpdate() {
         String name = ((EditText) findViewById(R.id.userNickName)).getText().toString();
+
+        if (name.length() >0){
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+            Map<String, Object> obj = new HashMap<>();
+            obj.put("name",name);
+
+            db.collection("users").document(user.getUid()).set(obj)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            startToast("저장이 완료 되었습니다.");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    startToast("저장을 실패 하였습니다");
+                }
+            });
+        }else{
+            startToast("이름을 입력해주세요");
+        }
 
 
 //        if (name.length() > 0) {

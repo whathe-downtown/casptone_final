@@ -2,7 +2,6 @@ package org.techtown.capstone_final.memberinit;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,16 +10,19 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.techtown.capstone_final.MainActivity;
 import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.ActivityMemberinit3Binding;
+import org.techtown.capstone_final.fragment.Home.HomeActivity;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class memberinit3 extends AppCompatActivity {
 
@@ -61,9 +63,10 @@ public class memberinit3 extends AppCompatActivity {
 
 
                 case R.id.self_introduce_button:
-                    Intent intent = new Intent(memberinit3.this, MainActivity.class);
+                    Intent intent = new Intent(memberinit3.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
+                    profileUpdate();
                     break;
 
             }
@@ -72,27 +75,29 @@ public class memberinit3 extends AppCompatActivity {
 
     private void profileUpdate() {
 
-        String email = ((EditText) findViewById(R.id.sign_in_input_email)).getText().toString();
-        String password = ((EditText) findViewById(R.id.sign_in_input_pwd)).getText().toString();
+        String oneline = ((EditText) findViewById(R.id.status)).getText().toString();
+        String manyline = ((EditText) findViewById(R.id.userintrouduce)).getText().toString();
 
-        if (email.length() > 0 && password.length() > 0) {
+        if (oneline.length() > 0 && manyline.length() > 0) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                    .setDisplayName("Jane Q. User")
-                    .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
-                    .build();
+            Map<String, Object> obj = new HashMap<>();
+            obj.put("useroneinfo",oneline);
+            obj.put("userinfo",manyline);
 
-            user.updateProfile(profileUpdates)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+            db.collection("users").document(user.getUid()).update(obj)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                               startToast("회원정보를 등록에 성공 하셨습니다.");
-                           }
+                        public void onSuccess(Void unused) {
+                            startToast("저장이 완료 되었습니다");
                         }
-                    });
-
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    startToast("저장을 실패 하였습니다");
+                }
+            });
         } else {
             startToast("회원정보를 입력해주세요.");
         }
@@ -101,6 +106,23 @@ public class memberinit3 extends AppCompatActivity {
     private  void startToast(String msg){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
+
+//    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+//            .setDisplayName("Jane Q. User")
+//            .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+//            .build();
+//
+//            user.updateProfile(profileUpdates)
+//            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//        @Override
+//        public void onComplete(@NonNull Task<Void> task) {
+//            if (task.isSuccessful()) {
+//                startToast("회원정보를 등록에 성공 하셨습니다.");
+//            }
+//        }
+//    });
+
 //    private void myStartActivity(Class c) {
 //        Intent intent = new Intent(this, c);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

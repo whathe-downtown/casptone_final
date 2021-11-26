@@ -80,9 +80,10 @@ public class MypageActivity extends Fragment {
                                     Glide.with(getActivity()).     //Glide.with(getActivity())  Activity가 끝난 상태에서 Glide with 함수를 호출 때문에 오류 생김 그래서 전역 변수로 사용해줘야함
                                             load(document.getData().get("profilepic")).centerCrop().override(500).into(binding.profileImage);
                                 }
+                                binding.userinfo.setText(document.getData().get("useroneinfo").toString());
                                 binding.username.setText(document.getData().get("name").toString());
                                 binding.userMypageHistory.setText(document.getData().get("userhistory").toString());
-                                binding.userinfo.setText(document.getData().get("status").toString());
+                                binding.userinfo.setText(document.getData().get("userinfo").toString());
 //                      binding.usercategory.setText(users.getUsercategory());
                             }catch (Exception e){
                                 e.getMessage();
