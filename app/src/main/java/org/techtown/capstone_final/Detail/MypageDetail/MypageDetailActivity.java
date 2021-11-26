@@ -57,6 +57,9 @@ public class MypageDetailActivity extends AppCompatActivity {
 
                 case R.id.profile_update:
                     userinfo();
+                    Intent intent = new Intent(MypageDetailActivity.this, MypageActivity.class);
+                    startActivity(intent);
+                    finish();
                     break;
 
             }
