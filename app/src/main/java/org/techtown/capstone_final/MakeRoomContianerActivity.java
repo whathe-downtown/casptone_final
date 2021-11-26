@@ -281,22 +281,47 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     int Month = binding.makeRoom2.datePicker.getMonth();
                     int DayOfMonth = binding.makeRoom2.datePicker.getDayOfMonth();
                     binding.makeRoom2.viewDate.setText(Year + "년 " + Month + "월 " + DayOfMonth + "일" );
+                    binding.makeRoom2.LayoutGetDate.setVisibility(View.GONE);
+                    binding.makeRoom2.spreadDate.setRotation(0);
+                    state[0]--;
 
                     break;
                 case R.id.submit_time:
                     int hourOfDay = binding.makeRoom2.timePicker.getCurrentHour();
                     int minute = binding.makeRoom2.timePicker.getCurrentMinute();
                     binding.makeRoom2.viewTime.setText(hourOfDay+"시 "+minute+"분");
+                    binding.makeRoom2.LayoutGetTime.setVisibility(View.GONE);
+                    binding.makeRoom2.spreadTime.setRotation(0);
+                    state[1]--;
 
                     break;
                 case R.id.submit_place:
-
+                    if(button_checked[0]==1){
+                        binding.makeRoom2.viewPalce.setText("온라인");
+                    }
+                    else{
+                        binding.makeRoom2.viewPalce.setText(binding.makeRoom2.GetPlace.getText());
+                    }
+                    binding.makeRoom2.LayoutGetPlace.setVisibility(View.GONE);
+                    binding.makeRoom2.spreadPlace.setRotation(0);
+                    state[2]--;
                     break;
                 case R.id.submit_personnel:
-
+                    if(button_checked[1]==1){
+                        binding.makeRoom2.viewPersonnel.setText("1");
+                    }
+                    else{
+                        binding.makeRoom2.viewPersonnel.setText(binding.makeRoom2.GetPersonnel.getText());
+                    }
+                    binding.makeRoom2.LayoutGetPersonnel.setVisibility(View.GONE);
+                    binding.makeRoom2.spreadPersonnel.setRotation(0);
+                    state[3]--;
                     break;
                 case R.id.submit_link:
-
+                    binding.makeRoom2.viewLink.setText(binding.makeRoom2.GetLink.getText());
+                    binding.makeRoom2.LayoutGetLink.setVisibility(View.GONE);
+                    binding.makeRoom2.spreadLink.setRotation(0);
+                    state[4]--;
                     break;
 
                 case R.id.button_online:
