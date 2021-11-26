@@ -258,14 +258,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <Button
-                        android:layout_width="wrap_content"
+                        android:id="@+id/button_offline"
+                        android:layout_width="100sp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/stroke_navy"
-                        android:backgroundTint="@color/white"/>
+                        android:backgroundTint="@color/gray"
+                        android:text="@string/Offline"
+                        android:layout_marginRight="20sp"/>
+
+                    <Button
+                        android:id="@+id/button_online"
+                        android:layout_width="100sp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/gray"
+                        android:text="@string/Online"
+                        />
 
                 </LinearLayout>
-
+<!--
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/infacy_chip_group_place"
                 android:layout_width="wrap_content"
@@ -293,7 +304,7 @@
                     android:text="@string/Offline"
                     app:chipIconEnabled="true"
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset_navy" />
-            </com.google.android.material.chip.ChipGroup>
+            </com.google.android.material.chip.ChipGroup>-->
 
                 <EditText
                     android:id="@+id/Get_place"
@@ -303,7 +314,7 @@
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textSize="12sp"
-                    android:visibility="visible" />
+                    android:visibility="visible"                     />
 
 
 
@@ -315,7 +326,8 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:background="@drawable/rounded_corner_navy_button"
-                android:padding="0sp"/>
+                android:padding="0sp"
+                android:layout_marginTop="10sp"/>
 
             </LinearLayout>
 

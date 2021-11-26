@@ -30,7 +30,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
     int page = 1;
     int infoState=1;
-    int state[] = {0,0,0,0,0};
+    int state[] = {0,0,0,0,0},button_checked[] = {0,0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +100,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         findViewById(R.id.submit_place).setOnClickListener(onClickListener);
         findViewById(R.id.submit_personnel).setOnClickListener(onClickListener);
         findViewById(R.id.submit_link).setOnClickListener(onClickListener);
+        findViewById(R.id.button_online).setOnClickListener(onClickListener);
+        findViewById(R.id.button_offline).setOnClickListener(onClickListener);
 
 
         // 사용자 정보 로직
@@ -139,6 +141,21 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 //        this.roomTime = roomTime;
 //        this.roomlocation = roomlocation;
 //        this.roomHeadcount = roomHeadcount;
+    }
+    private void get_Button_checked (int PP, int what){
+
+        button_checked[PP] = what;
+
+        if (button_checked[PP]==0){
+            binding.makeRoom2.GetPlace.setVisibility(View.GONE);
+        }
+        else if(button_checked[PP]==1){
+            binding.makeRoom2.GetPlace.setVisibility(View.GONE);
+        }
+        else{
+            binding.makeRoom2.GetPlace.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -266,6 +283,12 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     break;
                 case R.id.submit_link:
 
+                    break;
+                case R.id.button_online:
+                    get_Button_checked (0,1);
+                    break;
+                case R.id.button_offline:
+                    get_Button_checked (0,2);
                     break;
             }
         }
