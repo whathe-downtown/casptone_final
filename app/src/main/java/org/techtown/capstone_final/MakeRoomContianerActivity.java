@@ -110,7 +110,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         findViewById(R.id.makeroom_next2).setOnClickListener(onClickListener);
         binding.makeRoom2.viewDate.setText("언제 모이나요??");
         binding.makeRoom2.viewTime.setText("몇시에 모이나요?");
-        binding.makeRoom2.viewPalce.setText("어디소 모이나요?");
+        binding.makeRoom2.viewPalce.setText("어디서 모이나요?");
         binding.makeRoom2.viewPersonnel.setText("몇명이서 모이나요?");
         binding.makeRoom2.viewLink.setText("채팅방 주소를 알려주세요");
     }
@@ -296,8 +296,11 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
                     break;
                 case R.id.submit_place:
-                    if(button_checked[0]==1){
-                        binding.makeRoom2.viewPalce.setText("온라인");
+                    if(button_checked[0]==0){
+                        binding.makeRoom2.viewPalce.setText("어디서 모이나요?");
+                    }
+                    else if(button_checked[0]==1){
+                    binding.makeRoom2.viewPalce.setText("온라인");
                     }
                     else{
                         binding.makeRoom2.viewPalce.setText(binding.makeRoom2.GetPlace.getText());
@@ -307,7 +310,10 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     state[2]--;
                     break;
                 case R.id.submit_personnel:
-                    if(button_checked[1]==1){
+                    if(button_checked[0]==0){
+                        binding.makeRoom2.viewPersonnel.setText("몇명이서 모이나요?");
+                    }
+                    else if(button_checked[1]==1){
                         binding.makeRoom2.viewPersonnel.setText("1");
                     }
                     else{

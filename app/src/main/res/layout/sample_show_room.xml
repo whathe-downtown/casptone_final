@@ -84,7 +84,14 @@
                     android:textStyle="bold"
                     android:textSize="13dp"
                     android:text="z"
-                    android:layout_marginRight="20sp"/>
+                    android:layout_marginRight="10sp"/>
+                <ImageButton
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:src="@drawable/ic_ico_bookmark2"
+                    android:layout_marginRight="10sp"
+                    android:layout_gravity="top"
+                    android:backgroundTint="@color/black"/>
 
             </LinearLayout>
             <LinearLayout
