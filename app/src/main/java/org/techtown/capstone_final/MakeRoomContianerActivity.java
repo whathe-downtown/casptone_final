@@ -102,7 +102,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         findViewById(R.id.submit_link).setOnClickListener(onClickListener);
         findViewById(R.id.button_online).setOnClickListener(onClickListener);
         findViewById(R.id.button_offline).setOnClickListener(onClickListener);
-
+        findViewById(R.id.button_individual).setOnClickListener(onClickListener);
+        findViewById(R.id.button_Group).setOnClickListener(onClickListener);
 
         // 사용자 정보 로직
         findViewById(R.id.Roomprofilepic).setOnClickListener(onClickListener);
@@ -146,14 +147,27 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
         button_checked[PP] = what;
 
-        if (button_checked[PP]==0){
+        if(PP==0){
+            if (button_checked[0]==0){
             binding.makeRoom2.GetPlace.setVisibility(View.GONE);
+            }
+            else if(button_checked[0]==1){
+                binding.makeRoom2.GetPlace.setVisibility(View.GONE);
+            }
+            else if(button_checked[0]==2){
+                binding.makeRoom2.GetPlace.setVisibility(View.VISIBLE);
+            }
         }
-        else if(button_checked[PP]==1){
-            binding.makeRoom2.GetPlace.setVisibility(View.GONE);
-        }
-        else{
-            binding.makeRoom2.GetPlace.setVisibility(View.VISIBLE);
+        else if(PP==1){
+            if (button_checked[1]==0){
+               binding.makeRoom2.GetPersonnel.setVisibility(View.GONE);
+            }
+            else if(button_checked[1]==1){
+                binding.makeRoom2.GetPersonnel.setVisibility(View.GONE);
+            }
+            else if(button_checked[1]==2){
+                binding.makeRoom2.GetPersonnel.setVisibility(View.VISIBLE);
+            }
         }
 
     }
@@ -284,11 +298,21 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                 case R.id.submit_link:
 
                     break;
+
                 case R.id.button_online:
                     get_Button_checked (0,1);
                     break;
+
                 case R.id.button_offline:
                     get_Button_checked (0,2);
+                    break;
+
+                case R.id.button_individual:
+                    get_Button_checked (1,1);
+                    break;
+
+                case R.id.button_Group:
+                    get_Button_checked (1,2);
                     break;
             }
         }
