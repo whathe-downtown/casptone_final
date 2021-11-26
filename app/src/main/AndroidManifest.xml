@@ -29,20 +29,18 @@
         <activity android:name=".Password_Reset" />
         <activity android:name=".Detail.HomeDetail.GroupchatDetailActivity" />
         <activity android:name=".Detail.MypageDetail.MypageDetailActivity" />
-        <activity android:name=".SignUpActivity" >
-
-        </activity>
-
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".MakeRoomContianerActivity"/>
-        <activity android:name=".SignInActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity">
 
+        </activity>
     </application>
 
 </manifest>
