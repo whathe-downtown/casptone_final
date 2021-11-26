@@ -42,6 +42,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull  ViewHolder holder, int position) {
+
         Room room = list.get(position);  //users 리스트 포지션 잡고 피카소 모형에다가 이미지 삽입
         holder.roomname.setText(room.getRoomTitle());//username도 얻음
         holder.roomlocation.setText(room.getRoomlocation());

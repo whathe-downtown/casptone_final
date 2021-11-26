@@ -1,5 +1,7 @@
 package org.techtown.capstone_final;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,8 +28,6 @@ import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.service.controls.ControlsProviderService.TAG;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
@@ -136,18 +136,19 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         startActivityForResult(intent, 33);
     }
     private void save(){
-        String roomname = binding.makeRoom1.Roomname.getText().toString();
-        String roominfo = binding.makeRoom1.RoomStatus.getText().toString();
-        String roomcategory = binding.makeRoom1.spinnerItem.getSelectedItem().toString();
-        String roomdate = binding.makeRoom2.viewDate.getText().toString();
-        String roomtime = binding.makeRoom2.viewDate.getText().toString();
-        String roomlocation =binding.makeRoom2.viewPalce.getText().toString();
-        String roomlink = binding.makeRoom2.viewLink.getText().toString();
+        final String roomname = binding.makeRoom1.Roomname.getText().toString();
+        final String roominfo = binding.makeRoom1.RoomStatus.getText().toString();
+        final String roomcategory = binding.makeRoom1.spinnerItem.getSelectedItem().toString();
+        final String roomdate = binding.makeRoom2.viewDate.getText().toString();
+        final String roomtime = binding.makeRoom2.viewDate.getText().toString();
+        final String roomlocation =binding.makeRoom2.viewPalce.getText().toString();
+        final String roomlink = binding.makeRoom2.viewLink.getText().toString();
 
         if(roomname.length()>0 && roominfo.length()>0 && roomcategory.length()>0 &&roomdate.length()>0 &&roomtime.length()>0 &&roomlocation.length()>0 &&roomlink.length()>0 ){
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+            final String uid = auth.getCurrentUser().getUid();
             Map<String, Object> obj = new HashMap<>();
             obj.put("roomTitle",roomname);
             obj.put("roomContent",roominfo);
@@ -156,8 +157,9 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             obj.put("roomTime",roomtime);
             obj.put("roomlocation",roomlocation);
             obj.put("roomlink",roomlink);
+            // 개인을 클릭했을때
             if (people ==1){
-            db.collection("Room").document("1:1").update(obj)
+            db.collection("1:1").document(user.getUid()).update(obj)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -169,8 +171,9 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     startToast("저장을 실패 하였습니다");
                 }
             });
+                // 그룹을 클릭했을때
             }else{
-                db.collection("Room").document("1:N").update(obj)
+                db.collection("1:N").document(user.getUid()).update(obj)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
@@ -185,7 +188,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             }
 
         }else{
-            startToast("방 내용을 모두 채워주세요");
+            startToast("방 내용 을 모두 채워주세요");
         }
 //        this.roomId = roomId;
 //        this.roomprofilepic = roomprofilepic;
