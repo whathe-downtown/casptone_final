@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -33,7 +35,7 @@ public class MentorFragment extends Fragment {
         // Required empty public constructor
     }
     FragmentMentorBinding binding;
-
+    FirebaseUser user;
     FirebaseDatabase database;
     private static final String TAG = "MentorFragemnt";
 
@@ -53,7 +55,8 @@ public class MentorFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.MentorrecyclerView.setLayoutManager(layoutManager);
-        DocumentReference docRef = db.collection("room").document("roomlist");
+
+        DocumentReference docRef = db.collection("1:1").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {

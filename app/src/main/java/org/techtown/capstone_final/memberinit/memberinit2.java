@@ -51,7 +51,6 @@ public class memberinit2 extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
         findViewById(R.id.what_your_name_save_button).setOnClickListener(onClickListener);
-        findViewById(R.id.what_nanme_back).setOnClickListener(onClickListener);
         findViewById(R.id.userprofile).setOnClickListener(onClickListener);
 
 
@@ -77,10 +76,7 @@ public class memberinit2 extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     break;
-                case R.id.what_nanme_back:
-                    Intent intent2 = new Intent(memberinit2.this, memberinit1.class);
-                    startActivity(intent2);
-                    break;
+
                 case R.id.userprofile:
                     loadAlBum();
                     break;

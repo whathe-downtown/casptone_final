@@ -47,6 +47,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         holder.roomname.setText(room.getRoomTitle());//username도 얻음
         holder.roomlocation.setText(room.getRoomlocation());
         holder.roomdate.setText(room.getRoomdate());
+        holder.roomcategory.setText(room.getRoomcategory());
         holder.itemView.setTag(position); // 값 가져오고고
 
        holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +98,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView roomname, roomlocation, roomdate;
+        TextView roomname, roomlocation, roomdate, roomcategory;
         ImageView image;
         public ViewHolder(@NonNull  View itemView) {
             super(itemView);
@@ -106,6 +107,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
             roomname = itemView.findViewById(R.id.roomname);
             roomlocation = itemView.findViewById(R.id.roomlocation);
             roomdate = itemView.findViewById(R.id.roomdate);
+            roomcategory = itemView.findViewById(R.id.roomcategory);
 
         }
     }

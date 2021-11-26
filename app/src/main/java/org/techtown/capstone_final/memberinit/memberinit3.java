@@ -41,7 +41,6 @@ public class memberinit3 extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         findViewById(R.id.self_introduce_button).setOnClickListener(onClickListener);
-        findViewById(R.id.self_introudce_back).setOnClickListener(onClickListener);
 
 
 
@@ -66,10 +65,7 @@ public class memberinit3 extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                     break;
-                case R.id.self_introudce_back:
-                    Intent intent2 = new Intent(memberinit3.this, memberinit2.class);
-                    startActivity(intent2);
-                    break;
+
             }
         }
     };

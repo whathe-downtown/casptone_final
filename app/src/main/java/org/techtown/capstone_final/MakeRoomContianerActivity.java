@@ -34,7 +34,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseFirestore db;
     FirebaseStorage storage;
-    int people = 1;
+
     int page = 1;
     int infoState=1;
     int state[] = {0,0,0,0,0},button_checked[] = {0,0};
@@ -158,31 +158,31 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             obj.put("roomlocation",roomlocation);
             obj.put("roomlink",roomlink);
             // 개인을 클릭했을때
-            if (people ==1){
-            db.collection("1:1").document(user.getUid()).update(obj)
+            if (button_checked[1]==1){
+            db.collection("1:1").document(user.getUid()).set(obj)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            startToast("저장이 완료 되었습니다");
+                            startToast("1:1에저장이 완료 되었습니다");
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    startToast("저장을 실패 하였습니다");
+                    startToast("1:1저장을 실패 하였습니다");
                 }
             });
                 // 그룹을 클릭했을때
-            }else{
+            }else if(button_checked[1]==2){
                 db.collection("1:N").document(user.getUid()).update(obj)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
-                                startToast("저장이 완료 되었습니다");
+                                startToast("1:N저장이 완료 되었습니다");
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        startToast("저장을 실패 하였습니다");
+                        startToast("1:N저장을 실패 하였습니다");
                     }
                 });
             }
