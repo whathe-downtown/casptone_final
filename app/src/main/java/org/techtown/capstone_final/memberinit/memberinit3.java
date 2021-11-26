@@ -17,9 +17,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.techtown.capstone_final.MainActivity;
 import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.ActivityMemberinit3Binding;
-import org.techtown.capstone_final.fragment.Home.HomeActivity;
 
 import java.util.HashMap;
 import java.util.Map;
