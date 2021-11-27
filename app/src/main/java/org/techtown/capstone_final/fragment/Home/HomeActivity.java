@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,6 +29,7 @@ public class HomeActivity extends Fragment {
     ProgressDialog progressDialog;
     FirebaseAuth auth;
     FirebaseDatabase database;
+    RecyclerView recyclerView;
 
     @Override
     public void onCreate(@Nullable  Bundle savedInstanceState) {
@@ -35,6 +37,13 @@ public class HomeActivity extends Fragment {
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
     }
 
@@ -47,8 +56,7 @@ public class HomeActivity extends Fragment {
 
 //        RoomsAdapter adapter = new RoomsAdapter(list,getContext());
 
-
-        binding.viewPager.setAdapter(new FragementAdapter(getActivity().getSupportFragmentManager()));
+        binding.viewPager.setAdapter(new FragementAdapter(getChildFragmentManager()));
         binding.tablayout.setupWithViewPager(binding.viewPager);
 
         binding.basketButton.setOnClickListener(new View.OnClickListener() {

@@ -11,14 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.techtown.capstone_final.Adapters.RoomsAdapter;
 import org.techtown.capstone_final.Model.Room;
@@ -56,28 +56,53 @@ public class MentorFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.MentorrecyclerView.setLayoutManager(layoutManager);
 
-        DocumentReference docRef = db.collection("1:1").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        CollectionReference coRef = db.collection("1:1");
+        coRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                list.clear();
-                if (error != null) {
-                    Log.w(TAG, "Listen failed.", error);
-                    return;
-                }
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Room room = document.toObject(Room.class);
+                        room.getRoomTitle();
+                        list.add(room);
 
-                if (value != null && value.exists()) {
-                    Log.d(TAG, "Current data: " + value.getData());
-                    Room room = value.toObject(Room.class);
-                    room.getRoomTitle();
-                    list.add(room);
-
-
-                } else {
+                    }
+                }else{
                     Log.d(TAG, "Current data: null");
+
+
                 }adapter.notifyDataSetChanged();
             }
         });
+//        DocumentReference docRef = db.collection("1:1").document(FirebaseAuth.getInstance().getUid());
+//        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+//                list.clear();
+//                if (error != null) {
+//                    Log.w(TAG, "Listen failed.", error);
+//                    return;
+//                }
+//
+//                if (value != null && value.exists()) {
+//                    Log.d(TAG, "Current data: " + value.getData());
+//                    Room room = value.toObject(Room.class);
+//                    room.getRoomTitle();
+//                    list.add(room);
+//
+//
+//                } else {
+//                    Log.d(TAG, "Current data: null");
+//                }adapter.notifyDataSetChanged();
+//            }
+//        });
+
+
+
+
+
+
+
 //        addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {

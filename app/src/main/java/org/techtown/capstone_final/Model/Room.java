@@ -19,18 +19,6 @@ public class Room {
     }
 
     public  Room(){}
-    //MaintMade Room  constructor
-
-
-//    //sececond Room Constructor
-//    public Room(String roomDate, String roomTime, String roomPlace, String roomHeadcount) {
-//        this.roomDate = roomDate;
-//        this.roomTime = roomTime;
-//        this.roomPlace = roomPlace;
-
-//        this.roomHeadcount = roomHeadcount;
-//    }
-
 
     public String getRoomlink() {
         return roomlink;

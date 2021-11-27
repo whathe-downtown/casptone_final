@@ -1,4 +1,3 @@
-
 package org.techtown.capstone_final.Adapters;
 
 import android.content.Context;
@@ -9,20 +8,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import org.techtown.capstone_final.Model.Room;
 import org.techtown.capstone_final.R;
-
 import java.util.ArrayList;
 
 public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> {
-    ArrayList<Room> list;
-    Context context;
+    private final ArrayList<Room> list;
+    private final Context context;
     private static final String TAG = "RoomsAdapter";
-    ImageView  bookmarkButton;
+    private ImageView  bookmarkButton;
     int bookmark =0;
 
     public RoomsAdapter(ArrayList<Room> roomlist, Context context) {
@@ -36,8 +32,6 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         bookmarkButton=(ImageView)view.findViewById(R.id.bookmarkButton);
 
         return new ViewHolder(view);
-
-
     }
 
     @Override
@@ -48,9 +42,9 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         holder.roomlocation.setText(room.getRoomlocation());
         holder.roomdate.setText(room.getRoomdate());
         holder.roomcategory.setText(room.getRoomcategory());
-        holder.itemView.setTag(position); // 값 가져오고고
+        holder.itemView.setTag(position); // 값 가져오고
 
-       holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"Roomitem onclick");
@@ -80,11 +74,6 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
               // Log.d(TAG,"오래 누르면 방 상세페이지가 뜨게 만들것입니다.");
               startToast("item을 오래 클릭하셨습니다.");
-
-
-
-
-
                return true;
            }
        });
@@ -102,7 +91,6 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         ImageView image;
         public ViewHolder(@NonNull  View itemView) {
             super(itemView);
-
 
             roomname = itemView.findViewById(R.id.roomname);
             roomlocation = itemView.findViewById(R.id.roomlocation);
