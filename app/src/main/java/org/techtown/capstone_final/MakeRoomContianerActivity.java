@@ -1,7 +1,5 @@
 package org.techtown.capstone_final;
 
-import static android.service.controls.ControlsProviderService.TAG;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -33,6 +31,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.service.controls.ControlsProviderService.TAG;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
