@@ -1,5 +1,7 @@
 package org.techtown.capstone_final;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -26,8 +29,6 @@ import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.service.controls.ControlsProviderService.TAG;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
@@ -159,11 +160,12 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             obj.put("roomlink",roomlink);
             // 개인을 클릭했을때
             if (button_checked[1]==1){
-                db.collection("1:1").document(user.getUid()).set(obj)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                db.collection("1:1").add(obj)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
-                            public void onSuccess(Void unused) {
-                                startToast("1:1에저장이 완료 되었습니다");
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                startToast("1:1 저장을 성공하였습니다.");
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override

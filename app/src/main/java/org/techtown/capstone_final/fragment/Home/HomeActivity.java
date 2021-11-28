@@ -44,6 +44,9 @@ public class HomeActivity extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.viewPager.setAdapter(new FragementAdapter(getChildFragmentManager()));
+        binding.tablayout.setupWithViewPager(binding.viewPager);
+
 
     }
 
@@ -56,8 +59,6 @@ public class HomeActivity extends Fragment {
 
 //        RoomsAdapter adapter = new RoomsAdapter(list,getContext());
 
-        binding.viewPager.setAdapter(new FragementAdapter(getChildFragmentManager()));
-        binding.tablayout.setupWithViewPager(binding.viewPager);
 
         binding.basketButton.setOnClickListener(new View.OnClickListener() {
             @Override
