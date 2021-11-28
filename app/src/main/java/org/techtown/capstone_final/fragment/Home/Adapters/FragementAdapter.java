@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.techtown.capstone_final.fragment.Home.viewpager.MentorFragment;
-import org.techtown.capstone_final.fragment.Home.viewpager.StudyFragment;
+import org.techtown.capstone_final.fragment.Home.viewpager.MentorFragment2;
 
 public class FragementAdapter extends FragmentPagerAdapter {
     public FragementAdapter(@NonNull FragmentManager fm) {
@@ -24,7 +24,7 @@ public class FragementAdapter extends FragmentPagerAdapter {
 
         switch (position){
             case 0 : return  new MentorFragment();
-            case 1 : return  new StudyFragment();
+            case 1 : return  new MentorFragment2();
 //            case 2 : return  new CompetitionFragment();
 //            case 3 : return  new FreeMeetingFragment();
             default: return  new MentorFragment();

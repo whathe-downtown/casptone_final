@@ -1,6 +1,7 @@
 package org.techtown.capstone_final.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import org.techtown.capstone_final.Model.Room;
 import org.techtown.capstone_final.R;
+import org.techtown.capstone_final.RoomDetailActivity;
+
 import java.util.ArrayList;
 
 public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> {
@@ -49,7 +54,8 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
             public void onClick(View v) {
                 Log.d(TAG,"Roomitem onclick");
                 startToast("itme을 클릭하셨습니다.");
-
+                Intent intent = new Intent( context , RoomDetailActivity.class);
+                context.startActivity(intent);
                 //Intent intent = new Intent(context, RoomseceondlistActivity.class);
                 //intent.putExtra("RoomId", room.getRoomId());
                // intent.putExtra("Roomtitle",room.getRoomTitle());

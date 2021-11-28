@@ -2,6 +2,7 @@ package org.techtown.capstone_final;
 
 import static android.service.controls.ControlsProviderService.TAG;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,7 +27,10 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
+import org.techtown.capstone_final.fragment.Home.HomeActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +43,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
     int page = 1;
     int infoState=1;
     int state[] = {0,0,0,0,0},button_checked[] = {0,0};
-
+    private Uri sFile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,73 +140,129 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         intent.setType("image/*");
         startActivityForResult(intent, 33);
     }
-    private void save(){
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data.getData() != null) {
+            // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
+            sFile = data.getData();
+            binding.makeRoom1.Roomprofilepic.setImageURI(sFile);
+
+//            storage = FirebaseStorage.getInstance();
+//            final StorageReference reference = storage.getReference().child("profile pictures")
+//                    .child(FirebaseAuth.getInstance().getUid());
+//
+//            reference.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                @Override
+//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//
+//                        @Override
+//                        public void onSuccess(Uri uri) {
+//                            db.collection("users").document(FirebaseAuth.getInstance().getUid()).update("profilepic",uri.toString())
+//                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void unused) {
+//                                            startToast("성공적으로 이미지가 업로드 완료되었습니다.");
+//                                        }
+//                                    })
+//                                    .addOnFailureListener(new OnFailureListener() {
+//                                        @Override
+//                                        public void onFailure(@NonNull Exception e) {
+//                                            startToast("이미지가 업로드 되지 않았습니다.");
+//                                        }
+//                                    });
+//
+//                        }
+//                    });
+//
+//                }
+//            });
+        }else{
+            finish();
+        }
+    }
+    private void save() {
         final String roomname = binding.makeRoom1.Roomname.getText().toString();
         final String roominfo = binding.makeRoom1.RoomStatus.getText().toString();
         final String roomcategory = binding.makeRoom1.spinnerItem.getSelectedItem().toString();
         final String roomdate = binding.makeRoom2.viewDate.getText().toString();
         final String roomtime = binding.makeRoom2.viewDate.getText().toString();
-        final String roomlocation =binding.makeRoom2.viewPalce.getText().toString();
+        final String roomlocation = binding.makeRoom2.viewPalce.getText().toString();
         final String roomlink = binding.makeRoom2.viewLink.getText().toString();
 
-        if(roomname.length()>0 && roominfo.length()>0 && roomcategory.length()>0 &&roomdate.length()>0 &&roomtime.length()>0 &&roomlocation.length()>0 &&roomlink.length()>0 ){
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = sdf.format(new Date());
 
-            final String uid = auth.getCurrentUser().getUid();
-            Map<String, Object> obj = new HashMap<>();
-            obj.put("roomTitle",roomname);
-            obj.put("roomContent",roominfo);
-            obj.put("roomcategory",roomcategory);
-            obj.put("roomdate",roomdate);
-            obj.put("roomTime",roomtime);
-            obj.put("roomlocation",roomlocation);
-            obj.put("roomlink",roomlink);
-            // 개인을 클릭했을때
-            if (button_checked[1]==1){
-                db.collection("1:1").add(obj)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
-                                startToast("1:1 저장을 성공하였습니다.");
+        String imageFileName = "IMAGE_" + formattedDate + "_.png";
+        StorageReference storageRef = storage.getReference().child("images").child(imageFileName);
+
+        storageRef.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                if (sFile != null) {
+                    storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            if (roomname.length() > 0 && roominfo.length() > 0 && roomcategory.length() > 0 && roomdate.length() > 0 && roomtime.length() > 0 && roomlocation.length() > 0 && roomlink.length() > 0) {
+
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                final String uid = auth.getCurrentUser().getUid();
+
+                                Map<String, Object> obj = new HashMap<>();
+                                obj.put("roomprofilepic", uri.toString());
+                                obj.put("roomTitle", roomname);
+                                obj.put("roomContent", roominfo);
+                                obj.put("roomcategory", roomcategory);
+                                obj.put("roomdate", roomdate);
+                                obj.put("roomTime", roomtime);
+                                obj.put("roomlocation", roomlocation);
+                                obj.put("roomlink", roomlink);
+                                obj.put("roomuid", user.getUid());
+                             
+
+                                if (button_checked[1] == 1) {
+                                    db.collection("1:1").add(obj)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                                    startToast("1:1 저장을 성공하였습니다.");
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            startToast("1:1저장을 실패 하였습니다");
+                                        }
+                                    });
+                                    // 그룹을 클릭했을때
+                                } else if (button_checked[1] == 2) {
+                                    db.collection("1:N").add(obj)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                                                    startToast("1:N 저장을 성공하였습니다.");
+
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            startToast("1:N저장을 실패 하였습니다");
+                                        }
+                                    });
+                                }
+
+                            } else {
+                                startToast("방 내용 을 모두 채워주세요");
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        startToast("1:1저장을 실패 하였습니다");
-                    }
-                });
-                // 그룹을 클릭했을때
-            }else if(button_checked[1]==2){
-                db.collection("1:N").document(user.getUid()).update(obj)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                startToast("1:N저장이 완료 되었습니다");
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        startToast("1:N저장을 실패 하였습니다");
-                    }
-                });
+
+                        }
+                    });
+                }
             }
-
-        }else{
-            startToast("방 내용 을 모두 채워주세요");
-        }
-//        this.roomId = roomId;
-//        this.roomprofilepic = roomprofilepic;
-//        this.publisher = publisher;
-//        this.roomTitle = roomTitle;
-//
-//        this.roomcategory = roomcategory;
-//        this.roomContent = roomContent;
-//        this.roomdate = roomdate;
-//        this.roomTime = roomTime;
-//        this.roomlocation = roomlocation;
-//        this.roomHeadcount = roomHeadcount;
+        });
     }
 
     private void get_Button_checked (int PP, int what){
@@ -283,46 +343,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (data.getData() != null) {
-            // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
-            Uri sFile = data.getData();
-            binding.makeRoom1.Roomprofilepic.setImageURI(sFile);
 
-            storage = FirebaseStorage.getInstance();
-            final StorageReference reference = storage.getReference().child("profile pictures")
-                    .child(FirebaseAuth.getInstance().getUid());
-
-            reference.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            db.collection("users").document(FirebaseAuth.getInstance().getUid()).update("profilepic",uri.toString())
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            startToast("성공적으로 이미지가 업로드 완료되었습니다.");
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            startToast("이미지가 업로드 되지 않았습니다.");
-                                        }
-                                    });
-
-                        }
-                    });
-
-                }
-            });
-        }
-    }
 
 
 
@@ -336,6 +357,9 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
                 case R.id.makeroom_next2:
                     save();
+                    Intent intent = new Intent(MakeRoomContianerActivity.this, HomeActivity.class);
+                    setResult(Activity.RESULT_OK);
+                    finish();
                     break;
 
                 case R.id.spread_date:

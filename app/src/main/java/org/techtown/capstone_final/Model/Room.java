@@ -2,10 +2,12 @@ package org.techtown.capstone_final.Model;
 
 public class Room {
 
-    private String publisher,roomTitle,  roomprofilepic,roomcategory, roomContent, roomdate,roomTime,roomlocation,roomHeadcount,roomId ,roomlink;
+    private String useruid,usernprofilepic,roomTitle, roomprofilepic,roomcategory, roomContent, roomdate,roomTime,roomlocation,roomHeadcount,roomId ,roomlink;
 
-    public Room(String publisher, String roomTitle, String roomprofilepic, String roomcategory, String roomContent, String roomdate, String roomTime, String roomlocation, String roomHeadcount, String roomId, String roomlink) {
-        this.publisher = publisher;
+
+    public Room(String useruid, String usernprofilepic, String roomTitle, String roomprofilepic, String roomcategory, String roomContent, String roomdate, String roomTime, String roomlocation, String roomHeadcount, String roomId, String roomlink) {
+        this.useruid = useruid;
+        this.usernprofilepic = usernprofilepic;
         this.roomTitle = roomTitle;
         this.roomprofilepic = roomprofilepic;
         this.roomcategory = roomcategory;
@@ -20,6 +22,22 @@ public class Room {
 
     public  Room(){}
 
+    public String getUseruid() {
+        return useruid;
+    }
+
+    public void setUseruid(String useruid) {
+        this.useruid = useruid;
+    }
+
+    public String getUsernprofilepic() {
+        return usernprofilepic;
+    }
+
+    public void setUsernprofilepic(String usernprofilepic) {
+        this.usernprofilepic = usernprofilepic;
+    }
+
     public String getRoomlink() {
         return roomlink;
     }
@@ -28,13 +46,8 @@ public class Room {
         this.roomlink = roomlink;
     }
 
-    public String getPublisher() {
-        return publisher;
-    }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
-    }
+
 
     public String getRoomTitle() {
         return roomTitle;
