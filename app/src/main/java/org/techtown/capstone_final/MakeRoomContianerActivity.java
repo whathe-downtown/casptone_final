@@ -1,7 +1,5 @@
 package org.techtown.capstone_final;
 
-import static android.service.controls.ControlsProviderService.TAG;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,6 +28,8 @@ import org.techtown.capstone_final.databinding.ActivityMakeContainerBinding;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
     FirebaseAuth auth;
@@ -40,6 +40,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
     int infoState=1;
     int state[] = {0,0,0,0,0},button_checked[] = {0,0};
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,11 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
+
+        //데이터 피커 이전날짜 비활성화
+        binding.makeRoom2.datePicker.setMinDate(System.currentTimeMillis() - 1000);
+        //데이터 피커 미래 날짜 설정
+        // binding.makeRoom2.datePicker.setMaxDate(System.currentTimeMillis() - 1000);
 
         // VISBILE UNVISBLE 로직
         binding.makeRoom1.makeroomNext.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +136,8 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         //장소, 인원 값 있을때만 버튼 눌림
 
     }
+
+
     private void Roomprofileupdate(){
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_GET_CONTENT);
