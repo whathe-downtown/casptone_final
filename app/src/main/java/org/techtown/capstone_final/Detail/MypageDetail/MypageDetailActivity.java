@@ -32,6 +32,7 @@ public class MypageDetailActivity extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseAuth auth;
     FirebaseFirestore db;
+    int ChipArray[] = {0, };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +44,31 @@ public class MypageDetailActivity extends AppCompatActivity {
 
         findViewById(R.id.mypage_detail_profileImage).setOnClickListener(onClickListener);
         findViewById(R.id.profile_update).setOnClickListener(onClickListener);
+        findViewById(R.id.basic1).setOnClickListener(onClickListener);
+        findViewById(R.id.basic2).setOnClickListener(onClickListener);
+        findViewById(R.id.basic3).setOnClickListener(onClickListener);
+        findViewById(R.id.basic4).setOnClickListener(onClickListener);
+        findViewById(R.id.basic5).setOnClickListener(onClickListener);
+        findViewById(R.id.basic6).setOnClickListener(onClickListener);
+        findViewById(R.id.basic7).setOnClickListener(onClickListener);
+        findViewById(R.id.basic8).setOnClickListener(onClickListener);
+        findViewById(R.id.basic9).setOnClickListener(onClickListener);
+        findViewById(R.id.basic10).setOnClickListener(onClickListener);
+        findViewById(R.id.basic11).setOnClickListener(onClickListener);
+
+
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
+                case R.id.basic1 :
+                    if(ChipArray[1]==0){
+                        ChipArray[1]++;
+                    }else
 
+                    break;
 
                 case R.id.mypage_detail_profileImage:
                     profileUpdate();
@@ -77,6 +96,7 @@ public class MypageDetailActivity extends AppCompatActivity {
         intent.setType("image/*");
         startActivityForResult(intent, 33);
     }
+
 
     //데이터 값을 받아 오기위한 로직
     @Override
