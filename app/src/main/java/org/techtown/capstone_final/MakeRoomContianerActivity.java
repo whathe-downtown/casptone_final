@@ -221,7 +221,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                                 obj.put("roomlink", roomlink);
                                 obj.put("roomuid", user.getUid());
                              
-
+                                startToast("hello");
                                 if (button_checked[1] == 1) {
                                     db.collection("1:1").add(obj)
                                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
