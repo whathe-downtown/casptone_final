@@ -40,7 +40,6 @@
         <item name="android:textColorPrimary">@color/orange_700</item>
         <item name="android:textColorSecondary">@color/gray</item>
         <item name="colorAccent">@color/gray</item>
-
-
     </style>
+
 </resources>
