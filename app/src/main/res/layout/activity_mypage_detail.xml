@@ -106,7 +106,7 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.chip.ChipGroup
-                android:id="@+id/infacy_chip_group"
+                android:id="@+id/infacy_chip_group_my"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/welcome_message"
