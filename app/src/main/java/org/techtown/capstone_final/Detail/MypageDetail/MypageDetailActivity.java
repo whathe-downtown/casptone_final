@@ -32,7 +32,9 @@ public class MypageDetailActivity extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseAuth auth;
     FirebaseFirestore db;
-    int ChipArray[] = {0, };
+    int[] ChipArray = new int[14];
+    String testText ="";
+    int ChipMax = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +57,42 @@ public class MypageDetailActivity extends AppCompatActivity {
         findViewById(R.id.basic9).setOnClickListener(onClickListener);
         findViewById(R.id.basic10).setOnClickListener(onClickListener);
         findViewById(R.id.basic11).setOnClickListener(onClickListener);
+        findViewById(R.id.basic12).setOnClickListener(onClickListener);
+        findViewById(R.id.basic13).setOnClickListener(onClickListener);
+        findViewById(R.id.basic14).setOnClickListener(onClickListener);
 
 
+
+    }
+    public void ChipChecked (int cartegory){
+        int ChipCount=0;
+
+        if(ChipArray[cartegory-1]==0)
+            ChipArray[cartegory-1]++;
+        else if(ChipArray[cartegory-1]==1)
+            ChipArray[cartegory-1]--;
+        testText = "";
+        for (int i=0; i<14 ; i++)
+        {
+            testText = testText + Integer.toString(ChipArray[i]) + "/";
+            ChipCount += ChipArray[i] ;
+            if(ChipCount>=ChipMax){
+                if(ChipArray[0]==0) binding.basic1.setEnabled(false);if(ChipArray[1]==0) binding.basic2.setEnabled(false);
+                if(ChipArray[2]==0) binding.basic3.setEnabled(false);if(ChipArray[3]==0) binding.basic4.setEnabled(false);
+                if(ChipArray[4]==0) binding.basic5.setEnabled(false);if(ChipArray[5]==0) binding.basic6.setEnabled(false);
+                if(ChipArray[6]==0) binding.basic7.setEnabled(false);if(ChipArray[7]==0) binding.basic8.setEnabled(false);
+                if(ChipArray[8]==0) binding.basic9.setEnabled(false);if(ChipArray[9]==0) binding.basic10.setEnabled(false);
+                if(ChipArray[10]==0) binding.basic11.setEnabled(false);if(ChipArray[11]==0) binding.basic12.setEnabled(false);
+                if(ChipArray[12]==0) binding.basic13.setEnabled(false);if(ChipArray[13]==0) binding.basic14.setEnabled(false);
+            } else {
+                binding.basic1.setEnabled(true);binding.basic2.setEnabled(true);binding.basic3.setEnabled(true);
+                binding.basic4.setEnabled(true);binding.basic5.setEnabled(true);binding.basic6.setEnabled(true);
+                binding.basic7.setEnabled(true);binding.basic8.setEnabled(true);binding.basic9.setEnabled(true);
+                binding.basic10.setEnabled(true);binding.basic11.setEnabled(true);binding.basic12.setEnabled(true);
+                binding.basic13.setEnabled(true);binding.basic14.setEnabled(true);
+            }
+        }
+        binding.career.setText(testText);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -64,11 +100,48 @@ public class MypageDetailActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.basic1 :
-                    if(ChipArray[1]==0){
-                        ChipArray[1]++;
-                    }else
-
+                    ChipChecked(1);
                     break;
+                case R.id.basic2 :
+                    ChipChecked(2);
+                    break;
+                case R.id.basic3 :
+                    ChipChecked(3);
+                    break;
+                case R.id.basic4 :
+                    ChipChecked(4);
+                    break;
+                case R.id.basic5 :
+                    ChipChecked(5);
+                    break;
+                case R.id.basic6 :
+                    ChipChecked(6);
+                    break;
+                case R.id.basic7 :
+                    ChipChecked(7);
+                    break;
+                case R.id.basic8 :
+                    ChipChecked(8);
+                    break;
+                case R.id.basic9 :
+                    ChipChecked(9);
+                    break;
+                case R.id.basic10 :
+                    ChipChecked(10);
+                    break;
+                case R.id.basic11 :
+                    ChipChecked(11);
+                    break;
+                case R.id.basic12 :
+                    ChipChecked(12);
+                    break;
+                case R.id.basic13 :
+                    ChipChecked(13);
+                    break;
+                case R.id.basic14 :
+                    ChipChecked(14);
+                    break;
+
 
                 case R.id.mypage_detail_profileImage:
                     profileUpdate();
