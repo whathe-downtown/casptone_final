@@ -55,6 +55,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
                 Log.d(TAG,"Roomitem onclick");
                 startToast("itme을 클릭하셨습니다.");
                 Intent intent = new Intent( context , RoomDetailActivity.class);
+                intent.putExtra("",room.getUseruid());
                 context.startActivity(intent);
                 //Intent intent = new Intent(context, RoomseceondlistActivity.class);
                 //intent.putExtra("RoomId", room.getRoomId());
