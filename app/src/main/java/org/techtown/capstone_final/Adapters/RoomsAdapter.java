@@ -1,7 +1,6 @@
 package org.techtown.capstone_final.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.techtown.capstone_final.Model.Room;
 import org.techtown.capstone_final.R;
-import org.techtown.capstone_final.RoomDetailActivity;
 
 import java.util.ArrayList;
 
@@ -54,9 +52,9 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
             public void onClick(View v) {
                 Log.d(TAG,"Roomitem onclick");
                 startToast("itme을 클릭하셨습니다.");
-                Intent intent = new Intent( context , RoomDetailActivity.class);
-                intent.putExtra("",room.getUseruid());
-                context.startActivity(intent);
+//                Intent intent = new Intent( context , RoomDetailActivity.class);
+//                intent.putExtra("",room.getUseruid());
+//                context.startActivity(intent);
                 //Intent intent = new Intent(context, RoomseceondlistActivity.class);
                 //intent.putExtra("RoomId", room.getRoomId());
                // intent.putExtra("Roomtitle",room.getRoomTitle());
@@ -95,7 +93,8 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView roomname, roomlocation, roomdate, roomcategory;
-        ImageView image;
+        TextView username1, username2,username3,username4,username5;
+        ImageView user1, user2,user3,user4,user5;
         public ViewHolder(@NonNull  View itemView) {
             super(itemView);
 
