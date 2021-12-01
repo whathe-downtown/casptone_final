@@ -457,7 +457,13 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                         binding.makeRoom2.viewPersonnel.setText("1");
                     }
                     else{
-                        binding.makeRoom2.viewPersonnel.setText(binding.makeRoom2.GetPersonnel.getText());
+                        int getmentee=Integer.parseInt(binding.makeRoom2.viewPersonnel.getText().toString());
+                        if(getmentee<=3){
+                            binding.makeRoom2.viewPersonnel.setText(binding.makeRoom2.GetPersonnel.getText());
+                        }else {
+                            startToast("인원은 최대 3명입니다.");
+                        }
+
                     }
                     binding.makeRoom2.LayoutGetPersonnel.setVisibility(View.GONE);
                     binding.makeRoom2.spreadPersonnel.setRotation(0);
