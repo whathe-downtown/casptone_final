@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,19 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         holder.roomdate.setText(room.getRoomdate());
         holder.roomcategory.setText(room.getRoomcategory());
         holder.itemView.setTag(position); // 값 가져오고
+
+//        switch (room.getRoomHeadcount()){
+//            case "3" :
+//                holder.profile_card4.setVisibility(View.VISIBLE);
+//
+//            case "2" :
+//                holder.profile_card3.setVisibility(View.VISIBLE);
+//
+//            case "1" :
+//                holder.profile_card2.setVisibility(View.VISIBLE);
+//                holder.profile_card1.setVisibility(View.VISIBLE);
+//                break;
+//        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,13 +109,25 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
         TextView roomname, roomlocation, roomdate, roomcategory;
         TextView username1, username2,username3,username4,username5;
         ImageView user1, user2,user3,user4,user5;
+        int maxperson, nowperson;
+        LinearLayout profile_card1, profile_card2, profile_card3, profile_card4;
         public ViewHolder(@NonNull  View itemView) {
             super(itemView);
+
 
             roomname = itemView.findViewById(R.id.roomname);
             roomlocation = itemView.findViewById(R.id.roomlocation);
             roomdate = itemView.findViewById(R.id.roomdate);
             roomcategory = itemView.findViewById(R.id.roomcategory);
+            profile_card1 = itemView.findViewById(R.id.profile_card1);
+            profile_card2 = itemView.findViewById(R.id.profile_card2);
+            profile_card3 = itemView.findViewById(R.id.profile_card3);
+            profile_card4 = itemView.findViewById(R.id.profile_card4);
+
+
+
+
+
 
         }
     }

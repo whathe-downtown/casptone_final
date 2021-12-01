@@ -120,7 +120,7 @@
                         android:id="@+id/profile_name1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="아무개"
+                        android:text="host"
                         android:textStyle="bold"
                         android:layout_marginTop="5sp"
                         android:textColor="@color/black"/>
@@ -144,7 +144,7 @@
                         android:id="@+id/profile_name2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="아무개"
+                        android:text="+"
                         android:textStyle="bold"
                         android:layout_marginTop="5sp"
                         android:textColor="@color/black"/>
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:visibility="gone">
+                    android:visibility="visible">
                     <de.hdodenhof.circleimageview.CircleImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/profile_image3"
@@ -168,7 +168,7 @@
                         android:id="@+id/profile_name3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="아무개"
+                        android:text="+"
                         android:textStyle="bold"
                         android:layout_marginTop="5sp"
                         android:textColor="@color/black"/>
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:visibility="gone">
+                    android:visibility="visible">
                     <de.hdodenhof.circleimageview.CircleImageView
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/profile_image4"
@@ -192,7 +192,7 @@
                         android:id="@+id/profile_name4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="아무개"
+                        android:text="+"
                         android:textStyle="bold"
                         android:layout_marginTop="5sp"
                         android:textColor="@color/black"/>
