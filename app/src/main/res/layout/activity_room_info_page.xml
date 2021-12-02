@@ -82,14 +82,25 @@
                 android:layout_below="@id/view_group"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/place_and_tume"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp"
+                    android:orientation="horizontal"
                     android:gravity="center"
-                    android:text="오프라인 : 장소 어디어디 , MM월 DD일 오후 hh시 mm분" />
-
+                    android:layout_marginTop="10sp">
+                    <TextView
+                        android:id="@+id/place_and_tume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="오프라인 : 장소 어디어디 " />
+                    <TextView
+                        android:id="@+id/date_and_tume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=", MM월 DD일 오후 hh시 mm분" />
+                </LinearLayout>
                 <TextView
                     android:id="@+id/room_name"
                     android:layout_width="wrap_content"
