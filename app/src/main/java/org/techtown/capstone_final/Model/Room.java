@@ -22,22 +22,13 @@ public class Room {
 
     public  Room(){}
 
-    public String getUseruid() {
-        return useruid;
+    public String getRoomId() {
+        return roomId;
     }
 
-    public void setUseruid(String useruid) {
-        this.useruid = useruid;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
-
-    public String getUsernprofilepic() {
-        return usernprofilepic;
-    }
-
-    public void setUsernprofilepic(String usernprofilepic) {
-        this.usernprofilepic = usernprofilepic;
-    }
-
     public String getRoomlink() {
         return roomlink;
     }
@@ -113,11 +104,5 @@ public class Room {
         this.roomHeadcount = roomHeadcount;
     }
 
-    public String getRoomId() {
-        return roomId;
-    }
 
-    public void setRoomId(String roomId) {
-        this.roomId = roomId;
-    }
 }

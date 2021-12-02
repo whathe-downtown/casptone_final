@@ -1,5 +1,7 @@
 package org.techtown.capstone_final;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -31,8 +33,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.service.controls.ControlsProviderService.TAG;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
@@ -193,6 +193,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         final String roomtime = binding.makeRoom2.viewDate.getText().toString();
         final String roomlocation = binding.makeRoom2.viewPalce.getText().toString();
         final String roomlink = binding.makeRoom2.viewLink.getText().toString();
+        final String roomperson = binding.makeRoom2.viewPersonnel.getText().toString();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = sdf.format(new Date());
@@ -207,7 +208,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                     storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            if (roomname.length() > 0 && roominfo.length() > 0 && roomcategory.length() > 0 && roomdate.length() > 0 && roomtime.length() > 0 && roomlocation.length() > 0 && roomlink.length() > 0) {
+                            if (roomname.length() > 0 && roominfo.length() > 0 && roomcategory.length() > 0 && roomdate.length() > 0 && roomtime.length() > 0 && roomlocation.length() > 0 && roomlink.length() > 0 && roomperson.length() >0) {
 
                                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -223,6 +224,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                                 obj.put("roomlocation", roomlocation);
                                 obj.put("roomlink", roomlink);
                                 obj.put("roomuid", user.getUid());
+                                obj.put("roomHeadcount", roomperson);
                              
 
                                 if (button_checked[1] == 1) {

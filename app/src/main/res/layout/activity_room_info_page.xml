@@ -18,11 +18,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal">
+
             <ImageView
                 android:id="@+id/room_img"
                 android:layout_width="match_parent"
                 android:layout_height="250sp"
-                android:background="@color/Navy_100"/>
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/Navy_100" />
 
             <Button
                 android:id="@+id/modify"
@@ -46,7 +53,7 @@
                 android:layout_marginTop="175sp"
                 android:background="@drawable/rounded_corner" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
                 android:layout_width="80sp"
                 android:layout_height="80sp"
