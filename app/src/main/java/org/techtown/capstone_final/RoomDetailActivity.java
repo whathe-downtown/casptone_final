@@ -1,6 +1,8 @@
 package org.techtown.capstone_final;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,24 +40,19 @@ public class RoomDetailActivity extends AppCompatActivity {
 
         binding.roomName.setText(roomtitle);
         binding.roomInfo.setText(roomContent);
-        binding.placeAndTume.setText(roomdate);
+        binding.placeAndTume.setText(roomlocation);
+        binding.dateAndTume.setText(roomdate);
         Picasso.get().load(roomprofilepic).placeholder(R.drawable.ic_ico_profile).into(binding.profileImage);
         Picasso.get().load(roomprofilepic).placeholder(R.drawable.backgroundpage).into(binding.roomImg);
 
-//        Map<String, Object> obj = new HashMap<>();
-//        obj.put("roomprofilepic", uri.toString());
-//        obj.put("roomTitle", roomname);
-//        obj.put("roomContent", roominfo);
-//        obj.put("roomcategory", roomcategory);
-//        obj.put("roomdate", roomdate);
-//        obj.put("roomTime", roomtime);
-//        obj.put("roomlocation", roomlocation);
-//        obj.put("roomlink", roomlink);
-//        obj.put("roomuid", user.getUid());
-//        obj.put("roomHeadcount", roomperson);
 
-
-
+        binding.inviteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RoomDetailActivity.this, InviteActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 

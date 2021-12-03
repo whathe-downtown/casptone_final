@@ -72,7 +72,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG,"방 두번째 클릭");
-                Intent intent = new Intent(MakeRoomContianerActivity.this, RoomInfoPageActivity.class);
+                Intent intent = new Intent(MakeRoomContianerActivity.this, RoomDetailActivity.class);
                 startActivity(intent);
                 finish();
             }

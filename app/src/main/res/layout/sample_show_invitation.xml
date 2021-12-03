@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="327sp"
     android:layout_height="70sp"
     android:orientation="horizontal"
     android:background="@drawable/rounded_corner"
-    android:layout_gravity="center_horizontal"
-    >
+    android:layout_gravity="center_horizontal">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image1"
         android:layout_width="60sp"
@@ -19,10 +19,12 @@
         android:orientation="vertical"
         android:layout_gravity="center_vertical">
     <TextView
+        android:id="@+id/inviteUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="유저이름"/>
     <TextView
+        android:id="@+id/inviteOneInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="한줄 소개"/>
@@ -31,14 +33,16 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_weight="1" />
+
     <Button
         android:layout_width="60sp"
         android:layout_height="40sp"
         android:layout_gravity="center_vertical"
+        android:layout_marginRight="20sp"
         android:background="@drawable/rounded_corner"
         android:padding="0sp"
         android:text="초대"
-        android:layout_marginRight="20sp"/>
+        tools:ignore="TouchTargetSizeCheck" />
 
 
 </LinearLayout>

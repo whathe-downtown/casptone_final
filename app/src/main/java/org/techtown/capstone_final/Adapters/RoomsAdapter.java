@@ -79,7 +79,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
                 Intent intent = new Intent( context , RoomDetailActivity.class);
                 intent.putExtra("roomId", room.getRoomId());
                 intent.putExtra("roomContent",room.getRoomContent());
-                intent.putExtra("room")
+                intent.putExtra("roomlocation",room.getRoomlocation());
                 intent.putExtra("roomtitle",room.getRoomTitle());
                 intent.putExtra("roomdate",room.getRoomdate());
                 intent.putExtra("roomprofilepic",room.getRoomprofilepic());

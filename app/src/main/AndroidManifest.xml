@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone_final">
         <activity
-            android:name=".InviteUsers"
+            android:name=".InviteActivity"
             android:exported="false" />
         <activity
-            android:name=".RoomInfoPageActivity"
+            android:name=".InviteUsers"
             android:exported="false" />
         <activity
             android:name=".fragment.mypage.viewpager.FragRecord"
@@ -30,7 +30,7 @@
         <activity android:name=".memberinit.memberinit3" />
         <activity android:name=".memberinit.memberinit1" />
         <activity android:name=".Password_Reset" />
-        <activity android:name=".RoomDetailActivity"/>
+        <activity android:name=".RoomDetailActivity" />
         <activity android:name=".Detail.HomeDetail.GroupchatDetailActivity" />
         <activity android:name=".Detail.MypageDetail.MypageDetailActivity" />
         <activity android:name=".SignUpActivity" />
@@ -42,7 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

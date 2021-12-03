@@ -12,6 +12,7 @@ public class Users {
         this.usercategory = usercategory;
         this.useroneinfo = useroneinfo;
     }
+    public Users(){}
 
     public String getUseroneinfo() {
         return useroneinfo;
