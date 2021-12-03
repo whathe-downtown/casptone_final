@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="327sp"
     android:layout_height="70sp"
+    android:layout_marginTop="20dp"
     android:orientation="horizontal"
     android:background="@drawable/rounded_corner"
     android:layout_gravity="center_horizontal">
@@ -35,6 +36,7 @@
         android:layout_weight="1" />
 
     <Button
+        android:id="@+id/inviteDetailButton"
         android:layout_width="60sp"
         android:layout_height="40sp"
         android:layout_gravity="center_vertical"
@@ -42,7 +44,7 @@
         android:background="@drawable/rounded_corner"
         android:padding="0sp"
         android:text="초대"
-        tools:ignore="TouchTargetSizeCheck" />
+         />
 
 
 </LinearLayout>

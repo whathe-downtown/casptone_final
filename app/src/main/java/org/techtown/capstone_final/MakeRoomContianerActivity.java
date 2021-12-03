@@ -68,15 +68,6 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
             }
         });
-        binding.makeRoom2.makeroomNext2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG,"방 두번째 클릭");
-                Intent intent = new Intent(MakeRoomContianerActivity.this, RoomDetailActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         // 첫 번째 방에 담는 content 로직
         binding.makeRoom1.spreadInfo.setOnClickListener(new View.OnClickListener() {
@@ -234,6 +225,9 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                                                 public void onSuccess(DocumentReference documentReference) {
                                                     Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
                                                     startToast("1:1 저장을 성공하였습니다.");
+                                                    Intent intent = new Intent(MakeRoomContianerActivity.this, RoomDetailActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                         @Override

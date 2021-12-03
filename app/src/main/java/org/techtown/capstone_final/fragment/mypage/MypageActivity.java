@@ -60,6 +60,9 @@ public class MypageActivity extends Fragment {
             public void onClick(View v) {
                 Log.d(TAG,"Mypage_Detail로 넘어가는 프로필 클릭");
                 Intent intent = new Intent(getActivity().getApplicationContext(), MypageDetailActivity.class);
+                intent.putExtra("profilepic",binding.profileImage.toString());
+                intent.putExtra("name", binding.username.toString());
+                intent.putExtra("status", binding.)
                 startActivity(intent);
 
             }

@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InviteActivity">
+    tools:context=".InviteActivity"
+    android:background="@color/backgroundcolor"
+    android:gravity="center">
 
     <!-- 안녕하세요 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/inviteRecyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_width="327sp"
+        android:layout_height="match_parent"
+        />
 </LinearLayout>

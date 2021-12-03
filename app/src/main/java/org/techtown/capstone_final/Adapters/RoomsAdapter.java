@@ -85,7 +85,11 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
                 intent.putExtra("roomprofilepic",room.getRoomprofilepic());
                 intent.putExtra("roomlocation",room.getRoomlocation());
                 Log.d(TAG, "onClick: roomid"+ room.getRoomId());
+
+
                 context.startActivity(intent);
+
+
 
 
             }
@@ -117,7 +121,7 @@ public class RoomsAdapter extends RecyclerView.Adapter<RoomsAdapter.ViewHolder> 
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView roomname, roomlocation, roomdate, roomcategory, roomcontent;
+        TextView roomname, roomlocation, roomdate, roomcategory;
         LinearLayout layout1 ,layout2,layout3,layout4;
         int maxperson, nowperson;
         LinearLayout profile_card1, profile_card2, profile_card3, profile_card4;
