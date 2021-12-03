@@ -92,7 +92,6 @@ public class MypageDetailActivity extends AppCompatActivity {
                 binding.basic13.setEnabled(true);binding.basic14.setEnabled(true);
             }
         }
-        binding.career.setText(testText);
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {

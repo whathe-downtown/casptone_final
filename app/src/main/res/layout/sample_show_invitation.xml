@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="90sp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".InviteActivity">
+<LinearLayout
     android:layout_width="327sp"
     android:layout_height="70sp"
     android:orientation="horizontal"
     android:background="@drawable/rounded_corner"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    android:elevation="10sp">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image1"
         android:layout_width="60sp"
@@ -17,7 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical">
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10sp">
     <TextView
         android:id="@+id/inviteUserName"
         android:layout_width="wrap_content"
@@ -34,15 +43,18 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+
     <Button
+        android:id="@+id/inviteDetailButton"
         android:layout_width="60sp"
-        android:layout_height="40sp"
+        android:layout_height="30sp"
         android:layout_gravity="center_vertical"
-        android:layout_marginRight="20sp"
-        android:background="@drawable/rounded_corner"
-        android:padding="0sp"
         android:text="초대"
-        tools:ignore="TouchTargetSizeCheck" />
+        android:textColor="@color/white"
+        android:layout_marginRight="20sp"
+        android:background="@drawable/rounded_corner_navy_orange"
+        android:padding="0sp"/>
 
 
+    </LinearLayout>
 </LinearLayout>

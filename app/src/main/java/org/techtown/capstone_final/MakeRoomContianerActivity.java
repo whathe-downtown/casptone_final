@@ -1,7 +1,5 @@
 package org.techtown.capstone_final;
 
-import static android.service.controls.ControlsProviderService.TAG;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -33,6 +31,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.service.controls.ControlsProviderService.TAG;
 
 public class MakeRoomContianerActivity extends AppCompatActivity {
     ActivityMakeContainerBinding binding;
@@ -420,7 +420,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
 
                 case R.id.submit_date:
                     int Year = binding.makeRoom2.datePicker.getYear();
-                    int Month = binding.makeRoom2.datePicker.getMonth();
+                    int Month = (binding.makeRoom2.datePicker.getMonth())+1;
                     int DayOfMonth = binding.makeRoom2.datePicker.getDayOfMonth();
                     binding.makeRoom2.viewDate.setText(Year + "년 " + Month + "월 " + DayOfMonth + "일" );
                     binding.makeRoom2.LayoutGetDate.setVisibility(View.GONE);
@@ -459,13 +459,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                         binding.makeRoom2.viewPersonnel.setText("1");
                     }
                     else{
-                        int getmentee=Integer.parseInt(binding.makeRoom2.viewPersonnel.getText().toString());
-                        if(getmentee<=3){
                             binding.makeRoom2.viewPersonnel.setText(binding.makeRoom2.GetPersonnel.getText());
-                        }else {
-                            startToast("인원은 최대 3명입니다.");
-                        }
-
                     }
                     binding.makeRoom2.LayoutGetPersonnel.setVisibility(View.GONE);
                     binding.makeRoom2.spreadPersonnel.setRotation(0);
