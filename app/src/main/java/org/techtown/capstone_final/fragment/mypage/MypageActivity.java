@@ -2,6 +2,7 @@ package org.techtown.capstone_final.fragment.mypage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,8 +70,11 @@ public class MypageActivity extends Fragment {
         DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
 
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
+                Handler mHandler = new Handler(); mHandler.postDelayed(new Runnable() { public void run() {}
+                }, 500); // 0.5초후
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e);
                     return;
