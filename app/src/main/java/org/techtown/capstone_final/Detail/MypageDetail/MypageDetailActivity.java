@@ -55,20 +55,20 @@ public class MypageDetailActivity extends AppCompatActivity {
 
         findViewById(R.id.mypage_detail_profileImage).setOnClickListener(onClickListener);
         findViewById(R.id.profile_update).setOnClickListener(onClickListener);
-        findViewById(R.id.basic1).setOnClickListener(onClickListener);
-        findViewById(R.id.basic2).setOnClickListener(onClickListener);
-        findViewById(R.id.basic3).setOnClickListener(onClickListener);
-        findViewById(R.id.basic4).setOnClickListener(onClickListener);
-        findViewById(R.id.basic5).setOnClickListener(onClickListener);
-        findViewById(R.id.basic6).setOnClickListener(onClickListener);
-        findViewById(R.id.basic7).setOnClickListener(onClickListener);
-        findViewById(R.id.basic8).setOnClickListener(onClickListener);
-        findViewById(R.id.basic9).setOnClickListener(onClickListener);
-        findViewById(R.id.basic10).setOnClickListener(onClickListener);
-        findViewById(R.id.basic11).setOnClickListener(onClickListener);
-        findViewById(R.id.basic12).setOnClickListener(onClickListener);
-        findViewById(R.id.basic13).setOnClickListener(onClickListener);
-        findViewById(R.id.basic14).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic1).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic2).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic3).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic4).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic5).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic6).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic7).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic8).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic9).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic10).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic11).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic12).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic13).setOnClickListener(onClickListener);
+        findViewById(R.id.mbasic14).setOnClickListener(onClickListener);
 
     }
 
