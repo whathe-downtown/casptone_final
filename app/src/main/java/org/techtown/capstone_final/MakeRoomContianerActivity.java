@@ -54,6 +54,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
 
+
         // 데이터 피커 이전 날짜 금지
         binding.makeRoom2.datePicker.setMinDate(System.currentTimeMillis() - 1000);
 

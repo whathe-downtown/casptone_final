@@ -23,7 +23,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="32dp"
-            android:src="@drawable/ic_ico_editprofile"
+            android:src="@drawable/ic_group80"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

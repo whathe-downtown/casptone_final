@@ -20,8 +20,6 @@
             android:orientation="vertical">
 
 
-
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/mypage_detail_profileImage"
                 android:layout_width="123dp"

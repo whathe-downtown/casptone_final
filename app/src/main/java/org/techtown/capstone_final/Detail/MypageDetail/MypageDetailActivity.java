@@ -11,10 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -48,6 +50,7 @@ public class MypageDetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        getUserInfo();
 
         findViewById(R.id.mypage_detail_profileImage).setOnClickListener(onClickListener);
         findViewById(R.id.profile_update).setOnClickListener(onClickListener);
@@ -66,9 +69,9 @@ public class MypageDetailActivity extends AppCompatActivity {
         findViewById(R.id.basic13).setOnClickListener(onClickListener);
         findViewById(R.id.basic14).setOnClickListener(onClickListener);
 
-
-
     }
+
+
     public void ChipChecked (int cartegory){
         int ChipCount=0;
 
@@ -162,7 +165,36 @@ public class MypageDetailActivity extends AppCompatActivity {
             }
         }
     };
+    private void getUserInfo(){
+        DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
 
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w("MypageDetailActivitiy", "Listen failed.", e);
+                    return;
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    Log.d("MypageDetailActivitiy", "Current data: " + snapshot.getData());
+                    binding.status.setText(snapshot.getData().get("status").toString());
+                    binding.userName.setText(snapshot.getData().get("name").toString());
+                    binding.career.setText(snapshot.getData().get("userhistory").toString());
+                    if (snapshot.getData().get("profilepic") !=null)
+                        Glide.with(getApplicationContext()).
+                                load(snapshot.getData().get("profilepic")).centerCrop().override(500).placeholder(R.drawable.ic_group80).into(binding.mypageDetailProfileImage);
+                    else if(snapshot.getData().get("profilepic") ==null){
+                        Glide.with(getApplicationContext()).
+                                load(R.drawable.ic_group80).centerCrop().override(500).into(binding.mypageDetailProfileImage);
+                    }
+
+                } else {
+                    Log.d("MypageDetailActivitiy", "Current data: null");
+                }
+            }
+        });
+    }
     private void back(){
         Intent intent = new Intent(MypageDetailActivity.this, MypageActivity.class);
         startActivity(intent);
@@ -190,6 +222,8 @@ public class MypageDetailActivity extends AppCompatActivity {
 //            final StorageReference reference = storage.getReference().child("profile pictures")
 //                    .child(FirebaseAuth.getInstance().getUid());
 
+        } else{
+           startToast("이미지를 가져오기를 실패 했습니다.");
         }
     }
     private void userinfo(){
@@ -199,12 +233,6 @@ public class MypageDetailActivity extends AppCompatActivity {
 
         storage = FirebaseStorage.getInstance();
         final StorageReference storageRef = storage.getReference().child("profile pictures").child(FirebaseAuth.getInstance().getUid());
-
-
-
-
-
-
 
         storageRef.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
