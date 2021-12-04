@@ -15,5 +15,7 @@ public class GroupchatDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityGroupchatDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
     }
 }

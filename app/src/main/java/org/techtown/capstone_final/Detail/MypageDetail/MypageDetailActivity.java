@@ -1,5 +1,7 @@
 package org.techtown.capstone_final.Detail.MypageDetail;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,16 +13,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -41,7 +42,7 @@ public class MypageDetailActivity extends AppCompatActivity {
     int[] ChipArray = new int[14];
     String testText ="";
     int ChipMax = 3;
-    private Uri sFile;
+    protected Uri sFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,7 @@ public class MypageDetailActivity extends AppCompatActivity {
         {
             testText = testText + Integer.toString(ChipArray[i]) + "/";
             ChipCount += ChipArray[i] ;
-            if(ChipCount>=ChipMax){
+            if(ChipCount>=ChipMax){ //Chip max = 3 값 3개만 눌린다.
                 if(ChipArray[0]==0) binding.basic1.setEnabled(false);if(ChipArray[1]==0) binding.basic2.setEnabled(false);
                 if(ChipArray[2]==0) binding.basic3.setEnabled(false);if(ChipArray[3]==0) binding.basic4.setEnabled(false);
                 if(ChipArray[4]==0) binding.basic5.setEnabled(false);if(ChipArray[5]==0) binding.basic6.setEnabled(false);
@@ -157,8 +158,8 @@ public class MypageDetailActivity extends AppCompatActivity {
 
                 case R.id.profile_update:
                     userinfo();
-                    Intent intent = new Intent(MypageDetailActivity.this, MypageActivity.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(MypageDetailActivity.this,MypageActivity.class);
+                    intent.setFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
                     finish();
                     break;
 
@@ -168,32 +169,52 @@ public class MypageDetailActivity extends AppCompatActivity {
     private void getUserInfo(){
         DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
 
-        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
-                if (e != null) {
-                    Log.w("MypageDetailActivitiy", "Listen failed.", e);
-                    return;
-                }
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot document = task.getResult();
+                    Log.d("MypageDetailActivitiy", "Current data: " + document.getData());
 
-                if (snapshot != null && snapshot.exists()) {
-                    Log.d("MypageDetailActivitiy", "Current data: " + snapshot.getData());
-                    binding.status.setText(snapshot.getData().get("status").toString());
-                    binding.userName.setText(snapshot.getData().get("name").toString());
-                    binding.career.setText(snapshot.getData().get("userhistory").toString());
-                    if (snapshot.getData().get("profilepic") !=null)
-                        Glide.with(getApplicationContext()).
-                                load(snapshot.getData().get("profilepic")).centerCrop().override(500).placeholder(R.drawable.ic_group80).into(binding.mypageDetailProfileImage);
-                    else if(snapshot.getData().get("profilepic") ==null){
-                        Glide.with(getApplicationContext()).
-                                load(R.drawable.ic_group80).centerCrop().override(500).into(binding.mypageDetailProfileImage);
+                    if (document.exists()) {
+                        binding.status.setText(document.getData().get("status").toString());
+                        binding.userName.setText(document.getData().get("name").toString());
+                        binding.career.setText(document.getData().get("userhistory").toString());
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        Log.d(TAG, "No such document");
                     }
-
                 } else {
-                    Log.d("MypageDetailActivitiy", "Current data: null");
+                    Log.d(TAG, "get failed with ", task.getException());
                 }
             }
         });
+//        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
+//                if (e != null) {
+//                    Log.w("MypageDetailActivitiy", "Listen failed.", e);
+//                    return;
+//                }
+//
+//                if (snapshot != null && snapshot.exists()) {
+//                    Log.d("MypageDetailActivitiy", "Current data: " + snapshot.getData());
+//                    binding.status.setText(snapshot.getData().get("status").toString());
+//                    binding.userName.setText(snapshot.getData().get("name").toString());
+//                    binding.career.setText(snapshot.getData().get("userhistory").toString());
+////                    if (snapshot.getData().get("profilepic") !=null)
+////                        Glide.with(getApplicationContext()).
+////                                load(snapshot.getData().get("profilepic")).centerCrop().override(500).placeholder(R.drawable.ic_group80).into(binding.mypageDetailProfileImage);
+////                    else if(snapshot.getData().get("profilepic") ==null){
+////                        Glide.with(getApplicationContext()).
+////                                load(R.drawable.ic_group80).centerCrop().override(500).into(binding.mypageDetailProfileImage);
+////                    }
+//
+//                } else {
+//                    Log.d("MypageDetailActivitiy", "Current data: null");
+//                }
+//            }
+//        });
     }
     private void back(){
         Intent intent = new Intent(MypageDetailActivity.this, MypageActivity.class);
@@ -215,7 +236,7 @@ public class MypageDetailActivity extends AppCompatActivity {
         if (data.getData() != null) {
 
             // sFile은  URL에 사진(데이터)를 넣어서 http 형식으로 storge 저장 하게 만들기
-            Uri sFile = data.getData();
+            sFile = data.getData();
             binding.mypageDetailProfileImage.setImageURI(sFile);
 
 //            storage = FirebaseStorage.getInstance();
@@ -232,7 +253,7 @@ public class MypageDetailActivity extends AppCompatActivity {
         String userhistory = binding.career.getText().toString();
 
         storage = FirebaseStorage.getInstance();
-        final StorageReference storageRef = storage.getReference().child("profile pictures").child(FirebaseAuth.getInstance().getUid());
+        final StorageReference storageRef = storage.getReference().child("profile pictures").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         storageRef.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -241,39 +262,35 @@ public class MypageDetailActivity extends AppCompatActivity {
                     storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            FirebaseFirestore db = FirebaseFirestore.getInstance();
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            if(username.length() >0 && status.length() >0 && userhistory.length() >0){
+                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
-                            //실시간 데이터 가져오기 user DB에서
-                            db.collection("users").document(FirebaseAuth.getInstance().getUid())
-                                    .addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                                        @Override
-                                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                                            if( error != null){
-                                                Log.w("MypageDetailActivity", "Listen failed.", error);
-                                                return;
-                                            }
-                                            String source = value != null && value.getMetadata().hasPendingWrites()
-                                                    ? "Local" : "Server";
-                                            if (value != null && value.exists()) {
-                                                Log.d("MypageDetailActivity", source + " data: " + value.getData());
-                                            } else {
-                                                Log.d("MypageDetailActivity", source + " data: null");
-                                            }
-                                        }
-                                    });
                                 Map<String, Object> obj = new HashMap<>();
-
+                                obj.put("profilepic", uri.toString());
                                 obj.put("name",username);
                                 obj.put("status",status);
                                 obj.put("userhistory",userhistory);
 
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
+                                DocumentReference doCRF= db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                        doCRF.update(obj)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                startToast("프로필 저장을 성공하였습니다.");
 
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                startToast("프로필 저장을 실패 하였습니다.");
+
+                                            }
+                                        });
+
+
+
+                            }
                         }
                     });
                 }
