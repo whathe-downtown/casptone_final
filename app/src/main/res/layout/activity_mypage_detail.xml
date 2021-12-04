@@ -114,7 +114,7 @@
 
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic1"
+                    android:id="@+id/mbasic1"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic2"
+                    android:id="@+id/mbasic2"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic3"
+                    android:id="@+id/mbasic3"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic4"
+                    android:id="@+id/mbasic4"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -150,7 +150,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic5"
+                    android:id="@+id/mbasic5"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic6"
+                    android:id="@+id/mbasic6"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic7"
+                    android:id="@+id/mbasic7"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic8"
+                    android:id="@+id/mbasic8"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -186,7 +186,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic9"
+                    android:id="@+id/mbasic9"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic10"
+                    android:id="@+id/mbasic10"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -204,7 +204,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic11"
+                    android:id="@+id/mbasic11"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic12"
+                    android:id="@+id/mbasic12"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -222,7 +222,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic13"
+                    android:id="@+id/mbasic13"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
@@ -231,7 +231,7 @@
                     app:chipIconTint="@color/icon_filter_chip_state_list_reset" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/basic14"
+                    android:id="@+id/mbasic14"
                     style="@style/Widget.casptonefinal.chip"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"

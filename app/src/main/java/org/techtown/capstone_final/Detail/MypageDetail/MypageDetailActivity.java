@@ -86,19 +86,19 @@ public class MypageDetailActivity extends AppCompatActivity {
             testText = testText + Integer.toString(ChipArray[i]) + "/";
             ChipCount += ChipArray[i] ;
             if(ChipCount>=ChipMax){ //Chip max = 3 값 3개만 눌린다.
-                if(ChipArray[0]==0) binding.basic1.setEnabled(false);if(ChipArray[1]==0) binding.basic2.setEnabled(false);
-                if(ChipArray[2]==0) binding.basic3.setEnabled(false);if(ChipArray[3]==0) binding.basic4.setEnabled(false);
-                if(ChipArray[4]==0) binding.basic5.setEnabled(false);if(ChipArray[5]==0) binding.basic6.setEnabled(false);
-                if(ChipArray[6]==0) binding.basic7.setEnabled(false);if(ChipArray[7]==0) binding.basic8.setEnabled(false);
-                if(ChipArray[8]==0) binding.basic9.setEnabled(false);if(ChipArray[9]==0) binding.basic10.setEnabled(false);
-                if(ChipArray[10]==0) binding.basic11.setEnabled(false);if(ChipArray[11]==0) binding.basic12.setEnabled(false);
-                if(ChipArray[12]==0) binding.basic13.setEnabled(false);if(ChipArray[13]==0) binding.basic14.setEnabled(false);
+                if(ChipArray[0]==0) binding.mbasic1.setEnabled(false);if(ChipArray[1]==0) binding.mbasic2.setEnabled(false);
+                if(ChipArray[2]==0) binding.mbasic3.setEnabled(false);if(ChipArray[3]==0) binding.mbasic4.setEnabled(false);
+                if(ChipArray[4]==0) binding.mbasic5.setEnabled(false);if(ChipArray[5]==0) binding.mbasic6.setEnabled(false);
+                if(ChipArray[6]==0) binding.mbasic7.setEnabled(false);if(ChipArray[7]==0) binding.mbasic8.setEnabled(false);
+                if(ChipArray[8]==0) binding.mbasic9.setEnabled(false);if(ChipArray[9]==0) binding.mbasic10.setEnabled(false);
+                if(ChipArray[10]==0) binding.mbasic11.setEnabled(false);if(ChipArray[11]==0) binding.mbasic12.setEnabled(false);
+                if(ChipArray[12]==0) binding.mbasic13.setEnabled(false);if(ChipArray[13]==0) binding.mbasic14.setEnabled(false);
             } else {
-                binding.basic1.setEnabled(true);binding.basic2.setEnabled(true);binding.basic3.setEnabled(true);
-                binding.basic4.setEnabled(true);binding.basic5.setEnabled(true);binding.basic6.setEnabled(true);
-                binding.basic7.setEnabled(true);binding.basic8.setEnabled(true);binding.basic9.setEnabled(true);
-                binding.basic10.setEnabled(true);binding.basic11.setEnabled(true);binding.basic12.setEnabled(true);
-                binding.basic13.setEnabled(true);binding.basic14.setEnabled(true);
+                binding.mbasic1.setEnabled(true);binding.mbasic2.setEnabled(true);binding.mbasic3.setEnabled(true);
+                binding.mbasic4.setEnabled(true);binding.mbasic5.setEnabled(true);binding.mbasic6.setEnabled(true);
+                binding.mbasic7.setEnabled(true);binding.mbasic8.setEnabled(true);binding.mbasic9.setEnabled(true);
+                binding.mbasic10.setEnabled(true);binding.mbasic11.setEnabled(true);binding.mbasic12.setEnabled(true);
+                binding.mbasic13.setEnabled(true);binding.mbasic14.setEnabled(true);
             }
         }
         binding.career.setText(testText);
@@ -108,46 +108,46 @@ public class MypageDetailActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.basic1 :
+                case R.id.mbasic1 :
                     ChipChecked(1);
                     break;
-                case R.id.basic2 :
+                case R.id.mbasic2 :
                     ChipChecked(2);
                     break;
-                case R.id.basic3 :
+                case R.id.mbasic3 :
                     ChipChecked(3);
                     break;
-                case R.id.basic4 :
+                case R.id.mbasic4 :
                     ChipChecked(4);
                     break;
-                case R.id.basic5 :
+                case R.id.mbasic5 :
                     ChipChecked(5);
                     break;
-                case R.id.basic6 :
+                case R.id.mbasic6 :
                     ChipChecked(6);
                     break;
-                case R.id.basic7 :
+                case R.id.mbasic7 :
                     ChipChecked(7);
                     break;
-                case R.id.basic8 :
+                case R.id.mbasic8 :
                     ChipChecked(8);
                     break;
-                case R.id.basic9 :
+                case R.id.mbasic9 :
                     ChipChecked(9);
                     break;
-                case R.id.basic10 :
+                case R.id.mbasic10 :
                     ChipChecked(10);
                     break;
-                case R.id.basic11 :
+                case R.id.mbasic11 :
                     ChipChecked(11);
                     break;
-                case R.id.basic12 :
+                case R.id.mbasic12 :
                     ChipChecked(12);
                     break;
-                case R.id.basic13 :
+                case R.id.mbasic13 :
                     ChipChecked(13);
                     break;
-                case R.id.basic14 :
+                case R.id.mbasic14 :
                     ChipChecked(14);
                     break;
 
