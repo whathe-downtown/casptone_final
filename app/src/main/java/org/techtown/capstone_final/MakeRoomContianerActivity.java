@@ -54,6 +54,7 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
 
+
         // 데이터 피커 이전 날짜 금지
         binding.makeRoom2.datePicker.setMinDate(System.currentTimeMillis() - 1000);
 
@@ -66,15 +67,6 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                 binding.makeRoom2.getRoot().setVisibility(View.VISIBLE);
                 page++;
 
-            }
-        });
-        binding.makeRoom2.makeroomNext2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG,"방 두번째 클릭");
-                Intent intent = new Intent(MakeRoomContianerActivity.this, RoomDetailActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
 
@@ -234,6 +226,9 @@ public class MakeRoomContianerActivity extends AppCompatActivity {
                                                 public void onSuccess(DocumentReference documentReference) {
                                                     Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
                                                     startToast("1:1 저장을 성공하였습니다.");
+                                                    Intent intent = new Intent(MakeRoomContianerActivity.this, RoomDetailActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
                                                 }
                                             }).addOnFailureListener(new OnFailureListener() {
                                         @Override
