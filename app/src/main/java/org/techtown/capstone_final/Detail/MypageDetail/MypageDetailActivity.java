@@ -43,6 +43,7 @@ public class MypageDetailActivity extends AppCompatActivity {
     String testText ="";
     int ChipMax = 3;
     protected Uri sFile;
+    String[] chip = {"인문","미술","법과","경영","음악","공과","정보","농과","체육","수산","예술","사회과학","자연과학","생할과학"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,9 +102,8 @@ public class MypageDetailActivity extends AppCompatActivity {
                 binding.mbasic13.setEnabled(true);binding.mbasic14.setEnabled(true);
             }
         }
-        binding.career.setText(testText);
-    }
 
+    }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -217,82 +217,37 @@ public class MypageDetailActivity extends AppCompatActivity {
 //            }
 //        });
     }
+    public void pluschip(String x , int y ){
+        Map<String, Object> data = new HashMap<>();
+        data.put("subject", x);
+        data.put("value",y);
+        db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("category").document(x)
+                .set(data)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        startToast(x+" 값이 저장되었습니다.");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        startToast(x+" 값이 저장안되었습니다.");
+                        Log.w(TAG, "Error updating document", e);
+                    }
+                });
+    }
     public void chipsave()
     {
         // db 안에 document 삭제 (모든데이터 날아감)
 
         for(int i=0;i<14;i++){
+            pluschip( chip[i],0  );
+
             if(ChipArray[i]==1){
-                switch (i){
-                    case 1 :
-                        //인문을 파이어 베이스에 저장
-                        db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("category").document("category")
-                                .update("인문", 15)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        startToast("인문 값이 저장되었습니다.");
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            startToast("인문 값이 저장안되었습니다.");
-                            Log.w(TAG, "Error updating document", e);
-                        }
-                    });
-                        startToast("인문");
-                        break;
-                    case 2 :
-                        //미술을 파이어 베이스에 저장
-                        startToast("미술");
-                        break;
-                    case 3 :
-                        //법과을 파이어 베이스에 저장
-                        startToast("법과");
-                        break;
-                    case 4 :
-                        //경영을 파이어 베이스에 저장
-                        startToast("경영");
-                        break;
-                    case 5 :
-                        //음악을 파이어 베이스에 저장
-                        startToast("법과");
-                        break;
-                    case 6 :
-                        //공과을 파이어 베이스에 저장
-                        startToast("공과");
-                        break;
-                    case 7 :
-                        //정보을 파이어 베이스에 저장
-                        startToast("정보");
-                        break;
-                    case 8 :
-                        //농과을 파이어 베이스에 저장
-                        startToast("농과");
-                        break;
-                    case 9 :
-                        //체육을 파이어 베이스에 저장
-                        startToast("체육");
-                        break;
-                    case 10 :
-                        //수산을 파이어 베이스에 저장
-                        break;
-                    case 11 :
-                        //예술을 파이어 베이스에 저장
-                        break;
-                    case 12 :
-                        //사회과학을 파이어 베이스에 저장
-                        break;
-                    case 13 :
-                        //자연과학을 파이어 베이스에 저장
-                        break;
-                    case 14 :
-                        //생활과학을 파이어 베이스에 저장
-                        break;
-                }
-            }
-        }
+                pluschip( chip[i],15 );
+          }
+     }
     }
     private void back(){
         Intent intent = new Intent(MypageDetailActivity.this, MypageActivity.class);
