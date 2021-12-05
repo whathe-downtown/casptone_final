@@ -55,4 +55,3 @@ public class RoomDetailActivity extends AppCompatActivity {
         });
     }
 }
-

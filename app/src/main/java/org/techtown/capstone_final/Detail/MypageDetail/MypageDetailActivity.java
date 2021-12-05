@@ -1,7 +1,5 @@
 package org.techtown.capstone_final.Detail.MypageDetail;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,6 +30,8 @@ import org.techtown.capstone_final.fragment.mypage.MypageActivity;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 public class MypageDetailActivity extends AppCompatActivity {
 
@@ -184,7 +184,7 @@ public class MypageDetailActivity extends AppCompatActivity {
                         Log.d(TAG, "No such document");
                     }
                 } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+                    Log.d("MypageDetailActivitiy", "Current data: null");
                 }
             }
         });
@@ -227,6 +227,66 @@ public class MypageDetailActivity extends AppCompatActivity {
         startActivityForResult(intent, 33);
     }
 
+    public void chipSave()
+    {
+        for(int i=0;i<14;i++){
+            if(ChipArray[i]==1){
+                switch (i){
+                    case 1 :
+                        //인문을 파이어 베이스에 저장
+                        startToast("인문");
+                        break;
+                    case 2 :
+                        //미술을 파이어 베이스에 저장
+                        startToast("미술");
+                        break;
+                    case 3 :
+                        //법과을 파이어 베이스에 저장
+                        startToast("법과");
+                        break;
+                    case 4 :
+                        //경영을 파이어 베이스에 저장
+                        startToast("경영");
+                        break;
+                    case 5 :
+                        //음악을 파이어 베이스에 저장
+                        startToast("법과");
+                        break;
+                    case 6 :
+                        //공과을 파이어 베이스에 저장
+                        startToast("공과");
+                        break;
+                    case 7 :
+                        //정보을 파이어 베이스에 저장
+                        startToast("정보");
+                        break;
+                    case 8 :
+                        //농과을 파이어 베이스에 저장
+                        startToast("농과");
+                        break;
+                    case 9 :
+                        //체육을 파이어 베이스에 저장
+                        startToast("체육");
+                        break;
+                    case 10 :
+                        //수산을 파이어 베이스에 저장
+                        break;
+                    case 11 :
+                        //예술을 파이어 베이스에 저장
+                        break;
+                    case 12 :
+                        //사회과학을 파이어 베이스에 저장
+                        break;
+                    case 13 :
+                        //자연과학을 파이어 베이스에 저장
+                        break;
+                    case 14 :
+                        //생활과학을 파이어 베이스에 저장
+                        break;
+                }
+            }
+        }
+    }
 
     //데이터 값을 받아 오기위한 로직
     @Override
