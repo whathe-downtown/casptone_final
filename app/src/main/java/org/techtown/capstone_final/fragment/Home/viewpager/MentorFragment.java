@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -78,7 +76,7 @@ public class MentorFragment extends Fragment {
             }
         });
 
-        DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
+//        DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
 //        DocumentReference docRef = db.collection("1:1").document(FirebaseAuth.getInstance().getUid());
 //        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
 //            @Override

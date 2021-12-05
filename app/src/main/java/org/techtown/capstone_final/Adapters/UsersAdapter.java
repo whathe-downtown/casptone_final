@@ -56,6 +56,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         return list.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView userName, userinfo;
