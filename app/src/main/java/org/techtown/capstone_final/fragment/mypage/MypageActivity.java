@@ -87,9 +87,10 @@ public class MypageActivity extends Fragment {
                 }
 
                 if (snapshot != null && snapshot.exists()) {
-                    Log.d(TAG, "Current data: " + snapshot.getData());binding.userinfo.setText(snapshot.getData().get("status").toString());
+                    Log.d(TAG, "Current data: " + snapshot.getData());
                     binding.username.setText(snapshot.getData().get("name").toString());
-                    binding.userMypageHistory.setText(snapshot.getData().get("userhistory").toString());
+                    binding.userMypageHistory.setText(snapshot.getData().get("userinfo").toString());
+                    binding.userinfo.setText(snapshot.getData().get("userinfo").toString());
                     if (snapshot.getData().get("profilepic") !=null)
                     Glide.with(getActivity()).
                             load(snapshot.getData().get("profilepic")).centerCrop().override(500).placeholder(R.drawable.ic_group80).into(binding.profileImage);
