@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         //현재 사용자의 auth 값이 널 값일때 실행하는 함수
-        if (user == null || !user.isEmailVerified()){
-            Intent intent =new Intent(this, SignInActivity.class);
-            Toast.makeText(this, "로그인이 필요하거나 이메일 인증이 필요합니다.", Toast.LENGTH_SHORT).show();
-            startActivity(intent);
-        }else{
+//        if (user == null || !user.isEmailVerified()){
+//            Intent intent =new Intent(this, SignInActivity.class);
+//            Toast.makeText(this, "로그인이 필요하거나 이메일 인증이 필요합니다.", Toast.LENGTH_SHORT).show();
+//            startActivity(intent);
+//        }else{
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             DocumentReference docRef = db.collection("users").document(user.getUid());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 //                }
 //            }
 
-        }
+//        }
         //로그아웃기능
 
         auth = FirebaseAuth.getInstance();

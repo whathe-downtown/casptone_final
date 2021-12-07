@@ -90,32 +90,40 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 //                                loaderLayout.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()){
-                                                if(auth.getCurrentUser().isEmailVerified()){
-                                                    startToast("사용자 등록을 위해 보낸 이메일을 확인하세요");
-                                                    Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                                                    startActivity(intent);
-                                                }else{
-                                                    startToast("이메일 인증 확인을 확인하세요");
-                                                }
-
-                                            }else {
-                                                startToast(task.getException().getMessage());
-
-                                            }
-                                        }
-                                    });
-                                   startToast( "회원가입에 성공하였습니다.");
+                                    startToast("회원가입에 성공하였습니다");
                                     Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                                     startActivity(intent);
-                                } else {
+                                }else{
                                     if(task.getException() != null){
                                         startToast( task.getException().toString());
                                     }
                                 }
+//                                    auth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<Void> task) {
+//                                            if (task.isSuccessful()){
+//                                                if(auth.getCurrentUser().isEmailVerified()){
+//                                                    startToast("사용자 등록을 위해 보낸 이메일을 확인하세요");
+//                                                    Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+//                                                    startActivity(intent);
+//                                                }else{
+//                                                    startToast("이메일 인증 확인을 확인하세요");
+//                                                }
+//
+//                                            }else {
+//                                                startToast(task.getException().getMessage());
+//
+//                                            }
+//                                        }
+//                                    });
+//                                   startToast( "회원가입에 성공하였습니다.");
+//                                    Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+//                                    startActivity(intent);
+//                                } else {
+//                                    if(task.getException() != null){
+//                                        startToast( task.getException().toString());
+//                                    }
+//                                }
                             }
                         });
             }else{

@@ -31,6 +31,7 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import org.techtown.capstone_final.Detail.MypageDetail.MypageDetailActivity;
 import org.techtown.capstone_final.R;
+import org.techtown.capstone_final.SignInActivity;
 import org.techtown.capstone_final.databinding.FragmentMypageBinding;
 import org.techtown.capstone_final.fragment.mypage.Adapters.ViewpagerAdapter;
 
@@ -86,8 +87,7 @@ public class MypageActivity extends Fragment {
                 }
 
                 if (snapshot != null && snapshot.exists()) {
-                    Log.d(TAG, "Current data: " + snapshot.getData());
-                    binding.userinfo.setText(snapshot.getData().get("status").toString());
+                    Log.d(TAG, "Current data: " + snapshot.getData());binding.userinfo.setText(snapshot.getData().get("status").toString());
                     binding.username.setText(snapshot.getData().get("name").toString());
                     binding.userMypageHistory.setText(snapshot.getData().get("userhistory").toString());
                     if (snapshot.getData().get("profilepic") !=null)
@@ -146,19 +146,19 @@ public class MypageActivity extends Fragment {
 
 
 
-//       로그아웃 버튼
-//        binding.logoutButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(TAG,"clicked the logout Button");
-//                auth.signOut();
-//                Intent intent = new Intent(getActivity().getApplicationContext(), SignInActivity.class);
-//                startActivity(intent);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                Toast.makeText(getActivity(), "로그아웃이 되었습니다.", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
+       //로그아웃 버튼
+        binding.logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"clicked the logout Button");
+                auth.signOut();
+                Intent intent = new Intent(getActivity().getApplicationContext(), SignInActivity.class);
+                startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Toast.makeText(getActivity(), "로그아웃이 되었습니다.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         return  view;
 
