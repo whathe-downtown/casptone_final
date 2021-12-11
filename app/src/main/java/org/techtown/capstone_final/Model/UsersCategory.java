@@ -2,9 +2,9 @@ package org.techtown.capstone_final.Model;
 
 public class UsersCategory {
     private String subject ;
-    private String value;
+    private int value;
 
-    public UsersCategory(String subject, String value) {
+    public UsersCategory(String subject, int value) {
         this.subject = subject;
         this.value = value;
     }
@@ -17,11 +17,11 @@ public class UsersCategory {
         this.subject = subject;
     }
 
-    public String getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(int value) {
         this.value = value;
     }
 }

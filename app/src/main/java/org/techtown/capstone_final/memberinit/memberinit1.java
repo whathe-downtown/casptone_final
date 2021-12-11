@@ -1,6 +1,5 @@
 package org.techtown.capstone_final.memberinit;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +20,7 @@ public class memberinit1 extends AppCompatActivity {
     ActivityMemberinit1Binding binding;
     private FirebaseAuth auth;
     FirebaseDatabase database;
-    ProgressDialog progressDialog;
+
     private final String TAG = "memberinit1Activity";
 
     @Override

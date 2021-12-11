@@ -1,6 +1,5 @@
 package org.techtown.capstone_final;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +23,7 @@ public class SignInActivity extends AppCompatActivity {
     ActivitySignInBinding binding;
     private FirebaseAuth auth;
     FirebaseDatabase database;
-    ProgressDialog progressDialog;
+
     private final String TAG = "SignUpActivity";
 
 
