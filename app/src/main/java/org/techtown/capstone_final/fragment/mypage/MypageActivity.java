@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,23 +27,27 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
+import org.techtown.capstone_final.Adapters.UserCatergoryAdapter;
 import org.techtown.capstone_final.Detail.MypageDetail.MypageDetailActivity;
+import org.techtown.capstone_final.Model.UsersCategory;
 import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.SignInActivity;
 import org.techtown.capstone_final.databinding.FragmentMypageBinding;
 import org.techtown.capstone_final.fragment.mypage.Adapters.ViewpagerAdapter;
 
+import java.util.ArrayList;
+
 public class MypageActivity extends Fragment {
-    private static final String TAG = "MyapgeActivity";
+    private static final String TAG = "MypageActivity";
     FragmentMypageBinding binding;
     FirebaseStorage storage;
     FirebaseAuth auth;
     FirebaseDatabase database;
     FirebaseFirestore db;
-
     public void onCreate(@Nullable  Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = FragmentMypageBinding.inflate(getLayoutInflater());
@@ -58,6 +63,8 @@ public class MypageActivity extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding.viewPagerMypage.setAdapter(new ViewpagerAdapter(getChildFragmentManager()));
         binding.tablayoutMypage.setupWithViewPager(binding.viewPagerMypage);
+
+
     }
     @Nullable
     @Override
@@ -66,6 +73,13 @@ public class MypageActivity extends Fragment {
         binding = FragmentMypageBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
 
+        ArrayList<UsersCategory> list = new ArrayList<>();
+        UserCatergoryAdapter adapter = new UserCatergoryAdapter(list,getContext());
+        binding.mypageChipRecyclerview.setHasFixedSize(true);
+        binding.mypageChipRecyclerview.setAdapter(adapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        binding.mypageChipRecyclerview.setLayoutManager(layoutManager);
 
         //ProfileImage Click intent to MypageDetailActivity
         binding.profileImage.setOnClickListener(new View.OnClickListener() {
@@ -111,14 +125,20 @@ public class MypageActivity extends Fragment {
 
         CollectionReference docategoryRef = db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("category");
 
+
         Query query = docategoryRef.orderBy("value", Query.Direction.DESCENDING).limit(3);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() { //최대값 3개가져옴
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){
-                    Log.d(TAG, "$onComplete: 값이 잘 받아왔나");
-                    String textview5 = task.toString();
-                    binding.textView5.setText(textview5);
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d(TAG, document.getId() + " => " + document.getData());
+                        UsersCategory category = document.toObject(UsersCategory.class);
+                        category.getSubject();
+                        list.add(category);
+                    }
+                    Log.d(TAG, "Category 값 가져오기 성공 ");
+
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {

@@ -15,7 +15,7 @@
         android:background="@drawable/rounded_corner_navy_orange"
         android:elevation="5sp">
         <TextView
-            android:id="@+id/CategoryChip"
+            android:id="@+id/categoryChip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="과목"
