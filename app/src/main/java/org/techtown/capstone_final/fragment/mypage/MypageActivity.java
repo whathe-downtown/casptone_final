@@ -53,6 +53,12 @@ public class MypageActivity extends Fragment {
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.viewPagerMypage.setAdapter(new ViewpagerAdapter(getChildFragmentManager()));
+        binding.tablayoutMypage.setupWithViewPager(binding.viewPagerMypage);
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -60,8 +66,6 @@ public class MypageActivity extends Fragment {
         binding = FragmentMypageBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
 
-        binding.viewPagerMypage.setAdapter(new ViewpagerAdapter(getActivity().getSupportFragmentManager()));
-        binding.tablayoutMypage.setupWithViewPager(binding.viewPagerMypage);
 
         //ProfileImage Click intent to MypageDetailActivity
         binding.profileImage.setOnClickListener(new View.OnClickListener() {
