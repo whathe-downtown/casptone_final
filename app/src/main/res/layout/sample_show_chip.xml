@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80sp"
+    android:layout_height="45sp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:background="@drawable/rounded_corner_navy_orange"
+        android:elevation="5sp">
+        <TextView
+            android:id="@+id/CategoryChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="과목"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+
+
+</LinearLayout>
+</LinearLayout>
