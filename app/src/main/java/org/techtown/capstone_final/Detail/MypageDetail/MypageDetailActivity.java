@@ -1,5 +1,7 @@
 package org.techtown.capstone_final.Detail.MypageDetail;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,8 +32,6 @@ import org.techtown.capstone_final.fragment.mypage.MypageActivity;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static android.content.ContentValues.TAG;
 
 public class MypageDetailActivity extends AppCompatActivity {
 
@@ -303,8 +303,8 @@ public class MypageDetailActivity extends AppCompatActivity {
                                 Map<String, Object> obj = new HashMap<>();
                                 obj.put("profilepic", uri.toString());
                                 obj.put("name",username);
-                                obj.put("status",status);
-                                obj.put("userhistory",userhistory);
+                                obj.put("useroneinfo",status);
+                                obj.put("userinfo",userhistory);
 
                                 DocumentReference doCRF= db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                         doCRF.update(obj)

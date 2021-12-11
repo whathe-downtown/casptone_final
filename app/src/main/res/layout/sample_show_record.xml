@@ -14,7 +14,7 @@
         android:padding="15sp">
 
         <TextView
-
+            android:id="@+id/recordTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="방제"
@@ -24,6 +24,7 @@
             />
 
         <TextView
+            android:id="@+id/recordCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="카테고리"
@@ -71,6 +72,7 @@
         android:orientation="horizontal"
         android:padding="15sp">
         <TextView
+        android:id="@+id/recordlocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="장소"
@@ -78,6 +80,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"/>
         <TextView
+            android:id="@+id/recordDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="날짜"

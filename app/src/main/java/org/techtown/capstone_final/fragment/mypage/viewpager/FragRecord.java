@@ -8,23 +8,42 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import org.techtown.capstone_final.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.techtown.capstone_final.Adapters.RecordAdapter;
+import org.techtown.capstone_final.Model.Record;
+import org.techtown.capstone_final.databinding.ActivityFragRecordBinding;
+
+import java.util.ArrayList;
 
 public class FragRecord extends Fragment {
+    private FirebaseFirestore db;
     private View view;
 
-    public static FragRecord newInstance(){
-        FragRecord fragRecord = new FragRecord();
-        return fragRecord;
-    }
+    public  FragRecord (){ }
+    private ActivityFragRecordBinding binding;
+    private FirebaseAuth auth;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.activity_frag_record, container, false);
+        binding = ActivityFragRecordBinding.inflate(inflater,container,false);
 
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        View view = binding.getRoot();
 
+        ArrayList<Record> list= new ArrayList<>();
+        RecordAdapter adapter = new RecordAdapter(list,getContext());
+        binding.recordRecyclerview.setHasFixedSize(true);
+        binding.recordRecyclerview.setAdapter(adapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        binding.recordRecyclerview.setLayoutManager(layoutManager);
         return view;
     }
 //    @Override

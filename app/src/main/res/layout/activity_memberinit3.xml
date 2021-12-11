@@ -76,11 +76,13 @@
         android:id="@+id/self_introduce_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="500dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/login_button_style"
         android:text="Next"
+        android:enabled="false"
         android:textColor="@color/backgroundcolor"
         android:textSize="20dp" />
 

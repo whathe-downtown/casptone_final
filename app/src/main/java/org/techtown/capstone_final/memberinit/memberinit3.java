@@ -86,7 +86,7 @@ public class memberinit3 extends AppCompatActivity {
             Map<String, Object> obj = new HashMap<>();
             obj.put("useroneinfo",oneline);
             obj.put("userinfo",manyline);
-
+            binding.selfIntroduceButton.setEnabled(true);
             db.collection("users").document(user.getUid()).update(obj)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
