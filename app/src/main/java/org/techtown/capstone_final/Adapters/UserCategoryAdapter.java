@@ -15,20 +15,20 @@ import org.techtown.capstone_final.R;
 
 import java.util.ArrayList;
 
-public class UserCatergoryAdapter extends RecyclerView.Adapter<UserCatergoryAdapter.ViewHolder> {
+public class UserCategoryAdapter extends RecyclerView.Adapter<UserCategoryAdapter.ViewHolder> {
 
     private static final String TAG = "UserCategoryAdapter";
     private final ArrayList<UsersCategory> list;
     private final Context context;
 
-    public UserCatergoryAdapter(ArrayList<UsersCategory> categoryList, Context context) {
+    public UserCategoryAdapter(ArrayList<UsersCategory> categoryList, Context context) {
         this.list = categoryList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public UserCatergoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UserCategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.sample_show_chip, parent, false);
 

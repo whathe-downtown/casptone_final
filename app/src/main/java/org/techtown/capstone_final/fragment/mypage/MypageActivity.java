@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,7 +30,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
-import org.techtown.capstone_final.Adapters.UserCatergoryAdapter;
+import org.techtown.capstone_final.Adapters.UserCategoryAdapter;
 import org.techtown.capstone_final.Detail.MypageDetail.MypageDetailActivity;
 import org.techtown.capstone_final.Model.UsersCategory;
 import org.techtown.capstone_final.R;
@@ -74,11 +73,11 @@ public class MypageActivity extends Fragment {
         View view = binding.getRoot();
 
         ArrayList<UsersCategory> list = new ArrayList<>();
-        UserCatergoryAdapter adapter = new UserCatergoryAdapter(list,getContext());
+        UserCategoryAdapter adapter = new UserCategoryAdapter(list,getContext());
         binding.mypageChipRecyclerview.setHasFixedSize(true);
         binding.mypageChipRecyclerview.setAdapter(adapter);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,false);
         binding.mypageChipRecyclerview.setLayoutManager(layoutManager);
 
         //ProfileImage Click intent to MypageDetailActivity
@@ -128,23 +127,21 @@ public class MypageActivity extends Fragment {
 
         Query query = docategoryRef.orderBy("value", Query.Direction.DESCENDING).limit(3);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() { //최대값 3개가져옴
+
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()){
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + " => " + document.getData());
                         UsersCategory category = document.toObject(UsersCategory.class);
-                        category.getSubject();
+
                         list.add(category);
                     }
                     Log.d(TAG, "Category 값 가져오기 성공 ");
 
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                startToast("Query 동작 실패");
+                }else{
+                    Log.d(TAG, "Current data: null");
+                }adapter.notifyDataSetChanged();
             }
         });
 //        @Override
