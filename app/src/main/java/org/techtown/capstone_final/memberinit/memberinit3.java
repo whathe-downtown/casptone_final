@@ -13,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.techtown.capstone_final.MainActivity;
@@ -81,13 +81,14 @@ public class memberinit3 extends AppCompatActivity {
 
         if (oneline.length() > 0 && manyline.length() > 0) {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
             Map<String, Object> obj = new HashMap<>();
             obj.put("useroneinfo",oneline);
             obj.put("userinfo",manyline);
-            binding.selfIntroduceButton.setEnabled(true);
-            db.collection("users").document(user.getUid()).set(obj)
+
+            DocumentReference doCRF= db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            doCRF.update(obj)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
