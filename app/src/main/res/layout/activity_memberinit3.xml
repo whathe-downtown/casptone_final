@@ -68,7 +68,6 @@
         android:gravity="top"
         android:hint="자기소개 예시\nex)교내대회 ooo우승\n      해커톤 000입상\n      00전공 A+, 100시간 "
         android:inputType="textMultiLine"
-        android:maxLines="1"
         android:padding="15dp"
         android:textSize="12dp" />
 

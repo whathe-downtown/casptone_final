@@ -1,17 +1,11 @@
 package org.techtown.capstone_final;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import org.techtown.capstone_final.Adapters.UsersAdapter;
 import org.techtown.capstone_final.Model.Users;
@@ -38,23 +32,23 @@ public class InviteActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         binding.inviteRecyclerview.setLayoutManager(layoutManager);
 
-        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()){
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Users users= document.toObject(Users.class);
-                        users.getName();
-                        list.add(users);
-
-                    }
-                }else{
-                    Log.d("InviteActvitiy", "Current data: null");
-
-
-                }adapter.notifyDataSetChanged();
-            }
-        });
+//        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                if (task.isSuccessful()){
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Users users= document.toObject(Users.class);
+//                        users.getName();
+//                        list.add(users);
+//
+//                    }
+//                }else{
+//                    Log.d("InviteActvitiy", "Current data: null");
+//
+//
+//                }adapter.notifyDataSetChanged();
+//            }
+//        });
 
 
     }
