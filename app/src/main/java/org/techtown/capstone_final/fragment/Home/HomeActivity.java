@@ -38,8 +38,25 @@ public class HomeActivity extends Fragment {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+//        binding.getRoot().findViewById(R.id.cchip0).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip1).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip2).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip3).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip4).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip5).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip6).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip7).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip8).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip9).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip10).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip11).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip12).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip13).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip14).setOnClickListener(onClickListener);
+//
+        }
 
-    }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -69,4 +86,56 @@ public class HomeActivity extends Fragment {
         });
         return  binding.getRoot();
     }
+
+//    View.OnClickListener onClickListener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            switch (v.getId()){
+//                case R.id.cchip0:
+//
+//                    break;
+//                case R.id.cchip1:
+//                    chipFiliter("인문");
+//                    break;
+//                case R.id.cchip2:
+//                    chipFiliter("미술");
+//                    break;
+//                case R.id.cchip3:
+//                    chipFiliter("법과");
+//                    break;
+//                case R.id.cchip4:
+//                    chipFiliter("경영");
+//                    break;
+//                case R.id.cchip5:
+//                    chipFiliter("음악");
+//                    break;
+//                case R.id.cchip6:
+//                    chipFiliter("공과");
+//                    break;
+//                case R.id.cchip7:
+//                    chipFiliter("정보");
+//                    break;
+//                case R.id.cchip8:
+//                    chipFiliter("농과");
+//                    break;
+//                case R.id.cchip9:
+//                    chipFiliter("체육");
+//                    break;
+//                case R.id.cchip10:
+//                    chipFiliter("수산");
+//                    break;
+//                case R.id.cchip11:
+//                    chipFiliter("예술");
+//                    break;
+//                case R.id.cchip12:
+//                    chipFiliter("사회과학");
+//                    break;
+//                case R.id.cchip13:
+//                    chipFiliter("자연과학");
+//                    break;
+//                case R.id.cchip14:
+//                    chipFiliter("생활과학");
+//                    break;
+//
+//}}};
 }

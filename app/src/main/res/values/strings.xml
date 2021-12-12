@@ -35,4 +35,6 @@
 
     <string name="requset_permission">This sample needs camera permission</string>
     <string name="camera_error">This device doesn\'t suppory Camera2.API.</string>
+    <string name="basic">기본</string>
+    <string name="default_notification_channel_id">안모여</string>
 </resources>

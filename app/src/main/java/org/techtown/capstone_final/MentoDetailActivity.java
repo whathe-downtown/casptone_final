@@ -26,6 +26,7 @@ public class MentoDetailActivity extends AppCompatActivity {
         binding = SampleShowRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
 //        HorizonAdapter adapter = new HorizonAdapter(list, getApplicationContext());
 //        binding.roomProifleRecyclerview.setAdapter(adapter);
 //
