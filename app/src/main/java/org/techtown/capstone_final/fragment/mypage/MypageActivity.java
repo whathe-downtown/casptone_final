@@ -97,13 +97,14 @@ public class MypageActivity extends Fragment {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
                 Handler mHandler = new Handler(); mHandler.postDelayed(new Runnable() { public void run() {}
-                }, 1000); // 0.5초후
+                }, 2000); // 0.5초후
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e);
                     return;
                 }
 
                 if (snapshot != null && snapshot.exists()) {
+
                     Log.d(TAG, "Current data: " + snapshot.getData());
                     binding.username.setText(snapshot.getData().get("name").toString());
                     binding.userMypageHistory.setText(snapshot.getData().get("userinfo").toString());
@@ -130,6 +131,8 @@ public class MypageActivity extends Fragment {
 
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                Handler mHandler = new Handler(); mHandler.postDelayed(new Runnable() { public void run() {}
+                }, 2000); // 0.5초후
                 if (task.isSuccessful()){
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + " => " + document.getData());

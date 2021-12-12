@@ -87,7 +87,7 @@ public class memberinit3 extends AppCompatActivity {
             obj.put("useroneinfo",oneline);
             obj.put("userinfo",manyline);
             binding.selfIntroduceButton.setEnabled(true);
-            db.collection("users").document(user.getUid()).update(obj)
+            db.collection("users").document(user.getUid()).set(obj)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
