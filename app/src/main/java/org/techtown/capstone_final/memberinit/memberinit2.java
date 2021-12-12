@@ -111,6 +111,7 @@ public class memberinit2 extends AppCompatActivity {
         if (name.length() >0 ){
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            binding.whatYourNameSaveButton.setEnabled(true);
             storage = FirebaseStorage.getInstance();
             final StorageReference storageRef = storage.getReference().child("profile pictures").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
@@ -123,7 +124,7 @@ public class memberinit2 extends AppCompatActivity {
                             Map<String, Object> obj = new HashMap<>();
                             obj.put("profilepic", uri.toString());
                             obj.put("name",name);
-                            binding.whatYourNameSaveButton.setEnabled(true);
+
 
                             db.collection("users").document(FirebaseAuth.getInstance().getUid()).update(obj)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {

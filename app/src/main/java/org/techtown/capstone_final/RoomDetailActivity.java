@@ -42,8 +42,8 @@ public class RoomDetailActivity extends AppCompatActivity {
         binding.roomInfo.setText(roomContent);
         binding.placeAndTume.setText(roomlocation);
         binding.dateAndTume.setText(roomdate);
-        Picasso.get().load(roomprofilepic).placeholder(R.drawable.ic_ico_profile).into(binding.profileImage);
-        Picasso.get().load(roomprofilepic).placeholder(R.drawable.backgroundpage).into(binding.roomImg);
+//        Picasso.get().load(roomprofilepic).placeholder(R.drawable.ic_ico_profile).into(binding.profileImage);
+        Picasso.get().load(roomprofilepic).fit().placeholder(R.drawable.backgroundpage).into(binding.roomImg);
 
 
         binding.inviteButton.setOnClickListener(new View.OnClickListener() {
