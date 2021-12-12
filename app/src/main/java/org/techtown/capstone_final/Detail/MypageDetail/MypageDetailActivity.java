@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -170,7 +171,8 @@ public class MypageDetailActivity extends AppCompatActivity {
     };
     private void getUserInfo(){
         DocumentReference docRef = db.collection("users").document(FirebaseAuth.getInstance().getUid());
-
+        Handler mHandler = new Handler(); mHandler.postDelayed(new Runnable() { public void run() {}
+        }, 1000); // 0.5초후
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -179,9 +181,9 @@ public class MypageDetailActivity extends AppCompatActivity {
                     Log.d("MypageDetailActivitiy", "Current data: " + document.getData());
 
                     if (document.exists()) {
-                        binding.status.setText(document.getData().get("status").toString());
+                        binding.status.setText(document.getData().get("useroneinfo").toString());
                         binding.userName.setText(document.getData().get("name").toString());
-                        binding.career.setText(document.getData().get("userhistory").toString());
+                        binding.career.setText(document.getData().get("userinfo").toString());
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
                         Log.d(TAG, "No such document");
