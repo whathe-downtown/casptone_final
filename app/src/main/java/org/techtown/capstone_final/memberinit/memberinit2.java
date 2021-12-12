@@ -35,7 +35,7 @@ public class memberinit2 extends AppCompatActivity {
     FirebaseFirestore db;
     private final String TAG = "memberinit2";
     private final int GALLERY_CODE = 10;
-    private Uri sFile;
+    Uri sFile;
     private FirebaseStorage storage;
 
 
@@ -125,7 +125,7 @@ public class memberinit2 extends AppCompatActivity {
                             obj.put("name",name);
 
 
-                            db.collection("users").document(FirebaseAuth.getInstance().getUid()).update(obj)
+                            db.collection("users").document(FirebaseAuth.getInstance().getUid()).set(obj)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
