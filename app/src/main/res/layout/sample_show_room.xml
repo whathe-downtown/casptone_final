@@ -72,10 +72,12 @@
                 android:text="y"
                 android:layout_marginRight="5sp"
                 />
+
             <ImageView
                 android:layout_width="13sp"
                 android:layout_height="13sp"
-                android:src="@drawable/ic_ico_hart"/>
+                android:src="@drawable/ic_ico_star" />
+
             <TextView
                 android:id="@+id/hart"
                 android:layout_width="wrap_content"
