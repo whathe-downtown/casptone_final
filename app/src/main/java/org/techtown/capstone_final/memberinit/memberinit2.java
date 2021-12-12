@@ -111,7 +111,6 @@ public class memberinit2 extends AppCompatActivity {
         if (name.length() >0 ){
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            binding.whatYourNameSaveButton.setEnabled(true);
             storage = FirebaseStorage.getInstance();
             final StorageReference storageRef = storage.getReference().child("profile pictures").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 

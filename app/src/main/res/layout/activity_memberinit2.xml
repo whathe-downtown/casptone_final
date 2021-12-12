@@ -91,8 +91,8 @@
         android:layout_marginTop="500dp"
         android:layout_marginRight="40dp"
         android:background="@drawable/login_button_style"
+        android:enabled="true"
         android:text="Next"
-        android:enabled="false"
         android:textColor="@color/backgroundcolor"
         android:textSize="20dp" />
 </RelativeLayout>
