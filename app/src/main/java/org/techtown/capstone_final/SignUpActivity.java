@@ -24,6 +24,7 @@ public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
     private FirebaseAuth auth;
     FirebaseDatabase database;
+
     ProgressDialog progressDialog;
     private final String TAG = "SignUpActivity";
 

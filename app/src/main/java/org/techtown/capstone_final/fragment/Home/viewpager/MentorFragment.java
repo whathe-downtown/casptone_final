@@ -56,17 +56,33 @@ public class MentorFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
         binding = FragmentMentorBinding.inflate(inflater, container, false);
         db = FirebaseFirestore.getInstance();
-        View v= inflater.inflate(R.layout.fragment_home,container, false);
+
         list = new ArrayList<>();
         adapter = new RoomsAdapter(list, getContext());
 
         binding.MentorrecyclerView.setHasFixedSize(true);
         binding.MentorrecyclerView.setAdapter(adapter);
+//        Button button1 = (Button) getView().findViewById(R.id.cchip0);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.MentorrecyclerView.setLayoutManager(layoutManager);
-        v.findViewById(R.id.cchip0).setOnClickListener(onClickListener);
 
+        binding.getRoot().findViewById(R.id.cchip0).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip1).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip2).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip3).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip4).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip5).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip6).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip7).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip8).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip9).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip10).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip11).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip12).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip13).setOnClickListener(onClickListener);
+        binding.getRoot().findViewById(R.id.cchip14).setOnClickListener(onClickListener);
 
+        chipDefault();
 // <!--------------------------------------------------------------------------------------------------------------------------->
 
 
@@ -79,32 +95,29 @@ public class MentorFragment extends Fragment {
         return binding.getRoot();
     }
 
+
     private void chipFiliter(String x) {
         CollectionReference coRef = db.collection("1:1");
-        Query query = coRef.orderBy(x);
-        Log.d("DiaryActivity", "TextChanged :: $it");
+        Query query = coRef.whereEqualTo("roomcategory", x);
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d(TAG, document.getId() + " => " + document.getData());
                         Room room = document.toObject(Room.class);
                         room.getRoomTitle();
                         list.add(room);
-                    }
-                    Log.d(TAG, x + "x값을 잘가져왔습니다");
 
+                    }
                 } else {
                     Log.d(TAG, "Current data: null");
+
+
                 }
                 adapter.notifyDataSetChanged();
             }
         });
-
     }
-
     private void chipDefault() {
         CollectionReference docategoryRef = db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("category");
 
@@ -156,52 +169,50 @@ public class MentorFragment extends Fragment {
             switch (v.getId()) {
                 case R.id.cchip0:
                     chipDefault();
+
                     break;
-//                case R.id.cchip1:
-//                    chipFiliter("인문");
-//                    break;
-//                case R.id.cchip2:
-//                    chipFiliter("미술");
-//                    break;
-//                case R.id.cchip3:
-//                    chipFiliter("법과");
-//                    break;
-//                case R.id.cchip4:
-//                    chipFiliter("경영");
-//                    break;
-//                case R.id.cchip5:
-//                    chipFiliter("음악");
-//                    break;
-//                case R.id.cchip6:
-//                    chipFiliter("공과");
-//                    break;
-//                case R.id.cchip7:
-//                    chipFiliter("정보");
-//                    break;
-//                case R.id.cchip8:
-//                    chipFiliter("농과");
-//                    break;
-//                case R.id.cchip9:
-//                    chipFiliter("체육");
-//                    break;
-//                case R.id.cchip10:
-//                    chipFiliter("수산");
-//                    break;
-//                case R.id.cchip11:
-//                    chipFiliter("예술");
-//                    break;
-//                case R.id.cchip12:
-//                    chipFiliter("사회과학");
-//                    break;
-//                case R.id.cchip13:
-//                    chipFiliter("자연과학");
-//                    break;
-//                case R.id.cchip14:
-//                    chipFiliter("생활과학");
-//                    break;
-//
-//}}};
+                case R.id.cchip1:
+                    chipFiliter("인문");
+                    break;
+                case R.id.cchip2:
+                    chipFiliter("미술");
+                    break;
+                case R.id.cchip3:
+                    chipFiliter("법과");
+                    break;
+                case R.id.cchip4:
+                    chipFiliter("경영");
+                    break;
+                case R.id.cchip5:
+                    chipFiliter("음악");
+                    break;
+                case R.id.cchip6:
+                    chipFiliter("공과");
+                    break;
+                case R.id.cchip7:
+                    chipFiliter("정보");
+                    break;
+                case R.id.cchip8:
+                    chipFiliter("농과");
+                    break;
+                case R.id.cchip9:
+                    chipFiliter("체육");
+                    break;
+                case R.id.cchip10:
+                    chipFiliter("수산");
+                    break;
+                case R.id.cchip11:
+                    chipFiliter("예술");
+                    break;
+                case R.id.cchip12:
+                    chipFiliter("사회과학");
+                    break;
+                case R.id.cchip13:
+                    chipFiliter("자연과학");
+                    break;
+                case R.id.cchip14:
+                    chipFiliter("생활과학");
+                    break;
+
+}}};
             }
-        }
-    };
-}

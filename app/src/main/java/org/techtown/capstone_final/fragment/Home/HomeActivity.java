@@ -4,33 +4,22 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import org.techtown.capstone_final.Adapters.RoomsAdapter;
 import org.techtown.capstone_final.MakeRoomContianerActivity;
 import org.techtown.capstone_final.Model.Room;
-import org.techtown.capstone_final.Model.UsersCategory;
-import org.techtown.capstone_final.R;
 import org.techtown.capstone_final.databinding.FragmentHomeBinding;
 import org.techtown.capstone_final.fragment.Home.Adapters.FragementAdapter;
 
@@ -50,15 +39,29 @@ public class HomeActivity extends Fragment {
     private String arr;
 
     @Override
-    public void onCreate(@Nullable  Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = FragmentHomeBinding.inflate(getLayoutInflater());
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+//        binding.getRoot().findViewById(R.id.cchip0).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip1).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip2).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip3).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip4).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip5).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip6).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip7).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip8).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip9).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip10).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip11).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip12).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip13).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip14).setOnClickListener(onClickListener);
 
-        }
-
+    }
 
 
     @Override
@@ -72,27 +75,26 @@ public class HomeActivity extends Fragment {
 
     @Nullable
     @Override // oncreatview MainActivty => activy_main_xml 연동하는 느낌이라고 생각하면됩니다. 연결되게 해주는거
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable  ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
-
-        binding = FragmentHomeBinding.inflate(inflater,container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         context = container.getContext();
-//        RoomsAdapter adapter = new RoomsAdapter(list,getContext());
-        binding.getRoot().findViewById(R.id.cchip0).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip1).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip2).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip3).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip4).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip5).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip6).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip7).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip8).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip9).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip10).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip11).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip12).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip13).setOnClickListener(onClickListener);
-        binding.getRoot().findViewById(R.id.cchip14).setOnClickListener(onClickListener);
+//        chipDefault();
+////        RoomsAdapter adapter = new RoomsAdapter(list,getContext());
+//        binding.getRoot().findViewById(R.id.cchip0).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip1).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip2).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip3).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip4).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip5).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip6).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip7).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip8).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip9).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip10).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip11).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip12).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip13).setOnClickListener(onClickListener);
+//        binding.getRoot().findViewById(R.id.cchip14).setOnClickListener(onClickListener);
 
 
         binding.basketButton.setOnClickListener(new View.OnClickListener() {
@@ -102,110 +104,114 @@ public class HomeActivity extends Fragment {
                 startActivity(intent);
             }
         });
-        return  binding.getRoot();
+        return binding.getRoot();
     }
 
-    View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.cchip0:
-                    Toast.makeText(context, "bascic got 1", Toast.LENGTH_SHORT).show();
-                    chipDefault();
-
-                    break;
-                case R.id.cchip1:
-                    Toast.makeText(context, "bascic got 2", Toast.LENGTH_SHORT).show();
-                    chipFiliter("인문");
-                    break;
-                case R.id.cchip2:
-                    Toast.makeText(context, "bascic got 3", Toast.LENGTH_SHORT).show();
-                    chipFiliter("미술");
-                    break;
-                case R.id.cchip3:
-                    chipFiliter("법과");
-                    break;
-                case R.id.cchip4:
-                    chipFiliter("경영");
-                    break;
-                case R.id.cchip5:
-                    chipFiliter("음악");
-                    break;
-                case R.id.cchip6:
-                    chipFiliter("공과");
-                    break;
-                case R.id.cchip7:
-                    chipFiliter("정보");
-                    break;
-                case R.id.cchip8:
-                    chipFiliter("농과");
-                    break;
-                case R.id.cchip9:
-                    chipFiliter("체육");
-                    break;
-                case R.id.cchip10:
-                    chipFiliter("수산");
-                    break;
-                case R.id.cchip11:
-                    chipFiliter("예술");
-                    break;
-                case R.id.cchip12:
-                    chipFiliter("사회과학");
-                    break;
-                case R.id.cchip13:
-                    chipFiliter("자연과학");
-                    break;
-                case R.id.cchip14:
-                    chipFiliter("생활과학");
-                    break;
-
-}}};
-    private void chipFiliter(String x){
-        CollectionReference coRef = db.collection("1:1");
-        Query query = coRef.whereEqualTo("roomcategory",x);
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Room room = document.toObject(Room.class);
-                        room.getRoomTitle();
-                        list.add(room);
-
-                    }
-                } else {
-                    Log.d(TAG, "Current data: null");
-
-
-                }
-                adapter.notifyDataSetChanged();
-            }
-        });
-    }
-    private void chipDefault() {
-        CollectionReference docategoryRef = db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("category");
-
-        Query query1 = docategoryRef.orderBy("value", Query.Direction.DESCENDING).limit(3);
-        query1.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() { //최대값 3개가져옴
-
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                Handler mHandler = new Handler(); mHandler.postDelayed(new Runnable() { public void run() {}
-                }, 2000); // 0.5초후
-                if (task.isSuccessful()){
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d(TAG, document.getId() + " => " + document.getData());
-                        UsersCategory category = document.toObject(UsersCategory.class);
-                        arr = category.getSubject();
-                        chipFiliter(arr);
-
-                    }
-                    Log.d(TAG, "Category 값 가져오기 성공 ");
-
-                }else{
-                    Log.d(TAG, "Current data: null");
-                }adapter.notifyDataSetChanged();
-            }
-        });
-    }
+//    View.OnClickListener onClickListener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            switch (v.getId()) {
+//                case R.id.cchip0:
+//                    Toast.makeText(context, "bascic got 1", Toast.LENGTH_SHORT).show();
+//                    chipDefault();
+//
+//                    break;
+//                case R.id.cchip1:
+//                    Toast.makeText(context, "bascic got 2", Toast.LENGTH_SHORT).show();
+//                    chipFiliter("인문");
+//                    break;
+//                case R.id.cchip2:
+//                    Toast.makeText(context, "bascic got 3", Toast.LENGTH_SHORT).show();
+//                    chipFiliter("미술");
+//                    break;
+//                case R.id.cchip3:
+//                    chipFiliter("법과");
+//                    break;
+//                case R.id.cchip4:
+//                    chipFiliter("경영");
+//                    break;
+//                case R.id.cchip5:
+//                    chipFiliter("음악");
+//                    break;
+//                case R.id.cchip6:
+//                    chipFiliter("공과");
+//                    break;
+//                case R.id.cchip7:
+//                    chipFiliter("정보");
+//                    break;
+//                case R.id.cchip8:
+//                    chipFiliter("농과");
+//                    break;
+//                case R.id.cchip9:
+//                    chipFiliter("체육");
+//                    break;
+//                case R.id.cchip10:
+//                    chipFiliter("수산");
+//                    break;
+//                case R.id.cchip11:
+//                    chipFiliter("예술");
+//                    break;
+//                case R.id.cchip12:
+//                    chipFiliter("사회과학");
+//                    break;
+//                case R.id.cchip13:
+//                    chipFiliter("자연과학");
+//                    break;
+//                case R.id.cchip14:
+//                    chipFiliter("생활과학");
+//                    break;
+//
+//            }
+//        }
+//    };
+//}
+//    private void chipFiliter(String x){
+//        CollectionReference coRef = db.collection("1:1");
+//        Query query = coRef.whereEqualTo("roomcategory",x);
+//        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                if (task.isSuccessful()) {
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Room room = document.toObject(Room.class);
+//                        room.getRoomTitle();
+//                        list.add(room);
+//
+//                    }
+//                } else {
+//                    Log.d(TAG, "Current data: null");
+//
+//
+//                }
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
+//    }
+//    private void chipDefault() {
+//        CollectionReference docategoryRef = db.collection("users").document(FirebaseAuth.getInstance().getUid()).collection("category");
+//
+//        Query query1 = docategoryRef.orderBy("value", Query.Direction.DESCENDING).limit(3);
+//        query1.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() { //최대값 3개가져옴
+//
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                Handler mHandler = new Handler(); mHandler.postDelayed(new Runnable() { public void run() {}
+//                }, 2000); // 0.5초후
+//                if (task.isSuccessful()){
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Log.d(TAG, document.getId() + " => " + document.getData());
+//                        UsersCategory category = document.toObject(UsersCategory.class);
+//                        arr = category.getSubject();
+//                        chipFiliter(arr);
+//
+//                    }
+//                    Log.d(TAG, "Category 값 가져오기 성공 ");
+//
+//                }else{
+//                    Log.d(TAG, "Current data: null");
+//                }adapter.notifyDataSetChanged();
+//            }
+//        });
 }
+
+
