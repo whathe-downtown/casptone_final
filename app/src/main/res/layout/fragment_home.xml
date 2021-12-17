@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
-                android:text="@string/basic"/>
+                android:text="@string/recommend"/>
             <com.google.android.material.chip.Chip
                 android:id="@+id/cchip1"
                 android:layout_width="wrap_content"
@@ -102,56 +102,67 @@
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Law"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Management"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Music"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Public"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Information"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Agriculture"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/PhysicalEducation"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Marine"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/Art"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/SocialScience"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
                 android:text="@string/NaturalScience"/>
             <com.google.android.material.chip.Chip
+                android:id="@+id/cchip14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.casptonefinal.chip"
