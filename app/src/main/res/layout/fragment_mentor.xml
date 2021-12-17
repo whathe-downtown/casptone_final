@@ -35,6 +35,12 @@
              style="@style/Widget.casptonefinal.chip"
              android:text="@string/recommend"/>
          <com.google.android.material.chip.Chip
+            android:id="@+id/cchip15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.casptonefinal.chip"
+            android:text="@string/all"/>
+         <com.google.android.material.chip.Chip
              android:id="@+id/cchip1"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
